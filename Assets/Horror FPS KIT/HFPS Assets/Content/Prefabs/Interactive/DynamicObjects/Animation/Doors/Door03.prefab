@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1636295296573928}
   m_LocalRotation: {x: 0.7071068, y: -0.0000063555954, z: -0.0000063555954, w: -0.7071068}
   m_LocalPosition: {x: 130.70001, y: 5.8500004, z: 152.79999}
-  m_LocalScale: {x: 1.2, y: 1, z: 1}
+  m_LocalScale: {x: 0.95174575, y: 0.7931214, z: 0.80898243}
   m_Children:
   - {fileID: 4532270833822764}
   m_Father: {fileID: 0}
@@ -57,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64985123939623548
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -154,6 +156,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -178,6 +181,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &65770202608875146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -259,6 +263,7 @@ MonoBehaviour:
   valveSoundAfter: 0
   valveTurnSpeed: 0
   valveTurnTime: 0
+  turnAxis: 0
   m_Volume: 1
   Open: {fileID: 8300000, guid: 77eb3e5d849c30643af9a14f72d99e12, type: 3}
   Close: {fileID: 8300000, guid: effd4f93dc055d24d8f4406aed266ea5, type: 3}

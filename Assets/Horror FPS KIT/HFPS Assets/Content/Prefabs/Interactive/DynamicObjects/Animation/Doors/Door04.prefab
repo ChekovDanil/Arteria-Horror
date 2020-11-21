@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2728805464315324186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 11.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.89, y: 0.93414396, z: 0.89}
   m_Children:
   - {fileID: 4352721027694104053}
   - {fileID: 6293364781718137265}
@@ -88,6 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -112,6 +113,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &8268732738438724825
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -185,6 +187,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -209,6 +212,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3595259336049385869
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -290,6 +294,7 @@ MonoBehaviour:
   valveSoundAfter: 0
   valveTurnSpeed: 0
   valveTurnTime: 0
+  turnAxis: 0
   m_Volume: 1
   Open: {fileID: 8300000, guid: eb81257d635469d42ba1545e1fd4587e, type: 3}
   Close: {fileID: 8300000, guid: c6b52df6496b88943839079b0ba5dc23, type: 3}
