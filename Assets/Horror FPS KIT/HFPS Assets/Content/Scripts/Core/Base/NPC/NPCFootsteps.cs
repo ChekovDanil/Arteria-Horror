@@ -147,7 +147,7 @@ public class NPCFootsteps : MonoBehaviour
             GameObject surfaceUnder = hit.collider.gameObject;
             Terrain terrainUnder = hit.collider.GetComponent<Terrain>();
 
-            if (footstepsMask.CompareLayer(surfaceUnder.layer))
+            if (Tools.IsInLayerMask(surfaceUnder.layer, footstepsMask))
             {
                 foreach (var step in npcFootsteps)
                 {

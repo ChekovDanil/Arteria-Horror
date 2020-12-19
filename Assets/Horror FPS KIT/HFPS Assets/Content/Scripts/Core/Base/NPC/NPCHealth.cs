@@ -35,11 +35,6 @@ public class NPCHealth : MonoBehaviour {
     public CorpseRemoveType corpseRemoveType = CorpseRemoveType.None;
     public float corpseTime = 10;
 
-    [Header("Eye Glow")]
-    public bool enableEyesGlow;
-    public SkinnedMeshRenderer eyeRenderer;
-    public string emission = "_EmissionColor";
-
     private BodyPart[] bodyParts;
     private bool isDead = false;
 
@@ -61,12 +56,6 @@ public class NPCHealth : MonoBehaviour {
             {
                 bodyPart.bodyPart.isHead = true;
             }
-        }
-
-        if (enableEyesGlow && eyeRenderer)
-        {
-            eyeRenderer.material.EnableKeyword("_EMISSION");
-            eyeRenderer.material.SetColor("_EmissionColor", new Color(1f, 1f, 1f));
         }
 
         EnableRagdoll(false);
@@ -106,11 +95,6 @@ public class NPCHealth : MonoBehaviour {
             EnableRagdoll(true);
 
             //You can put your custom event after death here.
-
-            if(enableEyesGlow && eyeRenderer)
-            {
-                eyeRenderer.material.SetColor("_EmissionColor", new Color(0f, 0f, 0f));
-            }
 
             if (corpseRemoveType != CorpseRemoveType.None)
             {

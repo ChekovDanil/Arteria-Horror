@@ -1,7 +1,0 @@
-newmtl Model001_Material001
-map_Kd nazi_poster_00.png
-
-newmtl Model001_Material002
-map_Kd adframe_diff.png
-map_bump adframe_norm.png
-

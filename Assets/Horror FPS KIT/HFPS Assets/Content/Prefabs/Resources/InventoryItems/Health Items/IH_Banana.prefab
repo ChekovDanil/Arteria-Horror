@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405219638246174339}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.6123724, y: -0.3535535, z: -0.3535535, w: -0.6123724}
+  m_LocalPosition: {x: 0.666, y: 1.295, z: -0.466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -300}
 --- !u!33 &1405219638247371395
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -126,33 +126,32 @@ MonoBehaviour:
   ItemType: 2
   examineType: 1
   examineRotate: 3
-  messageType: 3
+  messageType: 4
   disableType: 0
+  ItemName: Banana
+  Message: Banana
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 1
-  backpackExpandAmount: 0
-  examineName: Banana
-  itemMessage: Banana
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: 018cbca342a8cb141a8997c8ac85004a, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 0.5
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 1
+  BackpackExpand: 0
+  ExamineDistance: 0.4
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.55
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

@@ -62,7 +62,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -173,7 +172,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -279,7 +277,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -357,7 +354,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -440,11 +436,10 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1a78e7eba12acf04eb7882c00d1168ad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a48f959d5d3b54249b632a0a44d980c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -539,10 +534,10 @@ MonoBehaviour:
   sceneInfos:
   - SceneName: Showcase
     SceneDescription: Simple scene where is shown all functions of asset.
-    Background: {fileID: 21300000, guid: ca32c6b4bb1ba0549baa27b9c209af76, type: 3}
+    Background: {fileID: 21300000, guid: 91dc26c060ecd0442b1d35a86d73cd1c, type: 3}
   - SceneName: TheHouse Demo
     SceneDescription: Demo Scene of the dark house which need to be investigated.
-    Background: {fileID: 21300000, guid: 40a6c6ce60a96a54691141e982489bd8, type: 3}
+    Background: {fileID: 21300000, guid: 1d86f4978e19e2244b39de8d4c54a49d, type: 3}
   - SceneName: SavingScene01
     SceneDescription: First testing scene of Saving Between Scenes feature.
     Background: {fileID: 21300000, guid: 09dccbe27b8ad9e48ab51a0615dccdc6, type: 3}
@@ -551,7 +546,7 @@ MonoBehaviour:
     Background: {fileID: 21300000, guid: d9e8159c46c22cd42910231b66152a29, type: 3}
   - SceneName: EmptyScenePlayer
     SceneDescription: An empty scene with the Player Controller.
-    Background: {fileID: 21300000, guid: 0e5919dc2d3621142804af439da9206c, type: 3}
+    Background: {fileID: 21300000, guid: a5b59c0e8e7bb604e9462d5a53387003, type: 3}
   fadeController: {fileID: 114034337346992676}
   tipsManager: {fileID: 114643961109773812}
   SpinnerGO: {fileID: 6193558996788785889}
@@ -645,7 +640,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -823,7 +817,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

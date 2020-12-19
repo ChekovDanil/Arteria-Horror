@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BackTex:
-        m_Texture: {fileID: 2800000, guid: 9cb09b7211b31b145abde553a9c3bdd7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 35c55eae51530094fb469c35ef6f260b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DownTex:
-        m_Texture: {fileID: 2800000, guid: 459412547b40cd44aa5b2ab4dff49eaa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3402cbec09ededb44ad6824a9aa7871f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -48,11 +48,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FrontTex:
-        m_Texture: {fileID: 2800000, guid: ac5a15ccd894faa4fadbd5982a8d92e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0faf0cb2ee155274b9dc65c4c222b937, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LeftTex:
-        m_Texture: {fileID: 2800000, guid: ac671b85e90bc6341b2d6de3dfadde86, type: 3}
+        m_Texture: {fileID: 2800000, guid: adf461db1b2833541b32127757c896e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -72,7 +72,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RightTex:
-        m_Texture: {fileID: 2800000, guid: 0a818cf2cc5a8464c827cc94ff8985e1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 808ffb29a9fd2f249900fcf9d1fe05e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Tex:
@@ -80,7 +80,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UpTex:
-        m_Texture: {fileID: 2800000, guid: 269a077b20671e14ea621865db5954e7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 67cd2f306a64d7d4cac8a14051943819, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -97,7 +97,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Rotation: 321
+    - _Rotation: 23
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -110,5 +110,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.369, g: 0.349, b: 0.341, a: 1}
     - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _Tint: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0.5}
-  m_BuildTextureStacks: []
+    - _Tint: {r: 0.29411763, g: 0.29411763, b: 0.29411763, a: 0.5}

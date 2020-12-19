@@ -177,7 +177,6 @@ MonoBehaviour:
   putDownExamine: 0
   InteractSound: {fileID: 0}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!1 &4696194913858416547
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,9 +358,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   putDownExamine: 0
-  InteractSound: {fileID: 8300000, guid: 75ca7bf15c1909648aab758fdc7074af, type: 3}
+  InteractSound: {fileID: 8300000, guid: 32459810d605ac74d89482a4040468bd, type: 3}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!1 &4696194914058860764
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,9 +495,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   putDownExamine: 0
-  InteractSound: {fileID: 8300000, guid: 75ca7bf15c1909648aab758fdc7074af, type: 3}
+  InteractSound: {fileID: 8300000, guid: 32459810d605ac74d89482a4040468bd, type: 3}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!1 &4696194914854558849
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,7 +993,6 @@ MonoBehaviour:
   putDownExamine: 0
   InteractSound: {fileID: 0}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!1 &4696194915526696771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,9 +1187,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   putDownExamine: 0
-  InteractSound: {fileID: 8300000, guid: 75ca7bf15c1909648aab758fdc7074af, type: 3}
+  InteractSound: {fileID: 8300000, guid: 32459810d605ac74d89482a4040468bd, type: 3}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!1 &4696194915903422431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,11 +1436,11 @@ MonoBehaviour:
   InsertAnim: VHS_Insert
   EjectAnim: VHS_Eject
   TakeAnim: VHS_TapeTake
-  LoadTapeSound: {fileID: 8300000, guid: b9f0ab64a4edb1041ac98e6f79587855, type: 3}
-  StartPlaySound: {fileID: 8300000, guid: f3d168cc1e4b4fd4d93bec7a70ef1ed7, type: 3}
-  RewindTapeSound: {fileID: 8300000, guid: d1cef8d68faf0cd42a64420915be4d44, type: 3}
-  StopSound: {fileID: 8300000, guid: d3b019792b7a48443acf053856e33f64, type: 3}
-  EjectSound: {fileID: 8300000, guid: 115957752735cfd4cadfa52c4a29d0d8, type: 3}
+  LoadTapeSound: {fileID: 8300000, guid: f0066124111a57946a55dde607811433, type: 3}
+  StartPlaySound: {fileID: 8300000, guid: cc4bd2bd69515244883a767cd39f096d, type: 3}
+  RewindTapeSound: {fileID: 8300000, guid: fad8135f1f4d4c840bf37a6a389805ad, type: 3}
+  StopSound: {fileID: 8300000, guid: 360ba351202feab4884ecda2780e520a, type: 3}
+  EjectSound: {fileID: 8300000, guid: ad5453e84c778444798fd231d2aa1b1a, type: 3}
   TurnOn: 0
   isOn: 0
   isPlaying: 0

@@ -1,6 +1,6 @@
 ﻿/*
  * Inventory.cs - by ThunderWire Studio
- * ver. 1.6.1
+ * ver. 1.6
  * 
  * The most complex script in whole asset :)
  * 
@@ -1310,7 +1310,6 @@ public class Inventory : Singleton<Inventory> {
                         itemData.item = itemToAdd;
                         itemData.itemAmount = amount;
                         itemData.slotID = i;
-                        itemData.InitializeData();
                         if (customData != null) { itemData.customData = customData; }
                         Slots[i].GetComponent<InventorySlot>().slotItem = itemToAdd;
                         Slots[i].GetComponent<InventorySlot>().itemData = itemData;
@@ -1362,7 +1361,6 @@ public class Inventory : Singleton<Inventory> {
                         itemData.item = itemToAdd;
                         itemData.itemAmount = amount;
                         itemData.slotID = i;
-                        itemData.InitializeData();
                         if (customData != null) { itemData.customData = customData; }
                         Slots[i].GetComponent<InventorySlot>().slotItem = itemToAdd;
                         Slots[i].GetComponent<InventorySlot>().itemData = itemData;
@@ -1633,6 +1631,8 @@ public class Inventory : Singleton<Inventory> {
 
         if (GetItemAmount(usableItem.ID) < 2 || usableItem.useItemSwitcher)
         {
+            ShowContexMenu(false);
+
             if(selectedSlotID >= 0)
             {
                 GetSlot(selectedSlotID).Select();
@@ -1684,7 +1684,6 @@ public class Inventory : Singleton<Inventory> {
             itemSwitcher.weaponItem = usableItem.useSwitcherID;
         }
 
-        ShowContexMenu(false);
         ResetSlotProperties(true);
     }
 
@@ -1748,19 +1747,19 @@ public class Inventory : Singleton<Inventory> {
 
             if (interactiveItem)
             {
-                if (string.IsNullOrEmpty(interactiveItem.examineName))
+                if (string.IsNullOrEmpty(interactiveItem.ItemName))
                 {
-                    interactiveItem.examineName = "Sack of " + item.Title;
+                    interactiveItem.ItemName = "Sack of " + item.Title;
                 }
 
-                if (interactiveItem.messageType != InteractiveItem.MessageType.None && string.IsNullOrEmpty(interactiveItem.itemMessage))
+                if (interactiveItem.messageType != InteractiveItem.MessageType.None && string.IsNullOrEmpty(interactiveItem.Message))
                 {
-                    interactiveItem.itemMessage = "Sack of " + item.Title;
+                    interactiveItem.Message = "Sack of " + item.Title;
                 }
 
                 interactiveItem.ItemType = InteractiveItem.Type.InventoryItem;
                 interactiveItem.disableType = InteractiveItem.DisableType.Destroy;
-                interactiveItem.inventoryID = item.ID;
+                interactiveItem.InventoryID = item.ID;
             }
             else
             {
@@ -1836,7 +1835,7 @@ public class Inventory : Singleton<Inventory> {
 
         if (GetItemAmount(item.ID) > 1)
         {
-            worldItem.GetComponent<InteractiveItem>().pickupAmount = GetItemAmount(item.ID);
+            worldItem.GetComponent<InteractiveItem>().Amount = GetItemAmount(item.ID);
             RemoveSelectedItem(true);
         }
         else
@@ -2211,7 +2210,7 @@ public class Inventory : Singleton<Inventory> {
                 examine.GetComponentInChildren<MeshRenderer>().material.SetTexture("_MainTex", tex);
             }
 
-            scriptManager.gameObject.GetComponent<ExamineManager>().ExamineObject(examine, item.inspectRotation);
+            scriptManager.gameObject.GetComponent<ExamineManager>().ExamineObject(examine);
         }
     }
 
@@ -2391,6 +2390,30 @@ public class Inventory : Singleton<Inventory> {
     }
 
     /// <summary>
+    /// Get InventorySlot by Item ID
+    /// </summary>
+    InventorySlot GetItemSlot(int itemID)
+    {
+        foreach (var slot in Slots)
+        {
+            if (slot.GetComponentInChildren<InventoryItemData>() && slot.GetComponentInChildren<InventoryItemData>().item.ID == itemID)
+            {
+                return slot.GetComponent<InventorySlot>();
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Get InventorySlot by Slot ID
+    /// </summary>
+    InventorySlot GetSlot(int slotID)
+    {
+        return Slots[slotID].GetComponent<InventorySlot>();
+    }
+
+    /// <summary>
     /// Get next slot with Item.
     /// </summary>
     InventorySlot GetSlotWitItem()
@@ -2407,11 +2430,19 @@ public class Inventory : Singleton<Inventory> {
     }
 
     /// <summary>
-    /// Get InventorySlot by Slot ID
+    /// Get slot object by Item ID
     /// </summary>
-    public InventorySlot GetSlot(int slotID)
+    GameObject GetItemSlotObject(int itemID)
     {
-        return Slots[slotID].GetComponent<InventorySlot>();
+        foreach (var slot in Slots)
+        {
+            if (slot.GetComponentInChildren<InventoryItemData>() && slot.GetComponentInChildren<InventoryItemData>().item.ID == itemID)
+            {
+                return slot;
+            }
+        }
+
+        return null;
     }
 
     /// <summary>
@@ -2720,7 +2751,6 @@ public class Item
     public int maxItemCount { get; set; }
     public int useSwitcherID { get; set; }
     public int healAmount { get; set; }
-    public Vector3 inspectRotation { get; set; }
 
     //Use Action Settings
     public InventoryScriptable.ItemMapper.CustomActionSettings customActions { get; set; }
@@ -2766,7 +2796,6 @@ public class Item
         maxItemCount = mapper.itemSettings.maxItemCount;
         useSwitcherID = mapper.itemSettings.useSwitcherID;
         healAmount = mapper.itemSettings.healAmount;
-        inspectRotation = mapper.itemSettings.inspectRotation;
 
         customActions = mapper.useActionSettings;
         combineSettings = mapper.combineSettings;

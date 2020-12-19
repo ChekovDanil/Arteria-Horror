@@ -13,12 +13,12 @@ public class HFPSMenu : EditorWindow
     private SerializationPath filePath;
     private string key;
 
-    public const string MMANAGER = "_MAINMENU";
+    public const string MMANAGER = "_MENUUI";
     public const string GMANAGER = "_GAMEUI";
     public const string HERO = "HEROPLAYER";
     public const string PLAYER = "FPSPLAYER";
 
-    public const string PATH_MMANAGER = "Setup/MainMenu/" + MMANAGER;
+    public const string PATH_MMANAGER = "Setup/Menu/" + MMANAGER;
     public const string PATH_GMANAGER = "Setup/Game/" + GMANAGER;
     public const string PATH_HERO = "Setup/Game/" + HERO;
     public const string PATH_PLAYER = "Setup/Game/" + PLAYER;
@@ -217,7 +217,7 @@ public class HFPSMenu : EditorWindow
             return true;
         }
 
-        return true;
+        return false;
     }
 
     static GameObject FindObjectWith<T>() where T : MonoBehaviour
@@ -235,7 +235,7 @@ public class HFPSMenu : EditorWindow
     [MenuItem("Tools/HFPS KIT/" + "Scriptables" + "/New Scene Objectives")]
     static void CreateObjectiveDatabase()
     {
-        CreateAssetFile<ObjectivesScriptable>(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + " Objectives", "Objectives 2");
+        CreateAssetFile<ObjectivesScriptable>(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + " Objectives", "Objectives");
     }
 
     [MenuItem("Tools/HFPS KIT/" + "Scriptables" + "/New Cross-Platform Scheme")]
@@ -362,20 +362,17 @@ public class HFPSMenu : EditorWindow
         }
     }
 
-    private static void CreateAssetFile<T>(string AssetName, string Folder = "") where T : ScriptableObject
+    private static void CreateAssetFile<T>(string AssetName, string Folder = "Game Scriptables") where T : ScriptableObject
     {
         var asset = CreateInstance<T>();
 
-        Folder = !string.IsNullOrEmpty(Folder) && !Folder.Contains("/") ? Folder + "/" : Folder;
-        string folderpath = PATH_GAMESETTINGS + Folder;
-
-        if(!Directory.Exists(PATH_GAMESETTINGS + Folder))
+        if (!AssetDatabase.IsValidFolder(PATH_SCRIPTABLES + Folder))
         {
-            Directory.CreateDirectory(PATH_GAMESETTINGS + Folder);
-            AssetDatabase.Refresh();
+            Debug.Log("Create Folder: " + PATH_SCRIPTABLES + Folder);
+            AssetDatabase.CreateFolder(PATH_SCRIPTABLES, Folder);
         }
 
-        ProjectWindowUtil.CreateAsset(asset, folderpath + "New " + AssetName + ".asset");
+        ProjectWindowUtil.CreateAsset(asset, PATH_SCRIPTABLES + Folder + "/New " + AssetName + ".asset");
     }
 
     public static string MD5Hash(string Data)

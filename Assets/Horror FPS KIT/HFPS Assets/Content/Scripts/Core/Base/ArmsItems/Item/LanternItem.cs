@@ -21,9 +21,7 @@ public class LanternItem : SwitcherBehaviour, ISaveableArmsItem {
 
     [Header("Main")]
     public Light LanternLight;
-    public string ColorString = "_Color";
-
-    [Space]
+    [Space(7)]
     public float oilLifeInSec = 300f;
     public float oilPercentage = 100;
     public float lightReductionRate = 5f;
@@ -93,7 +91,7 @@ public class LanternItem : SwitcherBehaviour, ISaveableArmsItem {
         fullIntnesity = LanternLight.intensity;
         oldIntensity = LanternLight.intensity;
         reduceIntensity = LanternLight.intensity;
-        FlameTint = LanternLight.transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor(ColorString);
+        FlameTint = LanternLight.transform.GetChild(0).GetComponent<MeshRenderer>().material.GetColor("_TintColor");
         FlameTint.a = 0f;
         LanternLight.intensity = 0f;
         reductionFactor = oilPercentage - lightReductionRate;
@@ -206,8 +204,8 @@ public class LanternItem : SwitcherBehaviour, ISaveableArmsItem {
 
     public override void OnSwitcherActivate()
     {
+        isSelected = true;
         LanternGO.SetActive(true);
-        LanternLight.gameObject.SetActive(true);
         gameManager.ShowLightPercentagle(oilPercentage);
         anim.Play(IdleAnim);
 
@@ -221,10 +219,6 @@ public class LanternItem : SwitcherBehaviour, ISaveableArmsItem {
 
             hingeDataSet = true;
         }
-
-        FlameTint.a = oldIntensity;
-        LanternLight.intensity = oldIntensity;
-        isSelected = true;
     }
 
     public override void OnSwitcherDeactivate()
@@ -345,7 +339,7 @@ public class LanternItem : SwitcherBehaviour, ISaveableArmsItem {
 
         oilPercentage = Mathf.Clamp(oilPercentage, 0, 100);
         reductionFactor = Mathf.Clamp(reductionFactor, 0, 100);
-        LanternLight.transform.GetChild(0).GetComponent<MeshRenderer>().material.SetColor(ColorString, FlameTint);
+        LanternLight.transform.GetChild(0).GetComponent<MeshRenderer>().material.SetColor("_TintColor", FlameTint);
     }
 
     IEnumerator Reduce()

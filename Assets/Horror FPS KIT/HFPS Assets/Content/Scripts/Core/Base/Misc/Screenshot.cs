@@ -1,4 +1,6 @@
-﻿using ThunderWire.CrossPlatform.Input;
+﻿using System.Collections;
+using System.Collections.Generic;
+using ThunderWire.CrossPlatform.Input;
 using UnityEngine;
 
 public class Screenshot : MonoBehaviour
@@ -22,19 +24,16 @@ public class Screenshot : MonoBehaviour
 
     void Update()
     {
-        if (crossPlatformInput)
+        if (crossPlatformInput && input.inputsLoaded)
         {
-            if (input.inputsLoaded)
+            if (input.GetControlPressedOnce(this, screesnhotKey.ToString()) && !isTaken)
             {
-                if (input.GetControlPressedOnce(this, screesnhotKey.ToString()) && !isTaken)
-                {
-                    TakeScreenshot();
-                    isTaken = true;
-                }
-                else if (isTaken)
-                {
-                    isTaken = false;
-                }
+                TakeScreenshot();
+                isTaken = true;
+            }
+            else if (isTaken)
+            {
+                isTaken = false;
             }
         }
         else

@@ -126,8 +126,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerDownHandler, I
 
     public void Select()
     {
-        if (!itemData) return;
-
         foreach (var sobj in inventory.Slots)
         {
             if (sobj.transform.childCount > 1)
@@ -248,15 +246,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler, IPointerDownHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!inventory.isContexVisible)
-        {
-            if (itemData && isSelectable) isPointerDown = true;
-        }
-        else
-        {
-            inventory.ResetInventory();
-            Select();
-        }
+        if(itemData && !inventory.isContexVisible && isSelectable) isPointerDown = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)

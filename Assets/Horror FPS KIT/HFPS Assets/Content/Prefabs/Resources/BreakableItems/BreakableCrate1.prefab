@@ -31,14 +31,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4796502076242641844}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.4, z: 0.6}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.70710677}
+  m_LocalPosition: {x: 47.706, y: 0.00000011920929, z: 52.123}
+  m_LocalScale: {x: 0.75, y: 0.4, z: 0.6000001}
   m_Children:
   - {fileID: 1548739873722627261}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!33 &689268851283856273
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   UpwardsModifer: 1
   ExplosionPower: 100
   ExplosionRadius: 0.5
-  BreakSound: {fileID: 8300000, guid: f469ead08b894314bab65a0656c95a82, type: 3}
+  BreakSound: {fileID: 8300000, guid: 2a09d27ad0b065d40a674fad77268818, type: 3}
   BreakVolume: 1
 --- !u!114 &7880130061602005920
 MonoBehaviour:
@@ -272,8 +272,13 @@ MonoBehaviour:
   defaultImpact:
     triggerVolume: {x: 0.2, y: 1}
     impactSounds:
-    - {fileID: 8300000, guid: b6e2824d25546514faa1f4c057434842, type: 3}
-  impactSounds: []
+    - {fileID: 8300000, guid: 4edfd70960a9a9f48bc9095818c375ef, type: 3}
+  impactSounds:
+  - impactDetect: 1
+    Tag: 
+    triggerVolume: {x: 0.2, y: 1}
+    textures: []
+    impactSounds: []
 --- !u!114 &8669235955167908223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1

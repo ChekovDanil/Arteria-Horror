@@ -54,7 +54,6 @@ MonoBehaviour:
     MouseMiddle: {fileID: 21300000, guid: 50b16cafa24efb441876298b3f8a4df2, type: 3}
     MouseRight: {fileID: 21300000, guid: c51cbf97629d33448a52a2bc9da612fb, type: 3}
   Keyboard:
-    None: {fileID: 21300000, guid: 2a21ae22e525e2b4e94b5c0085c5da2f, type: 3}
     Key0: {fileID: 21300000, guid: 0dc6c2975c45d6c4d8794ac689c0f875, type: 3}
     Key1: {fileID: 21300000, guid: f7d2a01ee390f0343932185a90c87db4, type: 3}
     Key2: {fileID: 21300000, guid: b62935e6bdb2d5141bdfac82f1e6ffe8, type: 3}
@@ -65,76 +64,3 @@ MonoBehaviour:
     Key7: {fileID: 21300000, guid: 8f303058fa23af34f851068e6bbace92, type: 3}
     Key8: {fileID: 21300000, guid: 548d88e994c9f774c95e056079b8f520, type: 3}
     Key9: {fileID: 21300000, guid: aa5d15f3bfe21a64b8be6f54f39ec855, type: 3}
-    A: {fileID: 21300000, guid: ee742a5f58929a042b0f537057c546b2, type: 3}
-    B: {fileID: 21300000, guid: 1eb3277c88cd5964aa0d481a11223b0c, type: 3}
-    C: {fileID: 21300000, guid: 83aabaab0ae850547b053b05f93a92ea, type: 3}
-    D: {fileID: 21300000, guid: b34af784da157db439c34462013e3e81, type: 3}
-    E: {fileID: 21300000, guid: 44b31b97f5dfc3d4b91c778ad62687b3, type: 3}
-    F: {fileID: 21300000, guid: 418e17eaff38c1c4ea903780b33b0229, type: 3}
-    G: {fileID: 21300000, guid: bfe69191d5531c648a32eae6dfaee9b6, type: 3}
-    H: {fileID: 21300000, guid: 9fc5b199821f80d41942264e1684fa96, type: 3}
-    I: {fileID: 21300000, guid: abf0a96bea3c87b48bb3547a202db0ea, type: 3}
-    J: {fileID: 21300000, guid: 612d0aba42f996c42bb16e1d00c84e75, type: 3}
-    K: {fileID: 21300000, guid: 066250f4ef806404caf26dd1df4f6d62, type: 3}
-    L: {fileID: 21300000, guid: 7c257f7ca7a6e0249837dbead1e80da6, type: 3}
-    M: {fileID: 21300000, guid: 0f0f0b176b2664e4fb1af0558733df21, type: 3}
-    N: {fileID: 21300000, guid: 8a23ecc9e3680604a8a17db029d53ab7, type: 3}
-    O: {fileID: 21300000, guid: 885b57b315f75d64eb24f3904087d179, type: 3}
-    P: {fileID: 21300000, guid: e8483f3ee8ea5a649b29aeb2330db76c, type: 3}
-    Q: {fileID: 21300000, guid: 5a6cc316e269ff34897a520be2577a81, type: 3}
-    R: {fileID: 21300000, guid: 316199b49cc326c46a5611af39f22b3a, type: 3}
-    S: {fileID: 21300000, guid: 117acedb097b88049a75c69bec5bcb03, type: 3}
-    T: {fileID: 21300000, guid: e0ead12cc4b2e8a4880d9b2cacceb7ba, type: 3}
-    U: {fileID: 21300000, guid: b0f02142eddecb6458eaee82f535686a, type: 3}
-    V: {fileID: 21300000, guid: fe77110e26a14dc42a20d975a23f6ee8, type: 3}
-    W: {fileID: 21300000, guid: bbfffddaa46c6794f8a89230554a0d14, type: 3}
-    X: {fileID: 21300000, guid: e59b6158b1f3f49409c7fea20d8cbb27, type: 3}
-    Y: {fileID: 21300000, guid: e48fd05401cef044cb41cc84cbd4a47d, type: 3}
-    Z: {fileID: 21300000, guid: 2b64003e932c49d4495904ee41bcf7e6, type: 3}
-    Arrow_UP: {fileID: 21300000, guid: 45ae3c001936ef74da5ba4ebe761daf3, type: 3}
-    Arrow_DOWN: {fileID: 21300000, guid: 096856788380708449f52bf2315702d7, type: 3}
-    Arrow_LEFT: {fileID: 21300000, guid: 99da4f9e0db15ad42b6e8ec5beab0c21, type: 3}
-    Arrow_RIGHT: {fileID: 21300000, guid: a7ca2e9424b036f4aac14f904e9b64e0, type: 3}
-    F1: {fileID: 21300000, guid: b11b572f7bcb66a48baab202a7c19911, type: 3}
-    F2: {fileID: 21300000, guid: c4092e16c4fe8d6498eac68a8233ad9a, type: 3}
-    F3: {fileID: 21300000, guid: 1d25ebea41e6bd244975942f26dd6d7d, type: 3}
-    F4: {fileID: 21300000, guid: 3670b75a0be2fa846964444dd20837a9, type: 3}
-    F5: {fileID: 21300000, guid: 5e569dc300d0c8c4f96e68882c691852, type: 3}
-    F6: {fileID: 21300000, guid: 193c1ccaed669ea41985c48030159526, type: 3}
-    F7: {fileID: 21300000, guid: c60f8dd984f76f143a4685301121fa61, type: 3}
-    F8: {fileID: 21300000, guid: 3f17496ca618cca4ca65db9a64d55503, type: 3}
-    F9: {fileID: 21300000, guid: 232bc82beb643d7409f76fb0fd0c7a61, type: 3}
-    F10: {fileID: 21300000, guid: bdd5091dafbc4644b89be1fb2bd52ebf, type: 3}
-    F11: {fileID: 21300000, guid: 5cc46bec22a811844a7838d2a5898820, type: 3}
-    F12: {fileID: 21300000, guid: 70497e903e05d8748bcd5f6844aa34ea, type: 3}
-    Esc: {fileID: 21300000, guid: deda96f54062053418f12344c5d1671f, type: 3}
-    Tab: {fileID: 21300000, guid: 154c615e242ef1849afd2517924d8464, type: 3}
-    CapsLock: {fileID: 21300000, guid: ba85fa8cb7727e74289baade51fe4099, type: 3}
-    Shift: {fileID: 21300000, guid: d4ddecbf1a5d08b44aca2bb99fa94b31, type: 3}
-    Ctrl: {fileID: 21300000, guid: 81f6328e1ad25ea41949d0b65b7521e3, type: 3}
-    Alt: {fileID: 21300000, guid: 03be908713a5a8b46910d4856d6a6abe, type: 3}
-    Space: {fileID: 21300000, guid: 568849ae27d4c2d40b0d9c83092f371f, type: 3}
-    Enter: {fileID: 21300000, guid: 8669b02ff846222489bfaea3bb8c7991, type: 3}
-    Backspace: {fileID: 21300000, guid: 0e75a057d4a520240bef879a00b545fb, type: 3}
-    Insert: {fileID: 21300000, guid: 3876058b2db05ed4bb8f624022062050, type: 3}
-    Home: {fileID: 21300000, guid: a903931d7e9008c4989167cfe3f443e0, type: 3}
-    PGUP: {fileID: 21300000, guid: 6b65d31db3eb6214d8a5540d8dbd0e6c, type: 3}
-    Delete: {fileID: 21300000, guid: e6602fcb212f3a447862336fd87b218a, type: 3}
-    End: {fileID: 21300000, guid: a13874fc6e2b2774bb459cc90cec5ecd, type: 3}
-    PGDN: {fileID: 21300000, guid: abf29c683b3fd78469099708ca516aef, type: 3}
-    Asterisk: {fileID: 21300000, guid: 45aeff7ecb26ce441a4e8b7639f2fca6, type: 3}
-    Semicolon: {fileID: 21300000, guid: 7f73427d18c700f4d925524db443d847, type: 3}
-    Bracket_L: {fileID: 21300000, guid: a057b1f756e56f348909375ed471dc5e, type: 3}
-    Bracket_R: {fileID: 21300000, guid: 595d6d0644b58f542970c74e8b85a664, type: 3}
-    Quote: {fileID: 21300000, guid: 9859e163d6bf2f54ab8c1d7fbfc31b36, type: 3}
-    Comma: {fileID: 21300000, guid: 6b46eb8b9b63ebe42a12c1dcc0924f5a, type: 3}
-    Period: {fileID: 21300000, guid: 651a06b04c1f4e04cbe208aa53b0d191, type: 3}
-    Backslash: {fileID: 21300000, guid: 6e433ee68d50d844592be5e32afe1f37, type: 3}
-    EqualsKey: {fileID: 21300000, guid: b645ba30dfc3c964f8f1ea5d4758274a, type: 3}
-    Backquote: {fileID: 21300000, guid: dac9fb5bcc3a5904da074e9ce6078fe8, type: 3}
-    Context: {fileID: 21300000, guid: d050d270efecb214b8a97edf9f6741a5, type: 3}
-    NumpadSlash: {fileID: 21300000, guid: 9e958a502d089ac4dacce248dab93066, type: 3}
-    NumpadMinus: {fileID: 21300000, guid: 34e4685bcb727fd479a1427f7299e3ab, type: 3}
-    NumpadPlus: {fileID: 21300000, guid: 341d83e4d2fc683479a2ac23a14cf3f4, type: 3}
-    NumpadEnter: {fileID: 21300000, guid: c9188f0afd18e6b44b6c273c53592b9d, type: 3}
-    NumpadPeriod: {fileID: 21300000, guid: 651a06b04c1f4e04cbe208aa53b0d191, type: 3}

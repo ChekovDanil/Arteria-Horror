@@ -184,7 +184,7 @@ public class SaveGameHandler : Singleton<SaveGameHandler> {
         }
         else
         {
-            Debug.LogError("[Runtime Saveable] Cannot retrieve resources saveable path! You may need to find Runtime Saveables first!");
+            Debug.LogError("[Runtime Saveable] Cannot retrieve resources saveable path!");
         }
 
         return obj;

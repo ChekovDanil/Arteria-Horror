@@ -145,7 +145,7 @@ public class ImpactEffect : MonoBehaviour
 
             if ((reaction = hit.GetComponentInChildren<INPCReaction>()) != null)
             {
-                reaction.SoundReaction(transform.position, false);
+                reaction.SoundReaction(0, Vector3.Distance(transform.position, hit.transform.position), transform.position);
             }
         }
     }

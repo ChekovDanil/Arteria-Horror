@@ -125,37 +125,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 2
-  examineType: 1
-  examineRotate: 2
-  messageType: 1
+  examineType: 0
+  examineRotate: 3
+  messageType: 2
   disableType: 0
-  MessageTips:
-  - InputString: '?'
-    KeyMessage: EQUIP AXE
-  weaponID: 0
-  inventoryID: 30
-  backpackExpandAmount: 0
-  examineName: Axe
-  itemMessage: Axe
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.85
-  paperMessageSize: 0
+  ItemName: 
+  Message: Axe
+  MessageTime: 3
+  MessageTips: []
+  PickupSound: {fileID: 8300000, guid: cbb2dcda4d563f645ab095bb16557760, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 0.75
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 1
   floatingIconEnabled: 1
-  faceToCamera: 1
-  faceRotation: {x: 90, y: 0, z: 0}
-  itemHashtables: []
+  WeaponID: 4
+  InventoryID: 30
+  BackpackExpand: 0
+  ExamineDistance: 0
+  faceToCamera: 0
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.75
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

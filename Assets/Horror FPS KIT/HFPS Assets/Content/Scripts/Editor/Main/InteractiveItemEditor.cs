@@ -16,9 +16,9 @@ public class InteractiveItemEditor : Editor {
     public SerializedProperty InventoryID_Prop;
     public SerializedProperty BackpackExpand_Prop;
     public SerializedProperty PickupSwitch_Prop;
-    public SerializedProperty FloatingIcon_prop;
-    public SerializedProperty ShowItemName_prop;
-    public SerializedProperty AutoShortcut_prop;
+    public SerializedProperty floatingIcon_prop;
+    public SerializedProperty showItemName_prop;
+    public SerializedProperty autoShortcut_prop;
 
     public SerializedProperty MessageText_prop;
     public SerializedProperty MessageTime_prop;
@@ -26,71 +26,60 @@ public class InteractiveItemEditor : Editor {
 
     public SerializedProperty PickupSound_Prop;
     public SerializedProperty ExamineSound_Prop;
-    public SerializedProperty PickupVolume_Prop;
-    public SerializedProperty ExamineVolume_Prop;
+    public SerializedProperty Volume_Prop;
 
     //Examine
-    public SerializedProperty ExamineName_Prop;
+    public SerializedProperty ExaminetName_Prop;
     public SerializedProperty ExamineDistance_Prop;
-    public SerializedProperty CameraFace_Prop;
-    public SerializedProperty FaceRotation_Prop;
+    public SerializedProperty cameraFace_Prop;
+    public SerializedProperty faceRotation_Prop;
 
-    public SerializedProperty ColDisable_Prop;
-    public SerializedProperty ColEnable_Prop;
+    public SerializedProperty colDisable_Prop;
+    public SerializedProperty colEnable_Prop;
 
-    public SerializedProperty PaperMessage_prop;
-    public SerializedProperty PaperMessageSize_prop;
-    public SerializedProperty ExamineCollect_prop;
-    public SerializedProperty EnableCursor_prop;
+    public SerializedProperty readText_Prop;
+    public SerializedProperty textSize_Prop;
+    public SerializedProperty examineCol_Prop;
+    public SerializedProperty enableCursor_Prop;
 
-    public SerializedProperty Hashtables_prop;
+    public SerializedProperty itemHD_Prop;
 
 
-    void OnEnable()
-    {
-        //Enums
-        ItemType_Prop = serializedObject.FindProperty("ItemType");
+    void OnEnable () {
+		ItemType_Prop = serializedObject.FindProperty ("ItemType");
         ExamineType_Prop = serializedObject.FindProperty("examineType");
         ExamineRotate_Prop = serializedObject.FindProperty("examineRotate");
         MessageType_Prop = serializedObject.FindProperty("messageType");
         DisableType_Prop = serializedObject.FindProperty("disableType");
+        Amount_Prop = serializedObject.FindProperty("Amount");
+		WeaponID_Prop = serializedObject.FindProperty ("WeaponID");
+		InventoryID_Prop = serializedObject.FindProperty ("InventoryID");
+		BackpackExpand_Prop = serializedObject.FindProperty ("BackpackExpand");
+        PickupSwitch_Prop = serializedObject.FindProperty("pickupSwitch");
+        PickupSound_Prop = serializedObject.FindProperty("PickupSound");
+        Volume_Prop = serializedObject.FindProperty("Volume");
+        floatingIcon_prop = serializedObject.FindProperty("floatingIconEnabled");
+        showItemName_prop = serializedObject.FindProperty("showItemName");
+        autoShortcut_prop = serializedObject.FindProperty("autoShortcut");
 
+        MessageText_prop = serializedObject.FindProperty("Message");
+        MessageTime_prop = serializedObject.FindProperty("MessageTime");
         MessageTips_prop = serializedObject.FindProperty("MessageTips");
 
-        //Inventory
-        WeaponID_Prop = serializedObject.FindProperty("weaponID");
-        InventoryID_Prop = serializedObject.FindProperty("inventoryID");
-        BackpackExpand_Prop = serializedObject.FindProperty("backpackExpandAmount");
+        //Examine
+        ExaminetName_Prop = serializedObject.FindProperty("ItemName");
+        ExamineSound_Prop = serializedObject.FindProperty("ExamineSound");
+        ExamineDistance_Prop = serializedObject.FindProperty("ExamineDistance");
+        cameraFace_Prop = serializedObject.FindProperty("faceToCamera");
+        faceRotation_Prop = serializedObject.FindProperty("faceRotation");
+        colDisable_Prop = serializedObject.FindProperty("CollidersDisable");
+        colEnable_Prop = serializedObject.FindProperty("CollidersEnable");
+        readText_Prop = serializedObject.FindProperty("paperReadText");
+        textSize_Prop = serializedObject.FindProperty("textSize");
+        examineCol_Prop = serializedObject.FindProperty("examineCollect");
+        enableCursor_Prop = serializedObject.FindProperty("enableCursor");
 
-        //Texts
-        ExamineName_Prop = serializedObject.FindProperty("examineName");
-        MessageText_prop = serializedObject.FindProperty("itemMessage");
-        PaperMessage_prop = serializedObject.FindProperty("paperMessage");
-
-        //Others
-        Amount_Prop = serializedObject.FindProperty("pickupAmount");
-        MessageTime_prop = serializedObject.FindProperty("messageShowTime");
-        ExamineDistance_Prop = serializedObject.FindProperty("examineDistance");
-        PaperMessageSize_prop = serializedObject.FindProperty("paperMessageSize");
-
-        PickupSwitch_Prop = serializedObject.FindProperty("pickupSwitch");
-        ExamineCollect_prop = serializedObject.FindProperty("examineCollect");
-        EnableCursor_prop = serializedObject.FindProperty("enableCursor");
-        ShowItemName_prop = serializedObject.FindProperty("showItemName");
-        AutoShortcut_prop = serializedObject.FindProperty("autoShortcut");
-        FloatingIcon_prop = serializedObject.FindProperty("floatingIconEnabled");
-        CameraFace_Prop = serializedObject.FindProperty("faceToCamera");
-
-        Hashtables_prop = serializedObject.FindProperty("itemHashtables");
-        FaceRotation_Prop = serializedObject.FindProperty("faceRotation");
-        ColDisable_Prop = serializedObject.FindProperty("CollidersDisable");
-        ColEnable_Prop = serializedObject.FindProperty("CollidersEnable");
-
-        //Sounds
-        PickupSound_Prop = serializedObject.FindProperty("pickupSound");
-        PickupVolume_Prop = serializedObject.FindProperty("pickupVolume");
-        ExamineSound_Prop = serializedObject.FindProperty("examineSound");
-        ExamineVolume_Prop = serializedObject.FindProperty("examineVolume");
+        itemHD_Prop = serializedObject.FindProperty("itemHashtables");
     }
 
     public override void OnInspectorGUI()
@@ -114,6 +103,9 @@ public class InteractiveItemEditor : Editor {
 
                 switch (msg)
                 {
+                    case InteractiveItem.MessageType.Hint:
+                        EditorGUILayout.PropertyField(MessageText_prop, new GUIContent("Hint Message"));
+                        break;
                     case InteractiveItem.MessageType.PickupHint:
                         EditorGUILayout.PropertyField(MessageText_prop, new GUIContent("Item Name"));
                         break;
@@ -140,7 +132,7 @@ public class InteractiveItemEditor : Editor {
                 case InteractiveItem.Type.InventoryItem:
                     EditorGUILayout.PropertyField(InventoryID_Prop, new GUIContent("Inventory ID"));
                     EditorGUILayout.PropertyField(Amount_Prop, new GUIContent("Item Amount"));
-                    EditorGUILayout.PropertyField(AutoShortcut_prop, new GUIContent("Auto Assign Shortcut"));
+                    EditorGUILayout.PropertyField(autoShortcut_prop, new GUIContent("Auto Assign Shortcut"));
                     break;
 
                 case InteractiveItem.Type.ArmsItem:
@@ -148,7 +140,7 @@ public class InteractiveItemEditor : Editor {
                     EditorGUILayout.PropertyField(WeaponID_Prop, new GUIContent("Arms ID"));
                     EditorGUILayout.PropertyField(Amount_Prop, new GUIContent("Item Amount"));
                     EditorGUILayout.PropertyField(PickupSwitch_Prop, new GUIContent("Auto Switch"));
-                    EditorGUILayout.PropertyField(AutoShortcut_prop, new GUIContent("Auto Assign Shortcut"));
+                    EditorGUILayout.PropertyField(autoShortcut_prop, new GUIContent("Auto Assign Shortcut"));
                     break;
 
                 case InteractiveItem.Type.BackpackExpand:
@@ -157,8 +149,8 @@ public class InteractiveItemEditor : Editor {
             }
         }
 
-        EditorGUILayout.PropertyField(ShowItemName_prop, new GUIContent("UIInfo Item Name"));
-        EditorGUILayout.PropertyField(FloatingIcon_prop, new GUIContent("Enable Floating Icon"));
+        EditorGUILayout.PropertyField(showItemName_prop, new GUIContent("UIInfo Item Name"));
+        EditorGUILayout.PropertyField(floatingIcon_prop, new GUIContent("Enable Floating Icon"));
 
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Examine Options", EditorStyles.boldLabel);
@@ -171,44 +163,44 @@ public class InteractiveItemEditor : Editor {
 
             if (exmType == InteractiveItem.ExamineType.Object || exmType == InteractiveItem.ExamineType.AdvancedObject)
             {
-                EditorGUILayout.PropertyField(ExamineName_Prop, new GUIContent("Examine Name"));
+                EditorGUILayout.PropertyField(ExaminetName_Prop, new GUIContent("Examine Name"));
             }
 
             EditorGUILayout.PropertyField(ExamineDistance_Prop, new GUIContent("Examine Distance"));
-            EditorGUILayout.PropertyField(EnableCursor_prop, new GUIContent("Enable Cursor"));
+            EditorGUILayout.PropertyField(enableCursor_Prop, new GUIContent("Enable Cursor"));
 
-            if (EnableCursor_prop.boolValue)
+            if (enableCursor_Prop.boolValue)
             {
-                EditorGUILayout.PropertyField(ExamineCollect_prop, new GUIContent("Click Collect"));
+                EditorGUILayout.PropertyField(examineCol_Prop, new GUIContent("Click Collect"));
             }
 
             EditorGUILayout.Space();
 
             if (exmType == InteractiveItem.ExamineType.AdvancedObject)
             {
-                EditorGUILayout.PropertyField(ColDisable_Prop, new GUIContent("Colliders Disable"), true);
-                EditorGUILayout.PropertyField(ColEnable_Prop, new GUIContent("Colliders Enable"), true);
+                EditorGUILayout.PropertyField(colDisable_Prop, new GUIContent("Colliders Disable"), true);
+                EditorGUILayout.PropertyField(colEnable_Prop, new GUIContent("Colliders Enable"), true);
             }
 
             if (exmType == InteractiveItem.ExamineType.Paper)
             {
-                EditorGUILayout.PropertyField(PaperMessage_prop, new GUIContent("Paper Text"));
-                EditorGUILayout.PropertyField(PaperMessageSize_prop, new GUIContent("Text Size"));
+                EditorGUILayout.PropertyField(readText_Prop, new GUIContent("Paper Text"));
+                EditorGUILayout.PropertyField(textSize_Prop, new GUIContent("Text Size"));
             }
 
             EditorGUILayout.Space();
-            EditorGUILayout.PropertyField(CameraFace_Prop, new GUIContent("Face To Camera"));
+            EditorGUILayout.PropertyField(cameraFace_Prop, new GUIContent("Face To Camera"));
 
-            if (CameraFace_Prop.boolValue)
+            if (cameraFace_Prop.boolValue)
             {
-                EditorGUILayout.PropertyField(FaceRotation_Prop, new GUIContent("Face Rotation"));
+                EditorGUILayout.PropertyField(faceRotation_Prop, new GUIContent("Face Rotation"));
             }
         }
         else
         {
-            if (ShowItemName_prop.boolValue)
+            if (showItemName_prop.boolValue)
             {
-                EditorGUILayout.PropertyField(ExamineName_Prop, new GUIContent("Examine Name"));
+                EditorGUILayout.PropertyField(ExaminetName_Prop, new GUIContent("Examine Name"));
             }
         }
 
@@ -216,7 +208,7 @@ public class InteractiveItemEditor : Editor {
         {
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Custom Item Data", EditorStyles.boldLabel);
-            EditorGUILayout.PropertyField(Hashtables_prop, new GUIContent("KeyValue Data"), true);
+            EditorGUILayout.PropertyField(itemHD_Prop, new GUIContent("Custom Hashtables"), true);
         }
 
         EditorGUILayout.Space();
@@ -225,13 +217,12 @@ public class InteractiveItemEditor : Editor {
         if (type != InteractiveItem.Type.OnlyExamine)
         {
             EditorGUILayout.PropertyField(PickupSound_Prop, new GUIContent("Pickup Sound"));
-            EditorGUILayout.PropertyField(PickupVolume_Prop, new GUIContent("Pickup Volume"));
         }
         if (exmType != InteractiveItem.ExamineType.None)
         {
-            EditorGUILayout.PropertyField(ExamineSound_Prop, new GUIContent("Examine Grab Sound"));
-            EditorGUILayout.PropertyField(ExamineVolume_Prop, new GUIContent("Examine Volume"));
+            EditorGUILayout.PropertyField(ExamineSound_Prop, new GUIContent("Examine Sound"));
         }
+        EditorGUILayout.PropertyField(Volume_Prop, new GUIContent("Sounds Volume"));
 
         serializedObject.ApplyModifiedProperties();
     }

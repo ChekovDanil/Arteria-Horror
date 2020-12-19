@@ -40,14 +40,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: b95863142c5e0ab4b9d6aa469568583c, type: 3}
+      useSound: {fileID: 8300000, guid: a7d6b7d0f17430f449e316817c52a69d, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 5
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -83,14 +82,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 216c70bd213ecd94d8d20a922137755b, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 10
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -128,14 +126,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 216c70bd213ecd94d8d20a922137755b, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 15
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -171,14 +168,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 216c70bd213ecd94d8d20a922137755b, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 15
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -215,14 +211,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 216c70bd213ecd94d8d20a922137755b, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 15
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -258,14 +253,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 216c70bd213ecd94d8d20a922137755b, type: 3}
+      useSound: {fileID: 8300000, guid: 34a95c4fabdabac4191f1fffa73be6c3, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 20
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -301,14 +295,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 4d771af76f133c94b9f202df8b330247, type: 3}
+      useSound: {fileID: 8300000, guid: 6bef625688583a941bbf04672d41918e, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 10
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -345,14 +338,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 4d771af76f133c94b9f202df8b330247, type: 3}
+      useSound: {fileID: 8300000, guid: 6bef625688583a941bbf04672d41918e, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 15
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -388,14 +380,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: f03a4d8bc91304942a71f6acde9776d2, type: 3}
+      useSound: {fileID: 8300000, guid: cc0667ce33f3fe746b9503a1700e34de, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 5
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -432,14 +423,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 7c7f3909281897341bc8595a62473f4f, type: 3}
+      useSound: {fileID: 0}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 4
       useSwitcherID: -1
       healAmount: 50
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -475,14 +465,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 7c7f3909281897341bc8595a62473f4f, type: 3}
+      useSound: {fileID: 0}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 2
       useSwitcherID: -1
       healAmount: 100
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -518,14 +507,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 83fae0672fd00834a8998cbbf25bc615, type: 3}
+      useSound: {fileID: 0}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 5
       useSwitcherID: -1
       healAmount: 35
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -561,14 +549,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 97e6b45d2c680ff4e8fbb5b52d4ece78, type: 3}
+      useSound: {fileID: 0}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 15
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -605,14 +592,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 4a5fff9a8d132a840b5449f18522a6bc, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 25
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -649,14 +635,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 4a5fff9a8d132a840b5449f18522a6bc, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 20
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -695,14 +680,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 216c70bd213ecd94d8d20a922137755b, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 15
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -715,7 +699,7 @@ MonoBehaviour:
     - combineWithID: 16
       resultCombineID: 17
       combineSwitcherID: 0
-  - Title: Oil Bottle
+  - Title: Oil
     ID: 16
     Description: Oil used to combine with herb to make a Herbal Medicine.
     itemType: 0
@@ -748,7 +732,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -786,14 +769,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: 216c70bd213ecd94d8d20a922137755b, type: 3}
+      useSound: {fileID: 8300000, guid: 23c7513718bf2b44f91d954f5b3dae62, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 50
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -829,14 +811,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: a5469360a46d25e4c94693abfeed2a47, type: 3}
+      useSound: {fileID: 0}
       combineSound: {fileID: 0}
       soundVolume: 1
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 40
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -883,7 +864,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -903,14 +883,16 @@ MonoBehaviour:
     itemType: 1
     useActionType: 0
     itemSprite: {fileID: 21300000, guid: 3b77db878a03fe945bd596b1a9da1615, type: 3}
-    dropObject: {fileID: 0}
-    packDropObject: {fileID: 0}
+    dropObject: {fileID: 1112185399130844, guid: 986b423873bae5c4cbd7c39b03a39936,
+      type: 3}
+    packDropObject: {fileID: 1860609706541882, guid: 2898479ab19b91e4bb7c0d5325e857c3,
+      type: 3}
     itemToggles:
       isStackable: 1
       isUsable: 1
       isCombinable: 0
       isDroppable: 0
-      isRemovable: 1
+      isRemovable: 0
       canInspect: 0
       canBindShortcut: 1
       CombineGetItem: 0
@@ -921,14 +903,13 @@ MonoBehaviour:
       doActionUse: 0
       doActionCombine: 0
     itemSounds:
-      useSound: {fileID: 8300000, guid: d2173bb8e5a7b734f927539073afdf2d, type: 3}
+      useSound: {fileID: 8300000, guid: bbcbd09f49804c446aad19d4e9f8c643, type: 3}
       combineSound: {fileID: 0}
       soundVolume: 0.5
     itemSettings:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 60
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -971,7 +952,6 @@ MonoBehaviour:
       maxItemCount: 5
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1018,7 +998,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: -90, y: 180, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1068,7 +1047,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1112,7 +1090,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1155,7 +1132,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1198,7 +1174,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: 0
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1241,7 +1216,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: 1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1286,7 +1260,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1331,7 +1304,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: 3
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1373,7 +1345,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: 4
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1414,7 +1385,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1455,7 +1425,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1496,7 +1465,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1537,7 +1505,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: 0, z: 0}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0
@@ -1583,7 +1550,6 @@ MonoBehaviour:
       maxItemCount: 0
       useSwitcherID: -1
       healAmount: 0
-      inspectRotation: {x: 0, y: -180, z: 90}
     useActionSettings:
       triggerValue: 0
       triggerAddItem: 0

@@ -141,8 +141,6 @@ MonoBehaviour:
   keyID: 0
   useAnim: EB_Door_Open
   backUseAnim: EB_Door_Close
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -151,11 +149,9 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 0
-  reverseMove: 0
-  drawerDragSounds: 0
-  InteractPos: 0
-  drawerDragPlay: 0.2
   minMaxMove: {x: 0, y: 0}
+  reverseMove: 0
+  InteractPos: 0
   stopAngle: 0
   lockOnUp: 0
   isUp: 0
@@ -318,8 +314,6 @@ MonoBehaviour:
   keyID: 0
   useAnim: LeverUp
   backUseAnim: LeverDown
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -328,11 +322,9 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 0
-  reverseMove: 0
-  drawerDragSounds: 0
-  InteractPos: 0
-  drawerDragPlay: 0.2
   minMaxMove: {x: 0, y: 0}
+  reverseMove: 0
+  InteractPos: 0
   stopAngle: 0
   lockOnUp: 1
   isUp: 0
@@ -345,7 +337,7 @@ MonoBehaviour:
   Close: {fileID: 0}
   LockedTry: {fileID: 0}
   UnlockSound: {fileID: 0}
-  LeverUpSound: {fileID: 8300000, guid: 9aa75df18d406714084e7cf06a21fa0c, type: 3}
+  LeverUpSound: {fileID: 8300000, guid: 85fba5fecfc38834d8e15d55ad67cb47, type: 3}
   DebugAngle: 0
   rotateValue: 0
   isHolding: 0

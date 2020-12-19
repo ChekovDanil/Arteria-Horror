@@ -126,39 +126,38 @@ MonoBehaviour:
   ItemType: 2
   examineType: 1
   examineRotate: 3
-  messageType: 1
+  messageType: 2
   disableType: 0
+  ItemName: Glock18
+  Message: Glock18
+  MessageTime: 3
   MessageTips:
   - InputString: Fire
-    KeyMessage: SHOOT
+    KeyMessage: Shoot
   - InputString: Zoom
-    KeyMessage: AIM DOWN SIGHTS
+    KeyMessage: Zoom
   - InputString: Reload
-    KeyMessage: RELOAD
-  weaponID: 0
-  inventoryID: 29
-  backpackExpandAmount: 0
-  examineName: Glock18
-  itemMessage: Glock18
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+    KeyMessage: Reload
+  PickupSound: {fileID: 8300000, guid: 018cbca342a8cb141a8997c8ac85004a, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 1
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 1
   floatingIconEnabled: 1
+  WeaponID: 3
+  InventoryID: 29
+  BackpackExpand: 0
+  ExamineDistance: 0.35
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.75
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

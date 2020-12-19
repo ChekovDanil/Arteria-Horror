@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205774663}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 141.22949, y: 72.235214, z: -82.9473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!33 &1205774668
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,35 +113,34 @@ MonoBehaviour:
   ItemType: 2
   examineType: 1
   examineRotate: 3
-  messageType: 3
+  messageType: 4
   disableType: 0
+  ItemName: Blood Bag
+  Message: Blood Bag
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 11
-  backpackExpandAmount: 0
-  examineName: BloodBag
-  itemMessage: BloodBag
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: 231b8bdbbb98ecc4c9d5df894ab45ca4, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 11
+  BackpackExpand: 0
+  ExamineDistance: 0.35
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: c7d9b05de8f58a747b18d522628612ad, type: 3}
-  pickupVolume: 0.55
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &814946523923516577
 BoxCollider:

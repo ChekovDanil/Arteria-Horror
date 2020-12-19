@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using ThunderWire.Utility;
 
 public class InteractEvents : MonoBehaviour {
 
@@ -30,9 +29,6 @@ public class InteractEvents : MonoBehaviour {
     [Header("Sound")]
     public AudioClip InteractSound;
     public float InteractVolume = 1f;
-    public bool waitToCompelete;
-
-    private AudioSource sound;
 
     private bool isInteracted;
 
@@ -81,21 +77,7 @@ public class InteractEvents : MonoBehaviour {
                 {
                     InteractObject.GetComponent<Animation>()[AnimationName].speed = AnimationSpeed;
                     InteractObject.GetComponent<Animation>().Play(AnimationName);
-
-                    if (InteractSound)
-                    {
-                        if (!waitToCompelete)
-                        {
-                            AudioSource.PlayClipAtPoint(InteractSound, transform.position, InteractVolume);
-                        }
-                        else
-                        {
-                            if(sound == null || !sound.isPlaying)
-                            {
-                                sound = Tools.PlayOneShot3D(transform.position, InteractSound, InteractVolume);
-                            }
-                        }
-                    }
+                    if (InteractSound) { AudioSource.PlayClipAtPoint(InteractSound, transform.position, InteractVolume); }
                 }
             }
         }
@@ -127,20 +109,7 @@ public class InteractEvents : MonoBehaviour {
                 }
             }
 
-            if (InteractSound)
-            {
-                if (!waitToCompelete)
-                {
-                    AudioSource.PlayClipAtPoint(InteractSound, transform.position, InteractVolume);
-                }
-                else
-                {
-                    if (sound == null || !sound.isPlaying)
-                    {
-                        sound = Tools.PlayOneShot3D(transform.position, InteractSound, InteractVolume);
-                    }
-                }
-            }
+            if (InteractSound) { AudioSource.PlayClipAtPoint(InteractSound, transform.position, InteractVolume); }
         }
 
         if (putDownExamine && examine)

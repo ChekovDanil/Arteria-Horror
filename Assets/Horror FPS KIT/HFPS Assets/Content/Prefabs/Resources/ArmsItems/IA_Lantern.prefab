@@ -110,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2579966, y: 0.24326059, z: 0.53803563}
-  m_Center: {x: -0.0000014081598, y: 0.00000094622374, z: 0.061794475}
+  m_Size: {x: 0.25799644, y: 0.24326053, z: 0.5380355}
+  m_Center: {x: 0.0000001266599, y: -0.000000018626505, z: 0.26901776}
 --- !u!114 &114525774071217718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,37 +125,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 2
-  examineType: 1
+  examineType: 0
   examineRotate: 3
-  messageType: 1
+  messageType: 2
   disableType: 0
-  MessageTips:
-  - InputString: '?'
-    KeyMessage: TO LIGHT UP OIL LAMP
-  weaponID: 0
-  inventoryID: 27
-  backpackExpandAmount: 0
-  examineName: Oil Lamp
-  itemMessage: Oil Lamp
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.6
-  paperMessageSize: 0
+  ItemName: 
+  Message: Lantern
+  MessageTime: 3
+  MessageTips: []
+  PickupSound: {fileID: 8300000, guid: cbb2dcda4d563f645ab095bb16557760, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 0.75
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
-  autoShortcut: 1
+  autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 27
+  BackpackExpand: 0
+  ExamineDistance: 0
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.75
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

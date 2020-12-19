@@ -365,7 +365,7 @@ public class VCRPlayer : MonoBehaviour, IItemSelect, ISaveable, IPauseEvent
         canInsert = true;
 
         InsertTrigger.enabled = true;
-        VideoTapeObj.inventoryID = -1;
+        VideoTapeObj.InventoryID = -1;
         VideoTapeObj.enabled = false;
         VideoTapeObj.gameObject.SetActive(false);
 
@@ -385,7 +385,7 @@ public class VCRPlayer : MonoBehaviour, IItemSelect, ISaveable, IPauseEvent
             tape = VideoTapes[FindIndex(tapeCID)];
             clipDuration = tape.Clip.length;
 
-            VideoTapeObj.inventoryID = tapeID.Value;
+            VideoTapeObj.InventoryID = tapeID.Value;
             List<ItemHashtable> hashtables = new List<ItemHashtable>()
             {
                 new ItemHashtable(Inventory.ITEM_VALUE, tapeDescription),
@@ -625,7 +625,7 @@ public class VCRPlayer : MonoBehaviour, IItemSelect, ISaveable, IPauseEvent
             }
         }
 
-        VideoTapeObj.inventoryID = tapeID.Value;
+        VideoTapeObj.InventoryID = tapeID.Value;
 
         if (!string.IsNullOrEmpty(tapeDescription) && !string.IsNullOrEmpty(tapeCID) && !string.IsNullOrEmpty(tapeTexPath))
         {

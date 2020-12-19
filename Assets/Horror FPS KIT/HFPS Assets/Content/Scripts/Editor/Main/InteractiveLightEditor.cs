@@ -8,9 +8,6 @@ public class InteractiveLightEditor : Editor
     private SerializedProperty lightType;
     private SerializedProperty lightObj;
     private SerializedProperty emissionObj;
-    private SerializedProperty emissionString;
-    private SerializedProperty emissionKeyword;
-
     private SerializedProperty electricity;
     private SerializedProperty animationObj;
     private SerializedProperty animationName;
@@ -30,9 +27,6 @@ public class InteractiveLightEditor : Editor
         lightType = serializedObject.FindProperty("lightType");
         lightObj = serializedObject.FindProperty("lightObj");
         emissionObj = serializedObject.FindProperty("emissionObj");
-        emissionString = serializedObject.FindProperty("emissionString");
-        emissionKeyword = serializedObject.FindProperty("emissionKeyword");
-
         electricity = serializedObject.FindProperty("electricity");
         animationObj = serializedObject.FindProperty("animationObj");
         animationName = serializedObject.FindProperty("animationName");
@@ -58,8 +52,6 @@ public class InteractiveLightEditor : Editor
         {
             EditorGUILayout.PropertyField(lightObj, new GUIContent("Light"));
             EditorGUILayout.PropertyField(emissionObj, new GUIContent("Emission Renderer"));
-            EditorGUILayout.PropertyField(emissionKeyword, new GUIContent("Emission Keyword"));
-            EditorGUILayout.PropertyField(emissionString, new GUIContent("Emission Property"));
 
             if (m_lightType == InteractiveLight.LightType.Animation)
             {

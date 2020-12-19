@@ -1,175 +1,66 @@
 fileFormatVersion: 2
 guid: 4150d7fdc690b9746a4a1382771aeeea
+timeCreated: 1504096723
+licenseType: Store
 ModelImporter:
-  serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: Books_Long
-  - first:
-      1: 100002
-    second: Books_Long_01
-  - first:
-      1: 100004
-    second: Books_Medium
-  - first:
-      1: 100006
-    second: Books_Medium_01
-  - first:
-      1: 100008
-    second: Books_Medium_02
-  - first:
-      1: 100010
-    second: Books_Medium_03
-  - first:
-      1: 100012
-    second: Books_Small
-  - first:
-      1: 100014
-    second: Books_Small_01
-  - first:
-      1: 100016
-    second: Books_Small_02
-  - first:
-      1: 100018
-    second: Books_Small_03
-  - first:
-      1: 100020
-    second: //RootNode
-  - first:
-      4: 400000
-    second: Books_Long
-  - first:
-      4: 400002
-    second: Books_Long_01
-  - first:
-      4: 400004
-    second: Books_Medium
-  - first:
-      4: 400006
-    second: Books_Medium_01
-  - first:
-      4: 400008
-    second: Books_Medium_02
-  - first:
-      4: 400010
-    second: Books_Medium_03
-  - first:
-      4: 400012
-    second: Books_Small
-  - first:
-      4: 400014
-    second: Books_Small_01
-  - first:
-      4: 400016
-    second: Books_Small_02
-  - first:
-      4: 400018
-    second: Books_Small_03
-  - first:
-      4: 400020
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: Books_Long
-  - first:
-      23: 2300002
-    second: Books_Long_01
-  - first:
-      23: 2300004
-    second: Books_Medium
-  - first:
-      23: 2300006
-    second: Books_Medium_01
-  - first:
-      23: 2300008
-    second: Books_Medium_02
-  - first:
-      23: 2300010
-    second: Books_Medium_03
-  - first:
-      23: 2300012
-    second: Books_Small
-  - first:
-      23: 2300014
-    second: Books_Small_01
-  - first:
-      23: 2300016
-    second: Books_Small_02
-  - first:
-      23: 2300018
-    second: Books_Small_03
-  - first:
-      33: 3300000
-    second: Books_Long
-  - first:
-      33: 3300002
-    second: Books_Long_01
-  - first:
-      33: 3300004
-    second: Books_Medium
-  - first:
-      33: 3300006
-    second: Books_Medium_01
-  - first:
-      33: 3300008
-    second: Books_Medium_02
-  - first:
-      33: 3300010
-    second: Books_Medium_03
-  - first:
-      33: 3300012
-    second: Books_Small
-  - first:
-      33: 3300014
-    second: Books_Small_01
-  - first:
-      33: 3300016
-    second: Books_Small_02
-  - first:
-      33: 3300018
-    second: Books_Small_03
-  - first:
-      43: 4300000
-    second: Books_Long_01
-  - first:
-      43: 4300002
-    second: Books_Medium_02
-  - first:
-      43: 4300004
-    second: Books_Small_03
-  - first:
-      43: 4300006
-    second: Books_Medium_01
-  - first:
-      43: 4300008
-    second: Books_Small_01
-  - first:
-      43: 4300010
-    second: Books_Long
-  - first:
-      43: 4300012
-    second: Books_Small_02
-  - first:
-      43: 4300014
-    second: Books_Small
-  - first:
-      43: 4300016
-    second: Books_Medium
-  - first:
-      43: 4300018
-    second: Books_Medium_03
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Books_Material
-    second: {fileID: 2100000, guid: d459ed59443711c4d866be90c4dcaffd, type: 2}
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Books_Long
+    100002: Books_Long_01
+    100004: Books_Medium
+    100006: Books_Medium_01
+    100008: Books_Medium_02
+    100010: Books_Medium_03
+    100012: Books_Small
+    100014: Books_Small_01
+    100016: Books_Small_02
+    100018: Books_Small_03
+    100020: //RootNode
+    400000: Books_Long
+    400002: Books_Long_01
+    400004: Books_Medium
+    400006: Books_Medium_01
+    400008: Books_Medium_02
+    400010: Books_Medium_03
+    400012: Books_Small
+    400014: Books_Small_01
+    400016: Books_Small_02
+    400018: Books_Small_03
+    400020: //RootNode
+    2300000: Books_Long
+    2300002: Books_Long_01
+    2300004: Books_Medium
+    2300006: Books_Medium_01
+    2300008: Books_Medium_02
+    2300010: Books_Medium_03
+    2300012: Books_Small
+    2300014: Books_Small_01
+    2300016: Books_Small_02
+    2300018: Books_Small_03
+    3300000: Books_Long
+    3300002: Books_Long_01
+    3300004: Books_Medium
+    3300006: Books_Medium_01
+    3300008: Books_Medium_02
+    3300010: Books_Medium_03
+    3300012: Books_Small
+    3300014: Books_Small_01
+    3300016: Books_Small_02
+    3300018: Books_Small_03
+    4300000: Books_Long_01
+    4300002: Books_Medium_02
+    4300004: Books_Small_03
+    4300006: Books_Medium_01
+    4300008: Books_Small_01
+    4300010: Books_Long
+    4300012: Books_Small_02
+    4300014: Books_Small
+    4300016: Books_Medium
+    4300018: Books_Medium_03
   materials:
-    materialImportMode: 1
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -182,8 +73,6 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -198,8 +87,6 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
-    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -207,14 +94,9 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
+    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    skinWeightsMode: 0
-    maxBonesPerVertex: 4
-    minBoneWeight: 0.001
-    meshOptimizationFlags: -1
-    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -225,13 +107,10 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
-  referencedClips: []
   importAnimation: 1
+  copyAvatar: 0
   humanDescription:
-    serializedVersion: 3
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -241,16 +120,14 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
-  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -111,7 +111,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 193.13576, y: 2.5680006, z: 152.74802}
+  m_ConnectedAnchor: {x: 193.2855, y: 2.5717504, z: 152.74802}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -177,8 +177,6 @@ MonoBehaviour:
   keyID: 0
   useAnim: 
   backUseAnim: 
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -187,11 +185,9 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 0
-  reverseMove: 0
-  drawerDragSounds: 0
-  InteractPos: 0
-  drawerDragPlay: 0.2
   minMaxMove: {x: 0, y: 0}
+  reverseMove: 0
+  InteractPos: 0
   stopAngle: 353
   lockOnUp: 1
   isUp: 0
@@ -204,7 +200,7 @@ MonoBehaviour:
   Close: {fileID: 0}
   LockedTry: {fileID: 0}
   UnlockSound: {fileID: 0}
-  LeverUpSound: {fileID: 8300000, guid: 9aa75df18d406714084e7cf06a21fa0c, type: 3}
+  LeverUpSound: {fileID: 8300000, guid: 85fba5fecfc38834d8e15d55ad67cb47, type: 3}
   DebugAngle: 0
   rotateValue: 0
   isHolding: 0
@@ -431,7 +427,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 193.27399, y: 2.5730004, z: 153.07872}
+  m_ConnectedAnchor: {x: 193.562, y: 2.5730004, z: 152.81416}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -497,8 +493,6 @@ MonoBehaviour:
   keyID: 0
   useAnim: 
   backUseAnim: 
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -507,11 +501,9 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 0
-  reverseMove: 0
-  drawerDragSounds: 0
-  InteractPos: 0
-  drawerDragPlay: 0.2
   minMaxMove: {x: 0, y: 0}
+  reverseMove: 0
+  InteractPos: 0
   stopAngle: 0
   lockOnUp: 0
   isUp: 0

@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3883263260219317132}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 131.7743, y: 7, z: 167.9835}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45.000004, z: 0}
 --- !u!33 &3883263260219317142
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3883263260219317132}
-  m_Mesh: {fileID: 6551534817284054111, guid: 2ee8b18cd00d52249a064f1e95872950, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 8fb9b2f473277134381ff5186a49a2ee, type: 3}
 --- !u!23 &3883263260219317143
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -109,8 +109,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.29965073, y: 0.15054074, z: 0.20988463}
-  m_Center: {x: -0.000065766275, y: 0.0013647191, z: -0.001454018}
+  m_Size: {x: 0.98310614, y: 0.49390006, z: 0.68859786}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3883263260219317130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,33 +126,32 @@ MonoBehaviour:
   ItemType: 2
   examineType: 1
   examineRotate: 3
-  messageType: 3
+  messageType: 4
   disableType: 0
+  ItemName: MedKit
+  Message: MedKit
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 9
-  backpackExpandAmount: 0
-  examineName: Med Kit
-  itemMessage: Med Kit
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.37
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: c19fa22dbf9d5f5439cb6c59bad4ec4d, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 0.75
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 9
+  BackpackExpand: 0
+  ExamineDistance: 0.5
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.55
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

@@ -129,31 +129,30 @@ MonoBehaviour:
   examineRotate: 3
   messageType: 0
   disableType: 0
+  ItemName: Flashlight
+  Message: 
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 0
-  backpackExpandAmount: 0
-  examineName: Flashlight
-  itemMessage: 
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.4
-  paperMessageSize: 0
+  PickupSound: {fileID: 0}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 0
+  BackpackExpand: 0
+  ExamineDistance: 0.5
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 0}
-  pickupVolume: 1
-  examineSound: {fileID: 8300000, guid: 4e6d1d4f658fb11448ee8d536a7c3fb5, type: 3}
-  examineVolume: 0.1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

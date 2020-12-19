@@ -126,33 +126,32 @@ MonoBehaviour:
   ItemType: 2
   examineType: 1
   examineRotate: 3
-  messageType: 3
+  messageType: 4
   disableType: 0
+  ItemName: VHS Tape
+  Message: VHS Tape
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 35
-  backpackExpandAmount: 0
-  examineName: VHS Tape
-  itemMessage: VHS Tape
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 0}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 35
+  BackpackExpand: 0
+  ExamineDistance: 0.4
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 083a48ad55134a8419e7016aafcfd886, type: 3}
-  pickupVolume: 0.75
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

@@ -76,7 +76,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c3b8be1286e59cf49ac9520e8c929a06, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b32222f7f5962d48abdf62066b8839a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
@@ -178,37 +178,36 @@ MonoBehaviour:
   examineType: 2
   examineRotate: 3
   messageType: 0
-  disableType: 3
+  disableType: 2
+  ItemName: Old Radio
+  Message: 
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 0
-  backpackExpandAmount: 0
-  examineName: Radio
-  itemMessage: 
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 0}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 1
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 0
+  BackpackExpand: 0
+  ExamineDistance: 0.45
   faceToCamera: 1
-  faceRotation: {x: -90, y: 180, z: 0}
-  itemHashtables: []
   CollidersDisable:
   - {fileID: 430702749826978041}
   CollidersEnable:
   - {fileID: 5857054866350411172}
   - {fileID: 430702749005323640}
-  pickupSound: {fileID: 0}
-  pickupVolume: 1
-  examineSound: {fileID: 8300000, guid: 4e6d1d4f658fb11448ee8d536a7c3fb5, type: 3}
-  examineVolume: 0.1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: -90, y: 180, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &430702749826978042
 MonoBehaviour:
@@ -223,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radioAudioSource: {fileID: 430702749826978044}
-  pushButton: {fileID: 8300000, guid: 458eda3e2e01017409ab1b2f43b3c799, type: 3}
+  pushButton: {fileID: 8300000, guid: 3d30cc1ead9c0c74d9e46b1c612a9951, type: 3}
   meshRenderer: {fileID: 5857054866352411490}
   PowerLight: {fileID: 764663020114916174}
   OnColor: {r: 0, g: 1, b: 0, a: 1}
@@ -324,7 +323,6 @@ MonoBehaviour:
   putDownExamine: 0
   InteractSound: {fileID: 0}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!1 &5666328326087616923
 GameObject:
   m_ObjectHideFlags: 0

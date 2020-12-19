@@ -57,7 +57,6 @@ public class InventoryScriptable : ScriptableObject {
             public int maxItemCount;
             public int useSwitcherID = -1;
             public int healAmount;
-            public Vector3 inspectRotation;
         }
 
 		public Settings itemSettings = new Settings();

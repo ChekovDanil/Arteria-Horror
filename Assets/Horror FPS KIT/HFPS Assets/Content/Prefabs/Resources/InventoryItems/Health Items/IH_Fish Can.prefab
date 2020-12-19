@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2815891573619926925}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 131.86765, y: 7.015, z: 168.84418}
+  m_LocalScale: {x: 0.3, y: 0.30000013, z: 0.30000013}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!33 &2815891573619927027
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2815891573619926925}
-  m_Mesh: {fileID: 2799765337778454294, guid: f8272c4fcf5d1434a96718bde2ca752f, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 875f182e26971804a998b7bb7538a600, type: 3}
 --- !u!23 &2815891573619927024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11707002, y: 0.1757327, z: 0.11529146}
-  m_Center: {x: 0.0000016801059, y: 0.0000000037252903, z: 0.0000013839453}
+  m_Size: {x: 0.46090564, y: 0.45390362, z: 0.6918612}
+  m_Center: {x: 0, y: 2.1175824e-22, z: 0.000000014901165}
 --- !u!54 &2815891573619926926
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,33 +126,32 @@ MonoBehaviour:
   ItemType: 2
   examineType: 1
   examineRotate: 3
-  messageType: 3
+  messageType: 4
   disableType: 0
+  ItemName: Fish Can
+  Message: Fish Can
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 5
-  backpackExpandAmount: 0
-  examineName: Fish Can
-  itemMessage: Fish Can
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: c19fa22dbf9d5f5439cb6c59bad4ec4d, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 0.75
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 5
+  BackpackExpand: 0
+  ExamineDistance: 0.4
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.55
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

@@ -9,7 +9,7 @@ using UnityEngine;
 using WaterBuoyancy;
 
 /// <summary>
-/// Script defining Draggable Objects.
+/// Script defining Draggable Objects
 /// </summary>
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class DraggableObject : MonoBehaviour, ISaveable
@@ -19,9 +19,6 @@ public class DraggableObject : MonoBehaviour, ISaveable
     private WaterVolume water;
     private Collider m_collider;
     private Rigidbody m_rigidbody;
-
-    //[HideInInspector]
-    public bool isInCollision = false;
 
     [Header("Drag Settings")]
     public float dragDistance = 2f;
@@ -119,22 +116,6 @@ public class DraggableObject : MonoBehaviour, ISaveable
         if (other.GetComponent<WaterVolume>())
         {
             water = null;
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (!collision.collider.CompareTag("Player"))
-        {
-            isInCollision = true;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (!collision.collider.CompareTag("Player"))
-        {
-            isInCollision = false;
         }
     }
 

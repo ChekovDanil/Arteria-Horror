@@ -226,7 +226,7 @@ MonoBehaviour:
   animationName: 
   switchOnAnim: 
   switchOffAnim: 
-  SwitchOn: {fileID: 8300000, guid: 34132e817d3b66741ae6ed01c151c9ee, type: 3}
-  SwitchOff: {fileID: 8300000, guid: a09f9b6b9b8d164468fc12199a553cd4, type: 3}
+  SwitchOn: {fileID: 8300000, guid: 3342d8e9978669345aee95291b3d0440, type: 3}
+  SwitchOff: {fileID: 8300000, guid: d7bc44bbd6ddc4147ac88c8b82f091a6, type: 3}
   volume: 1
   isPoweredOn: 0

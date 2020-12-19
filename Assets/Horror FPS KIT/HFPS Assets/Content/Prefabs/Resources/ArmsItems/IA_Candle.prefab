@@ -109,35 +109,34 @@ MonoBehaviour:
   ItemType: 2
   examineType: 0
   examineRotate: 3
-  messageType: 3
+  messageType: 2
   disableType: 0
+  ItemName: 
+  Message: Candle
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 28
-  backpackExpandAmount: 0
-  examineName: 
-  itemMessage: Candle
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 2
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: 018cbca342a8cb141a8997c8ac85004a, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 0.75
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 28
+  BackpackExpand: 0
+  ExamineDistance: 0
   faceToCamera: 0
+  CollidersDisable: []
+  CollidersEnable: []
+  paperReadText: 
+  textSize: 0
   faceRotation: {x: 0, y: 0, z: 0}
+  isExamined: 0
   itemHashtables:
   - Key: Value
     Value: 100
-  CollidersDisable: []
-  CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 083a48ad55134a8419e7016aafcfd886, type: 3}
-  pickupVolume: 1
-  examineSound: {fileID: 0}
-  examineVolume: 1
-  isExamined: 0
   lastFloorPosition: {x: 0, y: 0, z: 0}

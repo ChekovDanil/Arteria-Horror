@@ -252,8 +252,7 @@ public class DynamicObjectController : MonoBehaviour
         if (dynamicObj.rotateValue < 1f)
         {
             float z = dynamicObj.valveTurnSpeed;
-            Type_Axis axis = dynamicObj.turnAxis;
-            Vector3 rotation = new Vector3(axis == Type_Axis.AxisX ? -z : 0, axis == Type_Axis.AxisY ? -z : 0, axis == Type_Axis.AxisZ ? -z : 0);
+            Vector3 rotation = new Vector3(0, 0, -z);
             raycastObject.transform.Rotate(rotation);
             dynamicObj.rotateValue = Mathf.MoveTowards(dynamicObj.rotateValue, 1f, Time.deltaTime * valveSliderSpeed);
             gameManager.ValveSlider.value = dynamicObj.rotateValue;

@@ -36,9 +36,7 @@ public class DynamicObjectEditor : Editor
     public SerializedProperty sp_moveWithX;
     public SerializedProperty sp_minMaxMove;
     public SerializedProperty sp_reverseMove;
-    public SerializedProperty sp_drawerDragSounds;
     public SerializedProperty sp_InteractPos;
-    public SerializedProperty sp_drawerDragPlay;
     #endregion
 
     #region Lever
@@ -51,7 +49,6 @@ public class DynamicObjectEditor : Editor
     public SerializedProperty sp_valveSoundAfter;
     public SerializedProperty sp_valveTurnSpeed;
     public SerializedProperty sp_valveTurnTime;
-    public SerializedProperty sp_valveTurnAxis;
     #endregion
 
     #region Drawer
@@ -86,8 +83,6 @@ public class DynamicObjectEditor : Editor
         sp_moveWithX = serializedObject.FindProperty("moveWithX");
         sp_minMaxMove = serializedObject.FindProperty("minMaxMove");
         sp_reverseMove = serializedObject.FindProperty("reverseMove");
-        sp_drawerDragSounds = serializedObject.FindProperty("drawerDragSounds");
-        sp_drawerDragPlay = serializedObject.FindProperty("drawerDragPlay");
         sp_InteractPos = serializedObject.FindProperty("InteractPos");
         sp_stopAngle = serializedObject.FindProperty("stopAngle");
         sp_lockOnUp = serializedObject.FindProperty("lockOnUp");
@@ -95,7 +90,6 @@ public class DynamicObjectEditor : Editor
         sp_valveSoundAfter = serializedObject.FindProperty("valveSoundAfter");
         sp_valveTurnSpeed = serializedObject.FindProperty("valveTurnSpeed");
         sp_valveTurnTime = serializedObject.FindProperty("valveTurnTime");
-        sp_valveTurnAxis = serializedObject.FindProperty("turnAxis");
         sp_Volume = serializedObject.FindProperty("m_Volume");
         sp_Open = serializedObject.FindProperty("Open");
         sp_Close = serializedObject.FindProperty("Close");
@@ -215,15 +209,6 @@ public class DynamicObjectEditor : Editor
                     EditorGUILayout.PropertyField(sp_minMaxMove, new GUIContent("Min Max Move"));
                     EditorGUILayout.PropertyField(sp_moveWithX, new GUIContent("Move With X"));
                     EditorGUILayout.PropertyField(sp_reverseMove, new GUIContent("Reverse Move"));
-                    EditorGUILayout.PropertyField(sp_drawerDragSounds, new GUIContent("Drag Sounds"));
-
-                    if (sp_drawerDragSounds.boolValue)
-                    {
-                        EditorGUILayout.PropertyField(sp_drawerDragPlay, new GUIContent("Drag Play Value"));
-                        EditorGUILayout.PropertyField(sp_Open, new GUIContent("Open Sound"));
-                        EditorGUILayout.PropertyField(sp_Close, new GUIContent("Close Sound"));
-                    }
-
                     EditorGUILayout.PropertyField(sp_UnlockSound, new GUIContent("Unlock Sound"));
                     EditorGUILayout.PropertyField(sp_LockedTry, new GUIContent("Locked Try Sound"));
                 }
@@ -276,7 +261,6 @@ public class DynamicObjectEditor : Editor
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField("Valve Properties", EditorStyles.boldLabel);
 
-                EditorGUILayout.PropertyField(sp_valveTurnAxis, new GUIContent("Turn Axis"));
                 EditorGUILayout.PropertyField(sp_valveTurnSounds, new GUIContent("Turn Sounds"), true);
                 EditorGUILayout.PropertyField(sp_Volume, new GUIContent("Turn Volume"));
                 EditorGUILayout.PropertyField(sp_valveSoundAfter, new GUIContent("Turn Sound After"));

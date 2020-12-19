@@ -155,12 +155,10 @@ MonoBehaviour:
   DisabledEvent:
     m_PersistentCalls:
       m_Calls: []
-  customText: Drawer is Locked!
+  customText: 
   keyID: 0
   useAnim: 
   backUseAnim: 
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -169,11 +167,9 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 1
+  minMaxMove: {x: -1.215, y: -0.2010915}
   reverseMove: 0
-  drawerDragSounds: 1
   InteractPos: 0
-  drawerDragPlay: 0.02
-  minMaxMove: {x: -0.2010915, y: -1.215}
   stopAngle: 0
   lockOnUp: 0
   isUp: 0
@@ -182,10 +178,10 @@ MonoBehaviour:
   valveTurnSpeed: 0
   valveTurnTime: 0
   m_Volume: 1
-  Open: {fileID: 8300000, guid: 38d58f49efee1924ea361f2ee0e8d566, type: 3}
-  Close: {fileID: 8300000, guid: 20a5111ae4f42b0459ddc34ff8d2daba, type: 3}
-  LockedTry: {fileID: 8300000, guid: 676f700ed81dff44c8c3d972d06e96c8, type: 3}
-  UnlockSound: {fileID: 8300000, guid: 7cf1602e9c6c6cb4daaa3145ad56fe7f, type: 3}
+  Open: {fileID: 0}
+  Close: {fileID: 0}
+  LockedTry: {fileID: 8300000, guid: cc61c1e5e7c05cc479aff5f7706fede9, type: 3}
+  UnlockSound: {fileID: 8300000, guid: e819f01aeada1c7449ec82e24683aebe, type: 3}
   LeverUpSound: {fileID: 0}
   DebugAngle: 0
   rotateValue: 0
@@ -330,12 +326,10 @@ MonoBehaviour:
   DisabledEvent:
     m_PersistentCalls:
       m_Calls: []
-  customText: Drawer is Locked!
+  customText: 
   keyID: 0
   useAnim: 
   backUseAnim: 
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -344,11 +338,9 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 1
+  minMaxMove: {x: -1.215, y: -0.2010915}
   reverseMove: 0
-  drawerDragSounds: 1
   InteractPos: 0
-  drawerDragPlay: 0.02
-  minMaxMove: {x: -0.2010915, y: -1.215}
   stopAngle: 0
   lockOnUp: 0
   isUp: 0
@@ -357,10 +349,10 @@ MonoBehaviour:
   valveTurnSpeed: 0
   valveTurnTime: 0
   m_Volume: 1
-  Open: {fileID: 8300000, guid: 38d58f49efee1924ea361f2ee0e8d566, type: 3}
-  Close: {fileID: 8300000, guid: 20a5111ae4f42b0459ddc34ff8d2daba, type: 3}
-  LockedTry: {fileID: 8300000, guid: 676f700ed81dff44c8c3d972d06e96c8, type: 3}
-  UnlockSound: {fileID: 8300000, guid: 7cf1602e9c6c6cb4daaa3145ad56fe7f, type: 3}
+  Open: {fileID: 0}
+  Close: {fileID: 0}
+  LockedTry: {fileID: 8300000, guid: cc61c1e5e7c05cc479aff5f7706fede9, type: 3}
+  UnlockSound: {fileID: 8300000, guid: e819f01aeada1c7449ec82e24683aebe, type: 3}
   LeverUpSound: {fileID: 0}
   DebugAngle: 0
   rotateValue: 0
@@ -599,12 +591,10 @@ MonoBehaviour:
   DisabledEvent:
     m_PersistentCalls:
       m_Calls: []
-  customText: Drawer is Locked!
+  customText: 
   keyID: 0
   useAnim: 
   backUseAnim: 
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -613,11 +603,9 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 1
+  minMaxMove: {x: -1.215, y: -0.2010915}
   reverseMove: 0
-  drawerDragSounds: 1
   InteractPos: 0
-  drawerDragPlay: 0.02
-  minMaxMove: {x: -0.2010915, y: -1.215}
   stopAngle: 0
   lockOnUp: 0
   isUp: 0
@@ -626,10 +614,10 @@ MonoBehaviour:
   valveTurnSpeed: 0
   valveTurnTime: 0
   m_Volume: 1
-  Open: {fileID: 8300000, guid: 38d58f49efee1924ea361f2ee0e8d566, type: 3}
-  Close: {fileID: 8300000, guid: 20a5111ae4f42b0459ddc34ff8d2daba, type: 3}
-  LockedTry: {fileID: 8300000, guid: 80486e50fc9ee5346945e4feedca3215, type: 3}
-  UnlockSound: {fileID: 8300000, guid: 7cf1602e9c6c6cb4daaa3145ad56fe7f, type: 3}
+  Open: {fileID: 0}
+  Close: {fileID: 0}
+  LockedTry: {fileID: 8300000, guid: f0e2178f2807cdf4ebe6e2e6a97f43ab, type: 3}
+  UnlockSound: {fileID: 8300000, guid: e819f01aeada1c7449ec82e24683aebe, type: 3}
   LeverUpSound: {fileID: 0}
   DebugAngle: 0
   rotateValue: 0

@@ -23,7 +23,6 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
     private HFPS_GameManager gameManager;
     private PlayerFunctions playerFunctions;
     private Inventory inventory;
-    private Transform Player;
 
     private Animator weaponAnim;
     private Transform weaponRoot;
@@ -123,12 +122,9 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
 
     private string stateName = string.Empty;
     private float stateTime;
-
-    private bool inputWait;
-    private float waitTime;
     #endregion
 
-    void Awake()
+    void Start()
     {
         weaponRoot = transform.GetChild(0);
         weaponAnim = weaponRoot.GetComponent<Animator>();
@@ -136,8 +132,8 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
         crossPlatformInput = CrossPlatformInput.Instance;
         gameManager = HFPS_GameManager.Instance;
         inventory = Inventory.Instance;
-        Player = PlayerController.Instance.transform;
         playerFunctions = scriptManager.GetScript<PlayerFunctions>();
+
         mainCamera = scriptManager.MainCamera;
 
         hipPosition = weaponAnim.transform.localPosition;
@@ -156,21 +152,7 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
 
     void Update()
     {
-        if (!scriptManager.ScriptGlobalState)
-        {
-            waitTime = 0.5f;
-            inputWait = true;
-        }
-        else if (inputWait && waitTime > 0)
-        {
-            waitTime -= Time.deltaTime;
-        }
-        else
-        {
-            inputWait = false;
-        }
-
-        if (crossPlatformInput.inputsLoaded && !inputWait)
+        if (crossPlatformInput.inputsLoaded)
         {
             fireControl = crossPlatformInput.GetInput<bool>("Fire");
             zoomControl = crossPlatformInput.GetInput<bool>("Zoom");
@@ -190,7 +172,7 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
                 }
                 else
                 {
-                    conflictTime = 0.3f;
+                    conflictTime = 1;
                 }
             }
             else
@@ -270,7 +252,7 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
                 canFire = true;
             }
 
-            if(reloadControl && !isReloading && carryingBullets > 0 && bulletsInMag < bulletsPerMag)
+            if(reloadControl && !isReloading && carryingBullets > 0)
             {
                 StartCoroutine(Reload());
 
@@ -386,20 +368,18 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
         Quaternion hitRotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
         Vector3 hitPosition = hit.point;
 
-        GameObject hitObject = hit.collider.gameObject;
         SurfaceDetails surface;
         Terrain terrain;
-
-        if ((terrain = hitObject.GetComponent<Terrain>()) != null)
+        if ((terrain = hit.collider.GetComponent<Terrain>()) != null)
         {
             surface = surfaceDetails.GetTerrainSurfaceDetails(terrain, hit.point);
         }
         else
         {
-            surface = surfaceDetails.GetSurfaceDetails(hitObject, surfaceID);
+            surface = surfaceDetails.GetSurfaceDetails(hit.collider.gameObject, surfaceID);
         }
 
-        if(surface == null || hitObject.CompareTag("Water") && (surface = surfaceDetails.GetSurfaceDetails("Water")) == null)
+        if(surface == null)
         {
             surface = surfaceDetails.surfaceDetails[defaultSurfaceID];
         }
@@ -471,7 +451,7 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
 
         if (reaction && enableSoundReaction)
         {
-            Collider[] colliderHit = Physics.OverlapSphere(Player.position, soundReactionRadius, soundReactionMask);
+            Collider[] colliderHit = Physics.OverlapSphere(transform.position, soundReactionRadius, soundReactionMask);
 
             foreach (var hit in colliderHit)
             {
@@ -479,7 +459,7 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
 
                 if ((m_reaction = hit.GetComponentInChildren<INPCReaction>()) != null)
                 {
-                    m_reaction.SoundReaction(Player.position, false);
+                    m_reaction.SoundReaction(1, Vector3.Distance(transform.position, hit.transform.position), transform.position);
                 }
             }
         }
@@ -524,31 +504,16 @@ public class WeaponController : SwitcherBehaviour, ISaveableArmsItem, IOnAnimato
         weaponRoot.gameObject.SetActive(true);
         SetZoomFOV(false);
 
-        if (gameManager)
-        {
-            gameManager.AmmoUI.SetActive(true);
-            uiShown = true;
-        }
-
         isReloading = false;
         isSelected = true;
-
-        stateName = string.Empty;
-        stateTime = 0;
     }
 
     public override void OnSwitcherDeactivate()
     {
-        isSelected = false;
         SetZoomFOV(true);
+        isSelected = false;
         weaponRoot.localPosition = hipPosition;
         weaponRoot.gameObject.SetActive(false);
-
-        if (gameManager)
-        {
-            gameManager.AmmoUI.SetActive(false);
-            uiShown = false;
-        }
     }
 
     public override void OnSwitcherWallHit(bool hit)

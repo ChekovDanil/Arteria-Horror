@@ -614,7 +614,7 @@ namespace ThunderWire.Game.Options
         {
             Navigation = value.Get<Vector2>();
 
-            if(device == Device.Gamepad && currentTab == OptionTab.Controls && GamepadScheme && !IsLocked && OptionsShown)
+            if(device == Device.Gamepad && currentTab == OptionTab.Controls && GamepadScheme)
             {
                 if(Navigation.x > 0.1)
                 {

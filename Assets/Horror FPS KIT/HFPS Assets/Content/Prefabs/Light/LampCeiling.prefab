@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 4201157744178524}
   - component: {fileID: 33309817854102252}
   - component: {fileID: 23385287666613930}
-  - component: {fileID: 1020260110}
+  - component: {fileID: 2716346985202690279}
   m_Layer: 0
   m_Name: LampCeiling
   m_TagString: Untagged
@@ -173,7 +173,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1020260110
+--- !u!114 &2716346985202690279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f624d677b0a18e74ab57c2f35741f825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightType: 1
+  lightType: 0
   lightObj: {fileID: 108986563124187312}
   electricity: {fileID: 0}
   interactiveLight: {fileID: 0}

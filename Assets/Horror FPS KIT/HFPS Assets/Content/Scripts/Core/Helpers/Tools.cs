@@ -27,7 +27,7 @@ namespace ThunderWire.Utility
         /// <summary>
         /// Compare Layer with LayerMask
         /// </summary>
-        public static bool CompareLayer(this LayerMask layermask, int layer)
+        public static bool IsInLayerMask(int layer, LayerMask layermask)
         {
             return layermask == (layermask | (1 << layer));
         }
@@ -86,7 +86,7 @@ namespace ThunderWire.Utility
         /// <summary>
         /// Play OneShot Audio 2D
         /// </summary>
-        public static AudioSource PlayOneShot2D(Vector3 position, AudioClip clip, float volume = 1f)
+        public static void PlayOneShot2D(Vector3 position, AudioClip clip, float volume = 1f)
         {
             GameObject go = new GameObject("OneShotAudio");
             go.transform.position = position;
@@ -96,23 +96,6 @@ namespace ThunderWire.Utility
             source.volume = volume;
             source.Play();
             UnityEngine.Object.Destroy(go, clip.length);
-            return source;
-        }
-
-        /// <summary>
-        /// Play OneShot Audio 2D
-        /// </summary>
-        public static AudioSource PlayOneShot3D(Vector3 position, AudioClip clip, float volume = 1f)
-        {
-            GameObject go = new GameObject("OneShotAudio");
-            go.transform.position = position;
-            AudioSource source = go.AddComponent<AudioSource>();
-            source.spatialBlend = 1f;
-            source.clip = clip;
-            source.volume = volume;
-            source.Play();
-            UnityEngine.Object.Destroy(go, clip.length);
-            return source;
         }
 
         /// <summary>
@@ -286,17 +269,9 @@ namespace ThunderWire.Utility
         /// <summary>
         /// Clamp Vector3
         /// </summary>
-        public static Vector3 Clamp(this Vector3 vector, float min, float max)
+        public static Vector3 Clamp(this Vector3 vec, float min, float max)
         {
-            return new Vector3(Mathf.Clamp(vector.x, min, max), Mathf.Clamp(vector.y, min, max), Mathf.Clamp(vector.z, min, max));
-        }
-
-        /// <summary>
-        /// Get Random Value from Min/Max Vector.
-        /// </summary>
-        public static float Random(this Vector2 vector)
-        {
-            return UnityEngine.Random.Range(vector.x, vector.y);
+            return new Vector3(Mathf.Clamp(vec.x, min, max), Mathf.Clamp(vec.y, min, max), Mathf.Clamp(vec.z, min, max));
         }
 
         /// <summary>

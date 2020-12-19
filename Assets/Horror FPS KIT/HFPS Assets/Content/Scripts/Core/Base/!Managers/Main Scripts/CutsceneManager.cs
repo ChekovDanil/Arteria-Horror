@@ -1,6 +1,6 @@
 ﻿/*
  * CutsceneManager.cs - by ThunderWire Studio
- * Version 1.1 Beta (May occur bugs sometimes)
+ * Version 1.0 Beta (May occur bugs sometimes)
  * 
  * Bugs please report here: thunderwiregames@gmail.com
 */
@@ -39,13 +39,11 @@ namespace ThunderWire.Cutscenes
         [HideInInspector]
         public bool cutsceneRunning;
 
-        private int queueIndex = 0;
-        private bool skipCurrent = false;
-
         private Cutscene current = null;
-        private Cutscene temp = null;
         private List<Cutscene> cutsceneQueue = new List<Cutscene>();
         private AudioListener mainListener;
+        private int queueIndex = 0;
+        private bool skipCurrent = false;
 
         void Awake()
         {
@@ -99,11 +97,13 @@ namespace ThunderWire.Cutscenes
 
                 if (fadePanel)
                 {
+                    cutsceneRunning = true;
                     fadePanel.FadeIn();
                     StartCoroutine(PlayQueuedCutscenesFade());
                 }
                 else
                 {
+                    cutsceneRunning = true;
                     StartCoroutine(PlayQueuedCutscenes());
                 }
             }
@@ -148,6 +148,25 @@ namespace ThunderWire.Cutscenes
             }
         }
 
+        void FreezePlayer(bool state)
+        {
+            if (state)
+            {
+                mainListener.enabled = false;
+                scriptManager.m_GameManager.MainGamePanel.SetActive(false);
+                scriptManager.MainCamera.gameObject.SetActive(false);
+                scriptManager.ArmsCamera.gameObject.SetActive(false);
+            }
+            else
+            {
+                mainListener.enabled = true;
+                scriptManager.m_GameManager.MainGamePanel.SetActive(true);
+                scriptManager.m_GameManager.LockPlayerControls(true, true, false);
+                scriptManager.MainCamera.gameObject.SetActive(true);
+                scriptManager.ArmsCamera.gameObject.SetActive(true);
+            }
+        }
+
         IEnumerator PlayQueuedCutscenes()
         {
             FreezePlayer(true);
@@ -167,9 +186,11 @@ namespace ThunderWire.Cutscenes
                     yield return new WaitUntil(() => skipCurrent);
                 }
 
+                current.Director.transform.GetComponentsInChildren<UnityEngine.Camera>().ToList().ForEach(x => x.gameObject.SetActive(false));
+                current.Director.Stop();
+
                 if (queueIndex < cutsceneQueue.Count)
                 {
-                    current.Director.Stop();
                     skipCurrent = false;
                     current = cutsceneQueue[queueIndex];
                     queueIndex++;
@@ -178,17 +199,16 @@ namespace ThunderWire.Cutscenes
                     yield return new WaitForEndOfFrame();
                     yield return new WaitUntil(() => fadePanel.IsFadedIn);
                     fadePanel.FadeOutManually();
-                    continue;
                 }
                 else
                 {
-                    current.Director.Stop();
+                    FreezePlayer(false);
                     ClearCurrentQueue();
                     queueIndex = 0;
-                    temp = current;
                     current = null;
-                    break;
                 }
+
+                yield return null;
             }
 
             if (fadePanel)
@@ -210,36 +230,7 @@ namespace ThunderWire.Cutscenes
         {
             yield return new WaitForEndOfFrame();
             yield return new WaitUntil(() => fadePanel.IsFadedIn);
-            SwitchCameras();
             fadePanel.FadeOutManually();
-        }
-
-        void SwitchCameras()
-        {
-            temp.Director.transform.GetComponentsInChildren<UnityEngine.Camera>().ToList().ForEach(x => x.gameObject.SetActive(false));
-            temp = null;
-            FreezePlayer(false);
-        }
-
-        void FreezePlayer(bool state)
-        {
-            if (state)
-            {
-                mainListener.enabled = false;
-                scriptManager.m_GameManager.MainGamePanel.SetActive(false);
-                scriptManager.MainCamera.gameObject.SetActive(false);
-                scriptManager.ArmsCamera.gameObject.SetActive(false);
-            }
-            else
-            {
-                mainListener.enabled = true;
-                scriptManager.m_GameManager.MainGamePanel.SetActive(true);
-                scriptManager.m_GameManager.LockPlayerControls(true, true, false);
-                scriptManager.MainCamera.gameObject.SetActive(true);
-                scriptManager.ArmsCamera.gameObject.SetActive(true);
-            }
-
-            cutsceneRunning = state;
         }
     }
 }

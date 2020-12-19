@@ -24,7 +24,7 @@ MonoBehaviour:
     completeCount: 0
     objectiveID: 1
   - shortName: Example 03
-    eventID: FenceDoorFirst
+    eventID: FenceDoor
     objectiveText: Collect three apples to open door {0}/{1}
     completeCount: 3
     objectiveID: 2
@@ -34,12 +34,7 @@ MonoBehaviour:
     completeCount: 0
     objectiveID: 3
   - shortName: Example 05
-    eventID: FenceDoorArena
-    objectiveText: Kill the guard zombie to open the Arena
+    eventID: 
+    objectiveText: Kill the Zombie
     completeCount: 0
     objectiveID: 4
-  - shortName: Example 06
-    eventID: 
-    objectiveText: Kill the Arena Zombie
-    completeCount: 0
-    objectiveID: 5

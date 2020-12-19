@@ -127,7 +127,7 @@ MonoBehaviour:
   StartingItems: []
   containerName: Backpack
   containerSpace: 10
-  OpenSound: {fileID: 8300000, guid: bcf51201d1b55dc40b735942c10536d1, type: 3}
+  OpenSound: {fileID: 8300000, guid: cea8f33321a91d3429e7cc7d29210047, type: 3}
   Volume: 1
   isOpened: 0
 --- !u!114 &3738620218130864840

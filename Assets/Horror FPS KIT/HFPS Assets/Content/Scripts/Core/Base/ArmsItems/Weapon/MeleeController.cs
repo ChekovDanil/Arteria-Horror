@@ -64,10 +64,7 @@ public class MeleeController : SwitcherBehaviour
     private bool isHideAnim;
     private bool isSelected;
     private bool isBlocked;
-    private bool wallHit;
-
-    private bool inputWait;
-    private float waitTime;
+    public bool wallHit;
 
     void Awake()
     {
@@ -157,21 +154,7 @@ public class MeleeController : SwitcherBehaviour
 
     void Update()
     {
-        if(!scriptManager.ScriptGlobalState)
-        {
-            waitTime = 0.5f;
-            inputWait = true;
-        }
-        else if(inputWait && waitTime > 0)
-        {
-            waitTime -= Time.deltaTime;
-        }
-        else
-        {
-            inputWait = false;
-        }
-
-        if (crossPlatformInput.inputsLoaded && !inputWait)
+        if (crossPlatformInput.inputsLoaded)
         {
             AttackKey = crossPlatformInput.GetInput<bool>("Fire");
         }

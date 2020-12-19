@@ -47,11 +47,6 @@ public class JumpscareTrigger : MonoBehaviour {
 		effects = ScriptManager.Instance.gameObject.GetComponent<JumpscareEffects> ();
 	}
 
-	public void IsPlayed(bool state)
-	{
-		isPlayed = state;
-	}
-
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player" && !isPlayed)

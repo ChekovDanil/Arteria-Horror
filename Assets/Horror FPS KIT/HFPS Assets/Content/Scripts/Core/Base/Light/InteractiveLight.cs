@@ -18,8 +18,6 @@ public class InteractiveLight : MonoBehaviour, ISaveable {
 	public Light lightObj;
     public MeshRenderer emissionObj;
     public Electricity electricity;
-    public string emissionKeyword = "_EMISSION";
-    public string emissionString = "_EmissionColor";
 
     public Animation animationObj;
     public string animationName;
@@ -74,10 +72,6 @@ public class InteractiveLight : MonoBehaviour, ISaveable {
                     animationObj.Play(switchOnAnim);
                 }
             }
-            else
-            {
-                animationObj.Stop();
-            }
         }
     }
 
@@ -130,12 +124,11 @@ public class InteractiveLight : MonoBehaviour, ISaveable {
             {
                 if (lightObj.enabled)
                 {
-                    emissionObj.material.EnableKeyword(emissionKeyword);
-                    emissionObj.material.SetColor(emissionString, new Color(1f, 1f, 1f));
+                    emissionObj.material.SetColor("_EmissionColor", new Color(1f, 1f, 1f));
                 }
                 else
                 {
-                    emissionObj.material.SetColor(emissionString, new Color(0f, 0f, 0f));
+                    emissionObj.material.SetColor("_EmissionColor", new Color(0f, 0f, 0f));
                 }
             }
         }
@@ -216,8 +209,7 @@ public class InteractiveLight : MonoBehaviour, ISaveable {
         return new Dictionary<string, object>
         {
             { "isPoweredOn", isPoweredOn },
-            { "defaultPower", defaultPower },
-            { "lightType", lightType }
+            { "defaultPower", defaultPower }
         };
     }
 
@@ -225,24 +217,22 @@ public class InteractiveLight : MonoBehaviour, ISaveable {
     {
         isPoweredOn = token["isPoweredOn"].ToObject<bool>();
         defaultPower = token["defaultPower"].ToObject<bool>();
-        lightType = token["lightType"].ToObject<LightType>();
 
         if (animationObj)
         {
-            if (isPoweredOn && lightType == LightType.Animation)
+            if (isPoweredOn)
             {
-                if (interactType == InteractType.Lamp)
+                if (isPoweredOn && lightType == LightType.Animation)
                 {
-                    animationObj.Play(animationName);
+                    if (interactType == InteractType.Lamp)
+                    {
+                        animationObj.Play(animationName);
+                    }
+                    else
+                    {
+                        animationObj.Play(switchOnAnim);
+                    }
                 }
-                else
-                {
-                    animationObj.Play(switchOnAnim);
-                }
-            }
-            else
-            {
-                animationObj.Stop();
             }
         }
     }

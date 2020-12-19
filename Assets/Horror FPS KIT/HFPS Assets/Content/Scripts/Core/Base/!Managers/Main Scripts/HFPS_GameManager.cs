@@ -13,7 +13,6 @@ using UnityEngine.Rendering.PostProcessing;
 using ThunderWire.CrossPlatform.Input;
 using ThunderWire.Game.Options;
 using HFPS.Prefs;
-using ThunderWire.Cutscenes;
 
 public enum HideHelpType
 {
@@ -30,7 +29,6 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
     private SaveGameHandler saveHandler;
     private CrossPlatformInput crossPlatformInput;
     private AdvancedMenuUI menuUI;
-    private CutsceneManager cutscene;
     private ScriptManager scriptManager;
     private Inventory inventory;
 
@@ -155,12 +153,11 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
 
     void Awake()
     {
+        crossPlatformInput = CrossPlatformInput.Instance;
         scriptManager = ScriptManager.Instance;
-        crossPlatformInput = GetComponent<CrossPlatformInput>();
-        menuUI = GetComponent<AdvancedMenuUI>();
+        menuUI = AdvancedMenuUI.Instance;
         saveHandler = GetComponent<SaveGameHandler>();
         inventory = GetComponent<Inventory>();
-        cutscene = GetComponent<CutsceneManager>();
 
         if (scriptManager.ArmsCamera.GetComponent<PostProcessVolume>())
         {
@@ -277,7 +274,7 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
                 if (isPaused || inventory.isInventoryShown)
                 {
                     string[] except = inventory.shortcutActions;
-                    except = except.Append("Inventory").Append("Pause").ToArray();
+                    except = except.Append("Inventory").ToArray();
                     crossPlatformInput.SuspendInput(true, except);
                 }
                 else
@@ -289,7 +286,7 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
 
         if (!uiInteractive) return;
 
-        if (PauseKey && !isPressedPause && !antiSpam && !menuUI.IsLocked && !cutscene.cutsceneRunning)
+        if (PauseKey && !isPressedPause && !antiSpam && !menuUI.IsLocked)
         {
             PauseGamePanel.SetActive(!PauseGamePanel.activeSelf);
             MainGamePanel.SetActive(!MainGamePanel.activeSelf);
@@ -322,7 +319,6 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
         }
         else if (!PauseKey && isPressedPause)
         {
-            crossPlatformInput.SuspendInput(false);
             isPressedPause = false;
         }
 
@@ -363,14 +359,13 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
             }
         }
 
-        if (InventoryKey && !isPressedInv && !isPaused && !isOverlapping && !cutscene.cutsceneRunning)
+        if (InventoryKey && !isPressedInv && !isPaused && !isOverlapping)
         {
             TabButtonPanel.SetActive(!TabButtonPanel.activeSelf);
             isPressedInv = true;
         }
         else if (!InventoryKey && isPressedInv)
         {
-            crossPlatformInput.SuspendInput(false);
             isPressedInv = false;
         }
 
@@ -741,19 +736,17 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
             }
         }
 
-        PickupMessages.Clear();
-
-        if (messageTips != null && messageTips.Length > 0)
+        if(messageTips != null && messageTips.Length > 0)
         {
             foreach (var item in messageTips)
             {
                 GameObject obj = Instantiate(HintTipPrefab, HintTipsPanel.transform);
-                CrossPlatformControl? input = crossPlatformInput.ControlOf(item.InputString);
                 PickupMessages.Add(obj);
+                CrossPlatformControl? input = crossPlatformInput.ControlOf(item.InputString);
 
                 if (input.HasValue)
                 {
-                    SetKey(obj.transform, input.Value, item.KeyMessage);
+                    SetKey(obj.transform, input.Value, item.KeyMessage, true);
                 }
             }
 
@@ -775,13 +768,6 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
             }
         };
         isExamining = false;
-
-        foreach (GameObject mtip in PickupMessages)
-        {
-            HorizontalLayoutGroup horizontalLayoutGroup = mtip.GetComponent<HorizontalLayoutGroup>();
-            horizontalLayoutGroup.enabled = false;
-            horizontalLayoutGroup.enabled = true;
-        }
     }
 
     public void HideExamine()
@@ -875,37 +861,54 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
 		return Player.GetComponent<PlayerController> ().isControllable;
 	}
 
-    private void SetKey(Transform ControlObj, CrossPlatformControl Control, string ControlName = "")
+    private void SetKey(Transform ControlObj, CrossPlatformControl Control, string ControlName = "", bool isSpriteControl = false)
     {
         if (!string.IsNullOrEmpty(ControlName))
         {
-            ControlObj.GetChild(1).GetComponent<Text>().text = ControlName;
+            ControlObj.GetChild(2).GetComponent<Text>().text = ControlName;
         }
 
         if (!string.IsNullOrEmpty(Control.Control))
         {
             if (Control.DeviceType == ControlDevice.Keyboard)
             {
-                Sprite button = crossPlatformInput.crossPlatformSprites.GetSprite(Control.Control, crossPlatformInput.GetCurrentPlatform());
-
-                if (button != null)
+                if (!isSpriteControl)
                 {
-                    ControlObj.GetChild(0).GetComponent<Image>().sprite = button;
+                    ControlObj.GetChild(0).GetComponentInChildren<Text>().text = Control.Control;
+                    ControlObj.GetChild(0).gameObject.SetActive(true);
+                    ControlObj.GetChild(1).gameObject.SetActive(false);
                 }
                 else
                 {
-                    Debug.LogError("[Control Sprite] The specified control key was not found!");
+                    Sprite button = crossPlatformInput.crossPlatformSprites.GetSprite(Control.Control, crossPlatformInput.GetCurrentPlatform());
+
+                    if (button != null)
+                    {
+                        ControlObj.GetChild(1).GetComponent<Image>().sprite = button;
+                        ControlObj.GetChild(1).gameObject.SetActive(true);
+                        ControlObj.GetChild(0).gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        ControlObj.GetChild(0).GetComponentInChildren<Text>().text = Control.Control;
+                        ControlObj.GetChild(0).gameObject.SetActive(true);
+                        ControlObj.GetChild(1).gameObject.SetActive(false);
+                    }
                 }
             }
             else if (Control.DeviceType == ControlDevice.Mouse)
             {
                 Sprite mouse = crossPlatformInput.crossPlatformSprites.GetMouseSprite(Control.Control);
-                ControlObj.GetChild(0).GetComponent<Image>().sprite = mouse;
+                ControlObj.GetChild(1).GetComponent<Image>().sprite = mouse;
+                ControlObj.GetChild(1).gameObject.SetActive(true);
+                ControlObj.GetChild(0).gameObject.SetActive(false);
             }
             else if (Control.DeviceType == ControlDevice.Gamepad)
             {
                 Sprite button = crossPlatformInput.crossPlatformSprites.GetSprite(Control.Control, crossPlatformInput.GetCurrentPlatform());
-                ControlObj.GetChild(0).GetComponent<Image>().sprite = button;
+                ControlObj.GetChild(1).GetComponent<Image>().sprite = button;
+                ControlObj.GetChild(1).gameObject.SetActive(true);
+                ControlObj.GetChild(0).gameObject.SetActive(false);
             }
 
             ControlObj.gameObject.SetActive(true);
@@ -970,20 +973,11 @@ public class HFPS_GameManager : Singleton<HFPS_GameManager> {
         DownHelpUI.SetActive(true);
     }
 
-    public void ShowPaperExamineSprites(CrossPlatformControl ExamineKey, bool rotate, string ExamineText = "Examine")
+    public void ShowPaperExamineSprites(CrossPlatformControl ExamineKey, string ExamineText = "Examine")
     {
         SetKey(HelpButton1.transform, GrabKey, "Put Away");
         SetKey(HelpButton2.transform, ExamineKey, ExamineText);
-
-        if (rotate)
-        {
-            SetKey(HelpButton3.transform, RotateKey, "Rotate");
-        }
-        else
-        {
-            HelpButton3.SetActive(false);
-        }
-
+        SetKey(HelpButton3.transform, RotateKey, "Rotate");
         HelpButton4.SetActive(false);
         DownHelpUI.SetActive(true);
     }

@@ -3,5 +3,5 @@
 public interface INPCReaction
 {
     void HitReaction();
-    void SoundReaction(Vector3 pos, bool closeSound);
+    void SoundReaction(int type, float distance, Vector3 pos);
 }

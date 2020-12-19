@@ -128,10 +128,10 @@ namespace ThunderWire.Game.Options
                 if (jsonHandler.Json().HasValues)
                 {
                     string rootKey = jsonHandler.Json().ToObject<Dictionary<string, object>>().Keys.FirstOrDefault();
-
-                    if (device == Device.Keyboard && rootKey.Equals(OPTIONS_PC_PREFIX) || device == Device.Gamepad && rootKey.Equals(OPTIONS_CONSOLE_PREFIX))
+                    
+                    if(device == Device.Keyboard && rootKey.Equals(OPTIONS_PC_PREFIX) || device == Device.Gamepad && rootKey.Equals(OPTIONS_CONSOLE_PREFIX))
                     {
-                        UpdateOptions(true, true);
+                        UpdateOptions(!HFPS_GameManager.IsInitialized, true);
                     }
                     else
                     {

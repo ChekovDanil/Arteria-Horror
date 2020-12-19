@@ -58,17 +58,16 @@ public class DragRigidbody : MonoBehaviour
     private float PickupRange = 3f;
     private float distance;
 
-    private bool RotateButton;
     private bool GrabObject;
     private bool isObjectHeld;
-    private bool isRotatePressed;
     private bool antiSpam;
+    private bool RotateButton;
 
-    private float timeDropCheck;
     private float zoomInputY;
     private Vector2 rotateValue;
     private Vector2 rotationVelocity;
     private Vector2 smoothRotation;
+    private Vector3 velocity;
     #endregion
 
     void Awake()
@@ -189,8 +188,9 @@ public class DragRigidbody : MonoBehaviour
         }
 
         Ray playerAim = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
 
-        if (Physics.Raycast(playerAim, out RaycastHit hit, PickupRange, CullLayers))
+        if (Physics.Raycast(playerAim, out hit, PickupRange, CullLayers))
         {
             if (hit.collider.gameObject.layer == InteractLayer)
             {
@@ -219,12 +219,10 @@ public class DragRigidbody : MonoBehaviour
                     gameManager.LockPlayerControls(false, false, false);
                     objectHeld.transform.Rotate(playerCam.transform.up, smoothRotation.x, Space.World);
                     objectHeld.transform.Rotate(playerCam.transform.right, smoothRotation.y, Space.World);
-                    isRotatePressed = true;
                 }
-                else if(isRotatePressed)
+                else
                 {
                     gameManager.LockPlayerControls(true, false, false);
-                    isRotatePressed = false;
                 }
             }
         }
@@ -307,24 +305,25 @@ public class DragRigidbody : MonoBehaviour
             fixedVelocityRigid.isKinematic = false;
         }
 
+        interact.CrosshairVisible(false);
         itemSwitcher.FreeHands(dragHideWeapon);
         gameManager.UIPreventOverlap(true);
         gameManager.ShowGrabSprites();
         gameManager.isGrabbed = true;
         delay.isEnabled = false;
         pfunc.zoomEnabled = false;
-        timeDropCheck = 0f;
 
         GetComponent<ScriptManager>().ScriptEnabledGlobal = false;
         Physics.IgnoreCollision(objectHeld.GetComponent<Collider>(), transform.root.GetComponent<Collider>(), true);
         objectHeld.SendMessage("OnRigidbodyDrag", SendMessageOptions.DontRequireReceiver);
 
+        StartCoroutine(DropDistance());
+
         isObjectHeld = true;
-    }
+    } 
 
     void HoldObject()
     {
-        interact.CrosshairVisible(false);
         gameManager.HideSprites(HideHelpType.Interact);
         distance = Mathf.Clamp(distance, minDistanceZoom, maxDistanceZoom - 0.5f);
 
@@ -332,8 +331,14 @@ public class DragRigidbody : MonoBehaviour
 
         Vector3 currPos = objectHeld.transform.position;
         Vector3 grabPos = playerAim.origin + playerAim.direction * distance;
+        Vector3 nextPos = Vector3.SmoothDamp(currPos, grabPos, ref velocity, Time.deltaTime * DragSmoothing);
 
-        heldRigidbody.velocity = (grabPos - currPos) * DragSmoothing;
+        objectHeld.transform.position = nextPos;
+
+        if (fixedHold && heldRigidbody)
+        {
+            heldRigidbody.velocity = Vector3.zero;
+        }
 
         if (fixedHold && fixedVelocityObj && fixedVelocityRigid)
         {
@@ -356,14 +361,18 @@ public class DragRigidbody : MonoBehaviour
                 distance += mw;
             }
         }
+    }
 
-        if(timeDropCheck < 1f)
+    IEnumerator DropDistance()
+    {
+        yield return new WaitForSeconds(1f);
+        while (objectHeld)
         {
-            timeDropCheck += Time.deltaTime;
-        }
-        else if (Vector3.Distance(objectHeld.transform.position, playerCam.transform.position) > maxDistanceGrab)
-        {
-            DropObject();
+            if (Vector3.Distance(objectHeld.transform.position, playerCam.transform.position) > maxDistanceGrab)
+            {
+                DropObject();
+            }
+            yield return null;
         }
     }
 
@@ -372,9 +381,9 @@ public class DragRigidbody : MonoBehaviour
         return isObjectHeld;
     }
 
-    public void ResetDrag(bool throwObj)
+    void ResetDrag(bool throwObj)
     {
-        if(dragHideWeapon) itemSwitcher.FreeHands(false);
+        if (dragHideWeapon) itemSwitcher.FreeHands(false);
 
         gameManager.LockPlayerControls(true, true, false);
         gameManager.UIPreventOverlap(false);
@@ -384,7 +393,6 @@ public class DragRigidbody : MonoBehaviour
         if (objectHeld && heldRigidbody)
         {
             if (fixedHold) objectHeld.transform.parent = oldParent;
-
             heldRigidbody.useGravity = true;
             heldRigidbody.freezeRotation = false;
 
@@ -395,9 +403,12 @@ public class DragRigidbody : MonoBehaviour
             {
                 heldRigidbody.AddForce(playerCam.transform.forward * ThrowStrength, ForceMode.Impulse);
             }
-            else if (fixedHold && fixedVelocityObj)
+            else
             {
-                heldRigidbody.AddForce(fixedVelocityRigid.velocity, ForceMode.VelocityChange);
+                if (fixedHold && fixedVelocityObj)
+                {
+                    heldRigidbody.AddForce(fixedVelocityRigid.velocity, ForceMode.VelocityChange);
+                }
             }
 
             if (fixedVelocityObj)
@@ -416,7 +427,6 @@ public class DragRigidbody : MonoBehaviour
         heldDraggable = null;
         GrabObject = false;
         isObjectHeld = false;
-        timeDropCheck = 0f;
 
         StartCoroutine(ResetZoom());
     }

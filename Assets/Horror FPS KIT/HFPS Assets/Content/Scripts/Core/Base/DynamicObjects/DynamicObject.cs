@@ -38,13 +38,6 @@ public enum Type_Key
     Inventory
 }
 
-public enum Type_Axis
-{
-    AxisX,
-    AxisY,
-    AxisZ
-}
-
 public class DynamicObject : MonoBehaviour, ISaveable {
 
     private RandomHelper rand = new RandomHelper();
@@ -92,13 +85,9 @@ public class DynamicObject : MonoBehaviour, ISaveable {
     #region DrawerSettings
     [Tooltip("If true default move vector will be X, if false default vector is Z")]
     public bool moveWithX;
-    public bool reverseMove;
-    public bool drawerDragSounds;
-    public float InteractPos;
-    public float drawerDragPlay = 0.2f;
     public Vector2 minMaxMove;
-
-    private bool dragSoundStopped;
+    public bool reverseMove;
+    public float InteractPos;
     #endregion
 
     #region LeverSettings
@@ -113,7 +102,6 @@ public class DynamicObject : MonoBehaviour, ISaveable {
     public float valveSoundAfter;
     public float valveTurnSpeed;
     public float valveTurnTime;
-    public Type_Axis turnAxis = Type_Axis.AxisX;
 
     private bool turnSound;
     private bool valveInvoked;
@@ -130,13 +118,15 @@ public class DynamicObject : MonoBehaviour, ISaveable {
     #endregion
 
     public bool DebugAngle;
+
+    //[HideInInspector]
     public float rotateValue;
-    public bool isHolding;
-    public bool Hold;
-    public bool hasKey;
-    public bool isLocked;
-    public bool isInvoked;
-    public float Angle;
+    [HideInInspector] public bool isHolding;
+    [HideInInspector] public bool Hold;
+    [HideInInspector] public bool hasKey;
+    [HideInInspector] public bool isLocked;
+    [HideInInspector] public bool isInvoked;
+    [HideInInspector] public float Angle;
 
     private bool invokeUp;
     private bool isPlayed;
@@ -191,21 +181,6 @@ public class DynamicObject : MonoBehaviour, ISaveable {
         {
             IgnoreColliders.Add(PlayerController.Instance.gameObject.GetComponent<Collider>());
             isLocked = useType != Type_Use.Normal;
-
-            if(interactType == Type_Interact.Mouse && drawerDragSounds)
-            {
-                if (reverseMove)
-                {
-                    float x = minMaxMove.x;
-                    minMaxMove.x = minMaxMove.y;
-                    minMaxMove.y = x;
-                }
-
-                if (!GetComponent<AudioSource>())
-                {
-                    Debug.LogError("[Drawer] You have activated the Audio Drag Sounds feature, you must attach an AudioSource component to the object.");
-                }
-            }
         }
         else if(dynamicType == Type_Dynamic.Lever)
         {
@@ -344,74 +319,24 @@ public class DynamicObject : MonoBehaviour, ISaveable {
                 }
             }
         }
-        else if (dynamicType == Type_Dynamic.Drawer)
+        else if(dynamicType == Type_Dynamic.Drawer)
         {
-            if (interactType == Type_Interact.Mouse)
+            if(interactType == Type_Interact.Mouse)
             {
                 float mouseVelocity = 0;
                 mouseSmooth = Mathf.SmoothDamp(mouseSmooth, mouseInput, ref mouseVelocity, Time.deltaTime * mouseSmoothing);
-                float absMouseSmooth = Mathf.Abs(mouseSmooth);
-
-                if (drawerDragSounds && GetComponent<AudioSource>() && !dragSoundStopped)
-                {
-                    GetComponent<AudioSource>().volume = Mathf.Clamp(absMouseSmooth * 15, 0, 1f);
-                }
 
                 if (!moveWithX)
                 {
                     Vector3 pos = transform.localPosition;
                     pos.z += mouseSmooth * 0.1f;
-                    transform.localPosition = new Vector3(pos.x, pos.y, Mathf.Clamp(pos.z, minMaxMove.y, minMaxMove.x));
+                    transform.localPosition = new Vector3(pos.x, pos.y, Mathf.Clamp(pos.z, minMaxMove.x, minMaxMove.y));
                 }
                 else
                 {
                     Vector3 pos = transform.localPosition;
                     pos.x += mouseSmooth * 0.1f;
-                    transform.localPosition = new Vector3(Mathf.Clamp(pos.x, minMaxMove.y, minMaxMove.x), pos.y, pos.z);
-                }
-
-                if (drawerDragSounds && GetComponent<AudioSource>())
-                {
-                    float dragPos = Mathf.Abs(moveWithX ? transform.localPosition.x : transform.localPosition.z);
-                    float inverseSmooth = mouseSmooth * -1;
-
-                    float max = !reverseMove ? Mathf.Abs(minMaxMove.y) - 0.05f : Mathf.Abs(minMaxMove.x) + 0.05f;
-                    float min = !reverseMove ? Mathf.Abs(minMaxMove.x) + 0.05f : Mathf.Abs(minMaxMove.y) - 0.05f;
-
-                    if (inverseSmooth > drawerDragPlay && dragPos < max)
-                    {
-                        dragSoundStopped = false;
-                        GetComponent<AudioSource>().clip = Open;
-
-                        if (!GetComponent<AudioSource>().isPlaying)
-                        {
-                            GetComponent<AudioSource>().Play();
-                        }
-                    }
-                    else if (inverseSmooth < 0 && absMouseSmooth > drawerDragPlay && dragPos > min)
-                    {
-                        dragSoundStopped = false;
-                        GetComponent<AudioSource>().clip = Close;
-
-                        if (!GetComponent<AudioSource>().isPlaying)
-                        {
-                            GetComponent<AudioSource>().Play();
-                        }
-                    }
-                    else
-                    {
-                        dragSoundStopped = true;
-
-                        if(GetComponent<AudioSource>().volume > 0.01f)
-                        {
-                            GetComponent<AudioSource>().volume = Mathf.MoveTowards(GetComponent<AudioSource>().volume, 0f, Time.deltaTime * 4f);
-                        }
-                        else
-                        {
-                            GetComponent<AudioSource>().volume = 0f;
-                            GetComponent<AudioSource>().Stop();
-                        }
-                    }
+                    transform.localPosition = new Vector3(Mathf.Clamp(pos.x, minMaxMove.x, minMaxMove.y), pos.y, pos.z);
                 }
             }
         }
@@ -533,7 +458,7 @@ public class DynamicObject : MonoBehaviour, ISaveable {
                             isInvoked = true;
                         }
                     }
-                    else if (minMaxMove.y > minMaxMove.x)
+                    else if(minMaxMove.y > minMaxMove.x)
                     {
                         if (transform.localPosition.x >= InteractPos)
                         {
@@ -744,6 +669,11 @@ public class DynamicObject : MonoBehaviour, ISaveable {
         }
     }
 
+    private bool GetJointType()
+    {
+        return dynamicType == Type_Dynamic.Door || dynamicType == Type_Dynamic.Lever;
+    }
+
     private bool CanLockType()
     {
         return dynamicType == Type_Dynamic.Door || dynamicType == Type_Dynamic.Drawer;
@@ -770,7 +700,7 @@ public class DynamicObject : MonoBehaviour, ISaveable {
 
     void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Rigidbody>() && dynamicType == Type_Dynamic.Drawer && oldCollisionObjectParent && collisionObject)
+        if (collision.gameObject.GetComponent<Rigidbody>() && dynamicType == Type_Dynamic.Drawer)
         {
             collisionObject.transform.SetParent(oldCollisionObjectParent);
             collisionObject = null;

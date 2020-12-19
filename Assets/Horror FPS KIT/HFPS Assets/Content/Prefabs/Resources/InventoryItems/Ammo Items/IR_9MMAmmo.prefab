@@ -126,33 +126,32 @@ MonoBehaviour:
   ItemType: 2
   examineType: 1
   examineRotate: 3
-  messageType: 3
+  messageType: 4
   disableType: 0
+  ItemName: 9mm Rounds
+  Message: 9MM Rounds
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 25
-  backpackExpandAmount: 0
-  examineName: 9mm Ammo
-  itemMessage: 9mm Ammo
-  paperMessage: 
-  pickupAmount: 50
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: 2346c91f902aee648984825b10809b3e, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 50
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 25
+  BackpackExpand: 0
+  ExamineDistance: 0.3
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.75
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

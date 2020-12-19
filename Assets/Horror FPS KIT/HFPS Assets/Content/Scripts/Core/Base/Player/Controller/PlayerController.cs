@@ -50,7 +50,6 @@ public class PlayerController : Singleton<PlayerController>
     public float waterJumpHeight = 5;
     public float stateChangeSpeed = 3f;
     public float runTransitionSpeed = 5f;
-    public bool enableSliding = false;
     public bool airControl = false;
 
     [Header("Controller Settings")]
@@ -326,7 +325,7 @@ public class PlayerController : Singleton<PlayerController>
             if (isGrounded)
             {
                 //Detect sliding surface
-                if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, slideRayDistance, surfaceCheckMask) && enableSliding)
+                if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit, slideRayDistance))
                 {
                     float hitangle = Vector3.Angle(hit.normal, Vector3.up);
 
@@ -372,7 +371,6 @@ public class PlayerController : Singleton<PlayerController>
                 if (isSliding)
                 {
                     //Apply sliding physics
-                    //If you are looking for a movement lag bug, it is here, just disable sliding
                     Vector3 hitNormal = hit.normal;
                     moveDirection = new Vector3(hitNormal.x, -hitNormal.y, hitNormal.z);
                     Vector3.OrthoNormalize(ref hitNormal, ref moveDirection);
@@ -666,7 +664,7 @@ public class PlayerController : Singleton<PlayerController>
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
-            
+
         //dont move the rigidbody if the character is on top of it
         if (characterController.collisionFlags == CollisionFlags.Below)
         {
@@ -837,6 +835,7 @@ public class PlayerController : Singleton<PlayerController>
     IEnumerator MovePlayer(Vector3 pos, float speed, bool ladder, bool unlockLook = false)
     {
         characterController.enabled = false;
+        Vector3 velocity = Vector3.zero;
 
         while (Vector3.Distance(transform.position, pos) > 0.05f)
         {

@@ -49,7 +49,6 @@ public class BodyAnimator : MonoBehaviour
     public bool enableShadows = true;
     public bool visibleToCamera = true;
     public bool proneDisableBody;
-    public bool showBodyGizmos;
 
     [Header("Body Death Settings")]
     public bool ragdollDeath;
@@ -532,31 +531,6 @@ public class BodyAnimator : MonoBehaviour
         if (bodyControl && angledBody)
         {
             transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, yBodyRotation, transform.eulerAngles.z));
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (showBodyGizmos)
-        {
-            Vector3 angleLeft = Quaternion.AngleAxis(minAngleBody, Vector3.up) * transform.forward;
-            Vector3 angleRight = Quaternion.AngleAxis(maxAngleBody, Vector3.up) * transform.forward;
-
-            Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, angleLeft * 2);
-            Gizmos.DrawRay(transform.position, angleRight * 2);
-
-            Vector3 angleLeftMax = Quaternion.AngleAxis(minBodyMaxDeadzone, Vector3.up) * transform.forward;
-            Vector3 angleRightMax = Quaternion.AngleAxis(maxBodyMaxDeadzone, Vector3.up) * transform.forward;
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position, angleLeftMax * 2);
-            Gizmos.DrawRay(transform.position, angleRightMax * 2);
-
-            Vector3 spineAngleGizmo = Quaternion.AngleAxis(spineAngle, Vector3.up) * transform.forward;
-
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawRay(transform.position, spineAngleGizmo * 1.5f);
         }
     }
 

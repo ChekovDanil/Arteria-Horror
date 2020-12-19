@@ -244,37 +244,36 @@ MonoBehaviour:
   examineRotate: 0
   messageType: 0
   disableType: 0
+  ItemName: Padlock
+  Message: 
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 0
-  backpackExpandAmount: 0
-  examineName: Number Padlock
-  itemMessage: 
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 0}
+  ExamineSound: {fileID: 0}
+  Volume: 0
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 1
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 0
+  BackpackExpand: 0
+  ExamineDistance: 0.15
   faceToCamera: 1
-  faceRotation: {x: -90, y: -90, z: 0}
-  itemHashtables: []
   CollidersDisable:
   - {fileID: 2679444523773808204}
   CollidersEnable:
   - {fileID: 2679444525249340608}
   - {fileID: 2679444523515813335}
   - {fileID: 2679444524992445601}
-  pickupSound: {fileID: 0}
-  pickupVolume: 1
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: -90, y: -90, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2679444523773808202
 MonoBehaviour:
@@ -294,7 +293,7 @@ MonoBehaviour:
   UnlockWaitTime: 1
   m_animation: {fileID: 2679444523773808205}
   unlockAnimation: NumPadlockUnlock
-  UnlockSound: {fileID: 8300000, guid: 18ef05418ed4a0b438971a1f264b044f, type: 3}
+  UnlockSound: {fileID: 0}
   UnlockEvent:
     m_PersistentCalls:
       m_Calls: []

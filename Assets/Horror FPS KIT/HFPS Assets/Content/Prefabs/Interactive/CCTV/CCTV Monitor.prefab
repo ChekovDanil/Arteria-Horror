@@ -219,9 +219,9 @@ MonoBehaviour:
   PowerLight: {fileID: 1717118053}
   OffMaterial: {fileID: 2100000, guid: 5bef5c130659de24a9d78f54710248b0, type: 2}
   RenderMaterial: {fileID: 2100000, guid: b9323e490efb96e4a9edc36fb5bd9a52, type: 2}
-  OnSound: {fileID: 8300000, guid: d338497a8fd275a448c210b14457ea89, type: 3}
-  OffSound: {fileID: 8300000, guid: b46bed9333a143241af3582e96fa4808, type: 3}
-  ChangeChannelSound: {fileID: 8300000, guid: 2ab3c9355f7d2334b8c1112af2f5468e, type: 3}
+  OnSound: {fileID: 8300000, guid: d1c1fa25bce34f949bc8cb5ca19e220f, type: 3}
+  OffSound: {fileID: 8300000, guid: d442c8a84fbd4354f9b4208cf9bad518, type: 3}
+  ChangeChannelSound: {fileID: 8300000, guid: 97f4b48b9ed2bf344822f0f639591fad, type: 3}
   isOn: 0
 --- !u!1 &1007479888
 GameObject:
@@ -357,7 +357,6 @@ MonoBehaviour:
   putDownExamine: 0
   InteractSound: {fileID: 0}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!114 &1007479894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +632,6 @@ MonoBehaviour:
   putDownExamine: 0
   InteractSound: {fileID: 0}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!114 &1782430469
 MonoBehaviour:
   m_ObjectHideFlags: 0

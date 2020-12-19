@@ -9,12 +9,11 @@ using ThunderWire.CrossPlatform.Input;
 
 public class SceneLoader : MonoBehaviour
 {
-    private CrossPlatformInput input;
-    private GameObject MainCamera;
-
     public List<SceneInfo> sceneInfos = new List<SceneInfo>();
 
-    [Space]
+    [Space(7)]
+
+    private CrossPlatformInput input;
     public FadePanelControl fadeController;
     public TipsManager tipsManager;
     public GameObject SpinnerGO;
@@ -23,10 +22,14 @@ public class SceneLoader : MonoBehaviour
     public Image backgroundImg;
     public GameObject manuallySwitchText;
 
-    [Space][Tooltip("Switch scene by pressing any button")]
+    private GameObject MainCamera;
+
+    [Tooltip("Switch scene by pressing any button")]
     public bool SwitchManually;
 
-    [Space][Tooltip("Background Loading Priority")]
+    [Space(7)]
+
+    [Tooltip("Background Loading Priority")]
     public ThreadPriority threadPriority = ThreadPriority.High;
     public int timeBeforeLoad;
 
@@ -108,14 +111,13 @@ public class SceneLoader : MonoBehaviour
             yield return new WaitUntil(() => SceneTool.LoadingDone);
 
             SpinnerGO.SetActive(false);
+
             manuallySwitchText.SetActive(true);
 
             if (tipsManager)
             {
                 tipsManager.TipsText.gameObject.SetActive(false);
             }
-
-            RemoveDontDestroyOnLoad();
 
             yield return new WaitUntil(() => input.AnyControlPressed());
 
@@ -139,21 +141,6 @@ public class SceneLoader : MonoBehaviour
                 }
 
                 SceneTool.AllowSceneActivation();
-            }
-        }
-    }
-
-    void RemoveDontDestroyOnLoad() 
-    {
-        DontDestroyLoad[] objs = FindObjectsOfType<DontDestroyLoad>();
-
-        if (objs.Length > 0)
-        {
-            GameObject go = new GameObject("_Temp");
-
-            foreach (var obj in objs)
-            {
-                obj.transform.SetParent(go.transform);
             }
         }
     }

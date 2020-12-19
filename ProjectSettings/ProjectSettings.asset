@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 20
-  productGUID: ff0d75bea9d40f34286c02083517d612
+  productGUID: b8b890c8030d91043a67727b5b24f147
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -271,7 +271,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: db8780ffecf8c484c9c43c4c205b06a6, type: 3}
+      m_Icon: {fileID: 2800000, guid: b02b7dffdc13ac940a0eedc765e0514b, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -628,7 +628,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: AutoSetupForUnity;UNITY_POST_PROCESSING_STACK_V2;EMERALD_AI_PRESENT;GPU_INSTANCER;AURA_IN_PROJECT;AURA_IN_SCENEVIEW
+    1: AutoSetupForUnity;UNITY_POST_PROCESSING_STACK_V2;EMERALD_AI_PRESENT
     7: UNITY_POST_PROCESSING_STACK_V2
     13: UNITY_POST_PROCESSING_STACK_V2
     19: UNITY_POST_PROCESSING_STACK_V2
@@ -647,7 +647,7 @@ PlayerSettings:
   useDeterministicCompilation: 1
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
-  gcIncremental: 1
+  gcIncremental: 0
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform:
     Standalone: 3
@@ -730,6 +730,6 @@ PlayerSettings:
   organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 1
-  disableOldInputManagerSupport: 1
+  disableOldInputManagerSupport: 0
   legacyClampBlendShapeWeights: 0
   virtualTexturingSupportEnabled: 0

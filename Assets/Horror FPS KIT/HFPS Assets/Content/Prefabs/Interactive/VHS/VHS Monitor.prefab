@@ -1,97 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &566765390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 566765392}
-  - component: {fileID: 566765391}
-  m_Layer: 0
-  m_Name: DisplayLight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &566765392
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566765390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.41400155, y: 0, z: 0.13900006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4133353645752381160}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &566765391
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 566765390}
-  m_Enabled: 0
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 0, g: 0, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 1.5
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1 &2437537305217424355
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +365,6 @@ Transform:
   m_Children:
   - {fileID: 2437537305217424353}
   - {fileID: 4133353645271846927}
-  - {fileID: 566765392}
   - {fileID: 4133353646550051537}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -636,22 +543,22 @@ MonoBehaviour:
   videoAudio: {fileID: 2437537305217424354}
   soundsAudio: {fileID: 4133353645752381161}
   renderTextureSize: {x: 500, y: 350}
-  NoInput: {fileID: 2800000, guid: 7797e6c49a9a5fd4ba9a381c3bed53e7, type: 3}
-  InsertTape: {fileID: 2800000, guid: ff2baf743f0562546b4a3ef38e92f9b5, type: 3}
-  ZeroZero: {fileID: 2800000, guid: 084f24e3107f76f4d84c1d0b9c00b142, type: 3}
-  Paused: {fileID: 2800000, guid: e2478319b51f76a4bb745675d674dfe9, type: 3}
-  Stop: {fileID: 2800000, guid: dc1af68fa9a759c4993f00cdac90914b, type: 3}
-  Rewind: {fileID: 2800000, guid: 2c6bbae8ea2d87247afc8aef5941ff90, type: 3}
+  NoInput: {fileID: 2800000, guid: c45222bd4bb7e8d469a6fa9784371256, type: 3}
+  InsertTape: {fileID: 2800000, guid: ed2ae79f7e9b0eb45bce21ce2b37f17d, type: 3}
+  ZeroZero: {fileID: 2800000, guid: 62d61af753880bf429fb7ce6ecf0881b, type: 3}
+  Paused: {fileID: 2800000, guid: 4588f1c32ca1cc54491de6082a584002, type: 3}
+  Stop: {fileID: 2800000, guid: 1cb5f3de69c84394387247778b4dc840, type: 3}
+  Rewind: {fileID: 2800000, guid: 344aa601fa841ef458bc83238611dd9c, type: 3}
   PowerButton: {fileID: 4133353646550051536}
   Display: {fileID: 4133353646127520189}
   PowerLight: {fileID: 2437537305382441070}
-  DisplayLight: {fileID: 566765391}
+  DisplayLight: {fileID: 0}
   DisplayNoTape: {r: 0, g: 0, b: 1, a: 1}
   DisplayPlaying: {r: 1, g: 1, b: 1, a: 1}
   OffMaterial: {fileID: 2100000, guid: 5bef5c130659de24a9d78f54710248b0, type: 2}
   RenderMaterial: {fileID: 2100000, guid: b9323e490efb96e4a9edc36fb5bd9a52, type: 2}
-  OnSound: {fileID: 8300000, guid: d338497a8fd275a448c210b14457ea89, type: 3}
-  OffSound: {fileID: 8300000, guid: b46bed9333a143241af3582e96fa4808, type: 3}
+  OnSound: {fileID: 8300000, guid: d1c1fa25bce34f949bc8cb5ca19e220f, type: 3}
+  OffSound: {fileID: 8300000, guid: d442c8a84fbd4354f9b4208cf9bad518, type: 3}
   TurnOn: 0
   isOn: 0
   lastFrame: 0
@@ -689,7 +596,7 @@ Transform:
   m_Children:
   - {fileID: 2437537305382441069}
   m_Father: {fileID: 4133353645752381160}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4133353646550051539
 MeshFilter:
@@ -789,7 +696,6 @@ MonoBehaviour:
   putDownExamine: 0
   InteractSound: {fileID: 0}
   InteractVolume: 1
-  waitToCompelete: 0
 --- !u!114 &4133353646550051540
 MonoBehaviour:
   m_ObjectHideFlags: 0

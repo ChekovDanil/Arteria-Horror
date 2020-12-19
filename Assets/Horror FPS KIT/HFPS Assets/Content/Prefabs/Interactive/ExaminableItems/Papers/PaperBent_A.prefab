@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 83cf3f5767860934bb1e57be7b4ac06e, type: 2}
+  - {fileID: 2100000, guid: e00a468eb5ea9cb4f897a3b9dca56b82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,35 +128,35 @@ MonoBehaviour:
   examineRotate: 3
   messageType: 0
   disableType: 0
+  ItemName: 
+  Message: 
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 0
-  backpackExpandAmount: 0
-  examineName: 
-  itemMessage: 
-  paperMessage: 'LIES
-
-    I DID NOT WANT TO DO IT
-
-    SORRY'
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 15
+  PickupSound: {fileID: 0}
+  ExamineSound: {fileID: 8300000, guid: 98b4b5bc38f5cb24f9094ca8c573c844, type: 3}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 0
+  BackpackExpand: 0
+  ExamineDistance: 0.4
   faceToCamera: 1
-  faceRotation: {x: 180, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 0}
-  pickupVolume: 1
-  examineSound: {fileID: 8300000, guid: 8e331ca2f1ed65541902943253a0e03c, type: 3}
-  examineVolume: 0.35
+  paperReadText: 'LIES
+
+
+    I DID NOT WANT TO DO IT
+
+    SORRY'
+  textSize: 12
+  faceRotation: {x: 180, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

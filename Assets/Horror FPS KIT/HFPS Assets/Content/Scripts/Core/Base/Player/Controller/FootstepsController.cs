@@ -106,7 +106,7 @@ public class FootstepsController : MonoBehaviour
         surfaceUnder = hit.gameObject;
         terrainUnder = hit.collider.GetComponent<Terrain>();
 
-        if (!footstepsMask.CompareLayer(surfaceUnder.layer) || eventBasedFootsteps) return;
+        if (!Tools.IsInLayerMask(surfaceUnder.layer, footstepsMask) || eventBasedFootsteps) return;
 
         if (playerVelocity > playVelocity)
         {

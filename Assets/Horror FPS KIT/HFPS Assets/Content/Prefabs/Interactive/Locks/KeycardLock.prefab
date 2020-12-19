@@ -87,8 +87,8 @@ MonoBehaviour:
   NormalText: RED SECURITY LEVEL
   GrantedText: ACCESS GRANTED
   DeniedText: ACCESS DENIED
-  accessGranted: {fileID: 8300000, guid: c1cd0bfeef7b02d4fb67f65c390b2c24, type: 3}
-  accessDenied: {fileID: 8300000, guid: c40d16246ffc77746a36b07a76666b3d, type: 3}
+  accessGranted: {fileID: 8300000, guid: ef0e87a419b277a418cca3334e02ad15, type: 3}
+  accessDenied: {fileID: 8300000, guid: d414b623ec48fec4991c7391f50865a5, type: 3}
   volume: 0.5
   OnAccessGranted:
     m_PersistentCalls:

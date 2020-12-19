@@ -6,7 +6,6 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using ThunderWire.Utility;
 using ThunderWire.CrossPlatform.Input;
 
 /// <summary>
@@ -28,7 +27,7 @@ public class InteractManager : MonoBehaviour {
     [Header("Raycast")]
 	public float RaycastRange = 3;
 	public LayerMask cullLayers;
-    public LayerMask interactLayers;
+    [Layer] public int interactLayer;
 	
 	[Header("Crosshair Textures")]
 	public Sprite defaultCrosshair;
@@ -110,7 +109,7 @@ public class InteractManager : MonoBehaviour {
 
         if (Physics.Raycast(playerAim, out RaycastHit hit, RaycastRange, cullLayers))
         {
-            if (interactLayers.CompareLayer(hit.collider.gameObject.layer) && !gameManager.isWeaponZooming)
+            if (hit.collider.gameObject.layer == interactLayer && !gameManager.isWeaponZooming)
             {
                 if (hit.collider.gameObject != RaycastObject)
                 {
@@ -218,9 +217,9 @@ public class InteractManager : MonoBehaviour {
                     {
                         if (interactItem)
                         {
-                            if (interactItem.showItemName && !string.IsNullOrEmpty(interactItem.examineName))
+                            if (interactItem.showItemName && !string.IsNullOrEmpty(interactItem.ItemName))
                             {
-                                gameManager.ShowInteractInfo(interactItem.examineName);
+                                gameManager.ShowInteractInfo(interactItem.ItemName);
                             }
 
                             if (!dragRigidbody || dragRigidbody && !dragRigidbody.dragAndUse)
@@ -406,7 +405,7 @@ public class InteractManager : MonoBehaviour {
 
             if (interactiveItem.ItemType == InteractiveItem.Type.InventoryItem)
             {
-                item = inventory.GetItem(interactiveItem.inventoryID);
+                item = inventory.GetItem(interactiveItem.InventoryID);
             }
 
             if (interactiveItem.ItemType == InteractiveItem.Type.GenericItem)
@@ -415,22 +414,22 @@ public class InteractManager : MonoBehaviour {
             }
             else if (interactiveItem.ItemType == InteractiveItem.Type.BackpackExpand)
             {
-                if ((inventory.slotAmount + interactiveItem.backpackExpandAmount) > inventory.maxSlots)
+                if ((inventory.slotAmount + interactiveItem.BackpackExpand) > inventory.maxSlots)
                 {
                     gameManager.WarningMessage("Cannot carry more backpacks");
                     return;
                 }
 
-                inventory.ExpandSlots(interactiveItem.backpackExpandAmount);
+                inventory.ExpandSlots(interactiveItem.BackpackExpand);
                 InteractEvent(InteractObject);
             }
             else if (interactiveItem.ItemType == InteractiveItem.Type.InventoryItem)
             {
-                if (inventory.CheckInventorySpace() || inventory.CheckItemInventoryStack(interactiveItem.inventoryID))
+                if (inventory.CheckInventorySpace() || inventory.CheckItemInventoryStack(interactiveItem.InventoryID))
                 {
                     if (inventory.GetItemAmount(item.ID) < item.maxItemCount || item.maxItemCount == 0)
                     {
-                        autoShortcut = inventory.AddItem(interactiveItem.inventoryID, interactiveItem.pickupAmount, interactiveItem.customData, interactiveItem.autoShortcut);
+                        autoShortcut = inventory.AddItem(interactiveItem.InventoryID, interactiveItem.Amount, interactiveItem.customData, interactiveItem.autoShortcut);
                         InteractEvent(InteractObject);
                     }
                     else if (inventory.GetItemAmount(item.ID) >= item.maxItemCount)
@@ -447,20 +446,20 @@ public class InteractManager : MonoBehaviour {
             }
             else if (interactiveItem.ItemType == InteractiveItem.Type.ArmsItem)
             {
-                if (inventory.CheckInventorySpace() || inventory.CheckItemInventoryStack(interactiveItem.inventoryID))
+                if (inventory.CheckInventorySpace() || inventory.CheckItemInventoryStack(interactiveItem.InventoryID))
                 {
                     if (inventory.GetItemAmount(item.ID) < item.maxItemCount || item.maxItemCount == 0)
                     {
-                        autoShortcut = inventory.AddItem(interactiveItem.inventoryID, interactiveItem.pickupAmount, null, interactiveItem.autoShortcut);
+                        autoShortcut = inventory.AddItem(interactiveItem.InventoryID, interactiveItem.Amount, null, interactiveItem.autoShortcut);
 
                         if (interactiveItem.pickupSwitch)
                         {
-                            itemSelector.SelectSwitcherItem(interactiveItem.weaponID);
+                            itemSelector.SelectSwitcherItem(interactiveItem.WeaponID);
                         }
 
                         if (item.itemType == ItemType.Weapon)
                         {
-                            itemSelector.weaponItem = interactiveItem.weaponID;
+                            itemSelector.weaponItem = interactiveItem.WeaponID;
                         }
 
                         InteractEvent(InteractObject);
@@ -484,6 +483,18 @@ public class InteractManager : MonoBehaviour {
 
             if (showMessage)
             {
+                if (interactiveItem.messageType == InteractiveItem.MessageType.Hint)
+                {
+                    char[] messageChars = interactiveItem.Message.ToCharArray();
+
+                    if (messageChars.Contains('{') && messageChars.Contains('}'))
+                    {
+                        //string key = inputManager.GetInput(Tools.GetBetween(interactiveItem.Message, '{', '}')).ToString();
+                        //interactiveItem.Message = interactiveItem.Message.ReplacePart('{', '}', key);
+                    }
+
+                    gameManager.ShowHint(interactiveItem.Message, interactiveItem.MessageTime, interactiveItem.MessageTips);
+                }
                 if (interactiveItem.messageType == InteractiveItem.MessageType.PickupHint)
                 {
                     if (!string.IsNullOrEmpty(autoShortcut) && interactiveItem.MessageTips.Any(x => x.InputString.Equals("?")))
@@ -498,15 +509,15 @@ public class InteractManager : MonoBehaviour {
                         }
                     }
 
-                    gameManager.ShowHint(string.Format(PickupHintFormat, interactiveItem.itemMessage), interactiveItem.messageShowTime, interactiveItem.MessageTips);
+                    gameManager.ShowHint(string.Format(PickupHintFormat, interactiveItem.Message), interactiveItem.MessageTime, interactiveItem.MessageTips);
                 }
-                else if (interactiveItem.messageType == InteractiveItem.MessageType.Message)
+                if (interactiveItem.messageType == InteractiveItem.MessageType.Message)
                 {
-                    gameManager.AddMessage(interactiveItem.itemMessage);
+                    gameManager.AddMessage(interactiveItem.Message);
                 }
-                else if (interactiveItem.messageType == InteractiveItem.MessageType.ItemName)
+                if (interactiveItem.messageType == InteractiveItem.MessageType.ItemName)
                 {
-                    gameManager.AddPickupMessage(interactiveItem.itemMessage);
+                    gameManager.AddPickupMessage(interactiveItem.Message);
                 }
             }
         }

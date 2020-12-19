@@ -40,13 +40,6 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
     private Vector2 offset;
     private bool itemDrag;
 
-    public void InitializeData()
-    {
-        textAmount = transform.parent.GetChild(0).GetChild(0).GetComponent<Text>();
-        itemTitle = item.Title;
-        itemID = item.ID;
-    }
-
     void Awake()
     {
         inventory = Inventory.Instance;
@@ -72,7 +65,9 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         if (itemDrag) return;
 
-        if ((textAmount = transform.parent.GetChild(0).GetChild(0).GetComponent<Text>()) != null)
+        textAmount = transform.parent.GetChild(0).GetChild(0).GetComponent<Text>();
+
+        if (textAmount)
         {
             if (item.itemType == ItemType.Bullets || item.itemType == ItemType.Weapon)
             {
@@ -90,6 +85,9 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
                 }
             }
         }
+
+        itemTitle = item.Title;
+        itemID = item.ID;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -103,8 +101,7 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
 			GetComponent<CanvasGroup> ().blocksRaycasts = false;
             inventory.ResetInventory();
             inventory.isDragging = true;
-
-            if(textAmount) textAmount.text = string.Empty;
+            textAmount.text = string.Empty;
         }
     }
 
@@ -120,8 +117,6 @@ public class InventoryItemData : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (!isDisabled)
         {
-            transform.SetParent(inventory.Slots[slotID].transform);
-            transform.position = inventory.Slots[slotID].transform.position;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
             inventory.ResetInventory();
             inventory.isDragging = false;

@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Flesh
-  - Water
   layers:
   - Default
   - TransparentFX
@@ -24,8 +23,8 @@ TagManager:
   - PostProcessing Arms
   - CamExamination
   - CamWeapon
-  - Ladder
-  - CamSecondExamination
+  - 
+  - 
   - 
   - 
   - 

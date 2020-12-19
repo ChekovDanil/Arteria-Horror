@@ -56,9 +56,6 @@ namespace ThunderWire.CrossPlatform.Input {
         [HideInInspector]
         public bool inputsLoaded = false;
 
-        [HideInInspector]
-        public bool inputSuspended = false;
-
         private InputDevice inputDevice;
         private string folder_path;
         private string full_filepath;
@@ -73,6 +70,7 @@ namespace ThunderWire.CrossPlatform.Input {
         private bool rebindActive = false;
         private bool unsavedChanges = false;
         private bool error = false;
+        private bool inputSuspended = false;
 
         private int activeGamepadScheme = 0;
         private int cycleSchemeID = 0;
@@ -155,7 +153,10 @@ namespace ThunderWire.CrossPlatform.Input {
                 activeGamepadScheme = controlScheme.activeGamepadScheme;
                 cycleSchemeID = activeGamepadScheme;
 
-                error = !await UpdateLoadedInputXML(true);
+                if (!UpdateXMLNodes())
+                {
+                    error = true;
+                }
 
                 if (!error)
                 {
@@ -262,7 +263,7 @@ namespace ThunderWire.CrossPlatform.Input {
             return true;
         }
 
-        Task<bool> UpdateLoadedInputXML(bool initialLoad = false)
+        bool UpdateXMLNodes(bool load = true)
         {
             inputsXML = new XmlDocument();
             XmlNode rootNode = inputsXML.CreateElement("UserInputs");
@@ -273,25 +274,24 @@ namespace ThunderWire.CrossPlatform.Input {
 
             if (deviceType == Device.Keyboard)
             {
-                if (initialLoad)
+                if (load)
                 {
                     if (controlScheme.keyboardScheme.Count > 0)
                     {
                         keyboardScheme = controlScheme.keyboardScheme;
+                        schemeType = CPCS.SchemeType.Keyboard;
                     }
                     else
                     {
-                        return Task.FromResult(false);
+                        return false;
                     }
                 }
-
-                schemeType = CPCS.SchemeType.Keyboard;
 
                 foreach (var scheme in keyboardScheme)
                 {
                     if (string.IsNullOrEmpty(scheme.ActionName))
                     {
-                        return Task.FromResult(false);
+                        return false;
                     }
 
                     XmlNode action = inputsXML.CreateElement("Action");
@@ -352,18 +352,26 @@ namespace ThunderWire.CrossPlatform.Input {
                     rootNode.AppendChild(action);
                 }
 
-                return Task.FromResult(true);
+                return true;
             }
             else if (deviceType == Device.Gamepad)
             {
-                if (controlScheme.gamepadScheme.Count < 0 || controlScheme.gamepadScheme.Count < activeGamepadScheme) return Task.FromResult(false);
-                if (controlScheme.gamepadScheme[activeGamepadScheme].gamepadControls.Count < 0) return Task.FromResult(false);
-
                 gamepadScheme = controlScheme.gamepadScheme[activeGamepadScheme];
                 string sname = controlScheme.gamepadScheme[activeGamepadScheme].schemeName;
                 gamepadScheme.schemeName = sname;
                 activeGamepadSchemeName = sname;
-                schemeType = CPCS.SchemeType.Gamepad;
+
+                if (load)
+                {
+                    if (controlScheme.gamepadScheme.Count > 0)
+                    {
+                        schemeType = CPCS.SchemeType.Gamepad;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
 
                 XmlAttribute attr_scheme_id = inputsXML.CreateAttribute("index");
                 attr_scheme_id.Value = activeGamepadScheme.ToString();
@@ -373,7 +381,7 @@ namespace ThunderWire.CrossPlatform.Input {
                 {
                     if (string.IsNullOrEmpty(scheme.ActionName))
                     {
-                        return Task.FromResult(false);
+                        return false;
                     }
 
                     XmlNode action = inputsXML.CreateElement("Action");
@@ -394,10 +402,10 @@ namespace ThunderWire.CrossPlatform.Input {
                     rootNode.AppendChild(action);
                 }
 
-                return Task.FromResult(true);
+                return true;
             }
 
-            return Task.FromResult(false);
+            return false;
         }
 
         object InitializeXMLNode(XmlNode action, CPCS.SchemeType scheme)
@@ -551,7 +559,7 @@ namespace ThunderWire.CrossPlatform.Input {
             return Device.Null;
         }
 
-        async Task WriteXmlInputs(string xml)
+        private async Task WriteXmlInputs(string xml)
         {
             if (!Directory.Exists(folder_path))
             {
@@ -1136,9 +1144,7 @@ namespace ThunderWire.CrossPlatform.Input {
                     activeGamepadScheme = cycleSchemeID;
                 }
 
-                inputsLoaded = false;
-
-                if (await Task.Run(() => UpdateLoadedInputXML()))
+                if (UpdateXMLNodes(false))
                 {
                     StringWriter sw = new StringWriter();
                     XmlTextWriter xw = new XmlTextWriter(sw)
@@ -1149,8 +1155,6 @@ namespace ThunderWire.CrossPlatform.Input {
                     inputsXML.WriteTo(xw);
 
                     await WriteXmlInputs(sw.ToString());
-
-                    inputsLoaded = true;
                     unsavedChanges = false;
                 }
                 else if (debugMode)

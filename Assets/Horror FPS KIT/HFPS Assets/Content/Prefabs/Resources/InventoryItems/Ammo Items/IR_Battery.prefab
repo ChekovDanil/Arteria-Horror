@@ -111,37 +111,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 2
-  examineType: 1
+  examineType: 0
   examineRotate: 3
-  messageType: 3
+  messageType: 4
   disableType: 0
+  ItemName: 
+  Message: Battery
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 21
-  backpackExpandAmount: 0
-  examineName: Battery
-  itemMessage: Battery
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.2
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: 2346c91f902aee648984825b10809b3e, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 0.75
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 21
+  BackpackExpand: 0
+  ExamineDistance: 0
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 2fe5d5f7def4d0a4481a255beb4eadfb, type: 3}
-  pickupVolume: 0.6
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &65201237207300462
 BoxCollider:

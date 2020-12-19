@@ -10,12 +10,10 @@ using UnityEngine;
 /// </summary>
 public class NumberPadlockDigits : MonoBehaviour
 {
-    [HideInInspector] public NumberPadlock numberPadlock;
-
     public enum RotateAround { X, Y, Z }
 
-    [Tooltip("Start with 0")]
-    public int digitIndex = 0;
+    [HideInInspector] public NumberPadlock numberPadlock;
+    public NumberPadlock.DigitPrefix DigitPrefix = NumberPadlock.DigitPrefix.One;
     public RotateAround rotateAround = RotateAround.X;
 
     private float velocity;
@@ -34,7 +32,7 @@ public class NumberPadlockDigits : MonoBehaviour
     {
         if (!numberPadlock || !isUsable) return;
 
-        numberPadlock.InteractDigit(digitIndex);
+        numberPadlock.InteractDigit(DigitPrefix);
 
         if (rotateAround == RotateAround.X)
         {

@@ -128,31 +128,30 @@ MonoBehaviour:
   examineRotate: 3
   messageType: 3
   disableType: 0
+  ItemName: 
+  Message: Your Inventory slots has been expanded.
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 0
-  backpackExpandAmount: 5
-  examineName: 
-  itemMessage: Backpack
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 2
-  paperMessageSize: 0
+  PickupSound: {fileID: 8300000, guid: 857cb2fa6915aae40bea8f45c43afa11, type: 3}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 0
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 0
+  BackpackExpand: 5
+  ExamineDistance: 0
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 8300000, guid: 153265b670cc4e64f9c556abd900ff70, type: 3}
-  pickupVolume: 0.5
-  examineSound: {fileID: 0}
-  examineVolume: 1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

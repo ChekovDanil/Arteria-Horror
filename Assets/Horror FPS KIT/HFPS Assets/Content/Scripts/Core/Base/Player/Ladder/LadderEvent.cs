@@ -22,7 +22,7 @@ public class LadderEvent : MonoBehaviour
 
         if (!blockTrigger)
         {
-            if (touch.Any(x => x.CompareTag("Player")))
+            if (touch.Any(x => x.gameObject.tag == "Player"))
             {
                 if (!isTriggered)
                 {

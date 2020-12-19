@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6857133398338409639}
   - component: {fileID: 6857133398338409632}
   - component: {fileID: 6857133398338409633}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Paper_PostCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,31 +128,33 @@ MonoBehaviour:
   examineRotate: 3
   messageType: 0
   disableType: 0
+  ItemName: 
+  Message: 
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 0
-  backpackExpandAmount: 0
-  examineName: 
-  itemMessage: 
-  paperMessage: THIS IS OUR NEW HOUSE, DO YOU COME TO VISIT US?
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 15
+  PickupSound: {fileID: 0}
+  ExamineSound: {fileID: 8300000, guid: 98b4b5bc38f5cb24f9094ca8c573c844, type: 3}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 0
+  BackpackExpand: 0
+  ExamineDistance: 0.35
   faceToCamera: 1
-  faceRotation: {x: -90, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 0}
-  pickupVolume: 1
-  examineSound: {fileID: 8300000, guid: 2659304b1ac9e31449158a8e7bac7502, type: 3}
-  examineVolume: 0.35
+  paperReadText: 'Eiffel Tower
+
+
+    See you Soon ;)'
+  textSize: 12
+  faceRotation: {x: -90, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}

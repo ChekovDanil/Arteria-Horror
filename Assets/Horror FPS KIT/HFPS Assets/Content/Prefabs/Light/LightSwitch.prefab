@@ -134,8 +134,8 @@ MonoBehaviour:
   animationName: 
   switchOnAnim: LightSwitchOn
   switchOffAnim: LightSwitchOff
-  SwitchOn: {fileID: 8300000, guid: 3bf2ccc864f9e4f4f98d06cc4556d56f, type: 3}
-  SwitchOff: {fileID: 8300000, guid: 93d1426d0e3691646a188c317dd3be07, type: 3}
+  SwitchOn: {fileID: 8300000, guid: b38d9c0be60b3f840a30e872af7bc2f8, type: 3}
+  SwitchOff: {fileID: 8300000, guid: 1ea3acabb6416b847b80a87fbbb8a3f7, type: 3}
   volume: 1
   isPoweredOn: 0
 --- !u!1 &7954200647137593943

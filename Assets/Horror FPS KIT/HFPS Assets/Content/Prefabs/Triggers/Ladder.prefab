@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3994052132083519489}
   - component: {fileID: 3994052132083519490}
   - component: {fileID: 3994052132083519488}
-  m_Layer: 17
+  m_Layer: 9
   m_Name: Ladder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3994133306410874752}
   - component: {fileID: 3994133306410874757}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: ClimbDownFinish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3994133306413218376}
-  m_Layer: 17
+  m_Layer: 9
   m_Name: CenterDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3994133306957168480}
-  m_Layer: 17
+  m_Layer: 9
   m_Name: CenterUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3994133307159102219}
   - component: {fileID: 3994133307159102216}
-  m_Layer: 2
+  m_Layer: 9
   m_Name: ClimbUpFinish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3994133308069131468}
-  m_Layer: 17
+  m_Layer: 9
   m_Name: FinishPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

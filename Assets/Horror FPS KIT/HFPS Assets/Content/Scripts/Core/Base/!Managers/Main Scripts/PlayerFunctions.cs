@@ -1,5 +1,5 @@
 ﻿/*
- * PlayerFunctions.cs - by ThunderWire Games
+ * PlayerFunctions.cs - wirted by ThunderWire Games
  * ver. 1.2
 */
 
@@ -164,6 +164,8 @@ public class PlayerFunctions : MonoBehaviour {
             if (Physics.Raycast(MainCamera.transform.parent.position, MainCamera.transform.parent.TransformDirection(Vector3.left * 1f), out raycastHit, LeanRay, LeanMask))
             {
                 float distance = Vector3.Distance(raycastHit.point, MainCamera.transform.parent.position);
+
+                Debug.Log(distance);
 
                 if (distance > LeanBackDistance)
                 {

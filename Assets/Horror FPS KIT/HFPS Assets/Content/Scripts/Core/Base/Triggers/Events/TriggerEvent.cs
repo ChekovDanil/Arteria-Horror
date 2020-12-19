@@ -12,19 +12,6 @@ public class TriggerEvent : MonoBehaviour {
     [SaveableField]
     public bool isPlayed;
 
-    public void Trigger()
-    {
-        if (!isPlayed)
-        {
-            triggerEvent.Invoke();
-
-            if (Mode == Modes.Once)
-            {
-                isPlayed = true;
-            }
-        }
-    }
-
     void Update()
     {
         if (GetComponent<Collider>() && !GetComponent<Collider>().enabled)

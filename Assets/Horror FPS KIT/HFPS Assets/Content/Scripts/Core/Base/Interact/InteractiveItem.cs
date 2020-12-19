@@ -13,47 +13,38 @@ using ThunderWire.Utility;
 /// </summary>
 public class InteractiveItem : MonoBehaviour, ISaveable {
 
-    #region Structures
     [System.Serializable]
     public class MessageTip
     {
         public string InputString;
         public string KeyMessage;
     }
-    #endregion
+
+    private AudioSource audioSource;
 
     public enum Type { OnlyExamine, GenericItem, InventoryItem, ArmsItem, BackpackExpand, InteractObject }
     public enum ExamineType { None, Object, AdvancedObject, Paper }
     public enum ExamineRotate { None, Horizontal, Vertical, Both }
-    public enum MessageType { None, PickupHint, Message, ItemName }
-    public enum DisableType { DisableRenderer, DisableObject, Destroy, None }
-
-    private AudioSource audioSource;
+    public enum MessageType { None, Hint, PickupHint, Message, ItemName }
+    public enum DisableType { Disable, Destroy, None }
 
     public Type ItemType = Type.GenericItem;
     public ExamineType examineType = ExamineType.None;
     public ExamineRotate examineRotate = ExamineRotate.Both;
     public MessageType messageType = MessageType.None;
-    public DisableType disableType = DisableType.DisableRenderer;
+    public DisableType disableType = DisableType.Disable;
+
+    public string ItemName;
+    public string Message;
+    public float MessageTime = 3f;
 
     public MessageTip[] MessageTips;
 
-    //Inventory
-    public int weaponID;
-    public int inventoryID;
-    public int backpackExpandAmount;
+    public AudioClip PickupSound;
+    public AudioClip ExamineSound;
 
-    //Texts
-    public string examineName;
-    public string itemMessage;
-    [Multiline] 
-    public string paperMessage;
-
-    //Others
-    public int pickupAmount = 1;
-    public float messageShowTime = 3f;
-    public float examineDistance = 0.5f;
-    public int paperMessageSize = 15;
+    [Range(0, 1)] public float Volume = 1f;
+    public int Amount = 1;
 
     public bool pickupSwitch;
     public bool examineCollect;
@@ -61,28 +52,31 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
     public bool showItemName;
     public bool autoShortcut;
     public bool floatingIconEnabled = true;
-    public bool faceToCamera = false;
 
-    public Vector3 faceRotation;
-    public List<ItemHashtable> itemHashtables = new List<ItemHashtable>();
+    public int WeaponID;
+    public int InventoryID;
+    public int BackpackExpand;
+
+    public float ExamineDistance;
+    public bool faceToCamera = false;
 
     [Tooltip("Colliders which will be disabled when object will be examined.")]
     public Collider[] CollidersDisable;
     [Tooltip("Colliders which will be enabled when object will be examined.")]
     public Collider[] CollidersEnable;
 
-    //Sounds
-    public AudioClip pickupSound;
-    public float pickupVolume = 1f;
-    public AudioClip examineSound;
-    public float examineVolume = 1f;
+    [Multiline]
+    public string paperReadText;
+    public int textSize;
 
-    //Public Hidden
+    public Vector3 faceRotation;
     public bool isExamined;
-    public Vector3 lastFloorPosition;
-    public CustomItemData customData;
 
-    private string objectParentPath;
+    public CustomItemData customData;
+    public List<ItemHashtable> itemHashtables = new List<ItemHashtable>();
+
+    public Vector3 lastFloorPosition;
+    private string storedPath;
 
     void Awake()
     {
@@ -96,7 +90,7 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (!collision.collider.isTrigger && !collision.collider.CompareTag("Player"))
+        if (!collision.collider.isTrigger && collision.collider.tag != "Player")
         {
             lastFloorPosition = transform.position;
         }
@@ -116,8 +110,8 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
 
         if (ItemType == Type.InventoryItem || ItemType == Type.ArmsItem)
         {
-            objectParentPath = gameObject.GameObjectPath();
-            data.Add("object_path", objectParentPath);
+            storedPath = gameObject.GameObjectPath();
+            data.Add("object_path", storedPath);
             data.Add("object_scene", UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
 
@@ -128,10 +122,10 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
     {
         if (ItemType == Type.InventoryItem || ItemType == Type.ArmsItem)
         {
-            if(objectParentPath != gameObject.GameObjectPath())
+            if(storedPath != gameObject.GameObjectPath())
             {
-                objectParentPath = gameObject.GameObjectPath();
-                customData.dataDictionary["object_path"] = objectParentPath;
+                storedPath = gameObject.GameObjectPath();
+                customData.dataDictionary["object_path"] = storedPath;
             }
         }
     }
@@ -140,10 +134,10 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
     {
         if (ItemType == Type.OnlyExamine) return;
 
-        if (pickupSound)
+        if (PickupSound)
         {
-            audioSource.clip = pickupSound;
-            audioSource.volume = pickupVolume;
+            audioSource.clip = PickupSound;
+            audioSource.volume = Volume;
             audioSource.Play();
         }
 
@@ -159,15 +153,11 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
 
         SaveGameHandler.Instance.RemoveSaveableObject(gameObject, false, false);
 
-        if (disableType == DisableType.DisableRenderer)
+        if (disableType == DisableType.Disable)
         {
             DisableObject(false);
         }
-        else if(disableType == DisableType.DisableObject)
-        {
-            gameObject.SetActive(false);
-        }
-        else if (disableType == DisableType.Destroy)
+        else if(disableType == DisableType.Destroy)
         {
             FloatingIconManager.Instance.DestroySafely(gameObject);
         }
@@ -225,27 +215,15 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
     {
         if (GetComponent<MeshRenderer>())
         {
-            bool disableState = true;
-
-            if (disableType == DisableType.DisableRenderer)
-            {
-                disableState = GetComponent<MeshRenderer>().enabled;
-            }
-            else if (disableType == DisableType.DisableObject)
-            {
-                disableState = gameObject.activeSelf;
-            }
-
             return new Dictionary<string, object>()
             {
                 { "position", transform.position },
                 { "rotation", transform.eulerAngles },
-                { "inv_id", inventoryID },
-                { "inv_amount", pickupAmount },
-                { "weapon_id", weaponID },
-                { "examined", isExamined },
+                { "inv_id", InventoryID },
+                { "inv_amount", Amount },
+                { "weapon_id", WeaponID },
                 { "customData", customData },
-                { "stateDisable", disableState }
+                { "isDisabled", GetComponent<MeshRenderer>().enabled }
             };
         }
 
@@ -256,21 +234,11 @@ public class InteractiveItem : MonoBehaviour, ISaveable {
     {
         transform.position = token["position"].ToObject<Vector3>();
         transform.eulerAngles = token["rotation"].ToObject<Vector3>();
-        inventoryID = (int)token["inv_id"];
-        pickupAmount = (int)token["inv_amount"];
-        weaponID = (int)token["weapon_id"];
-        isExamined = (bool)token["examined"];
-
+        InventoryID = (int)token["inv_id"];
+        Amount = (int)token["inv_amount"];
+        WeaponID = (int)token["weapon_id"];
         customData = token["customData"].ToObject<CustomItemData>();
-
-        if (disableType == DisableType.DisableRenderer)
-        {
-            DisableObject(token["stateDisable"].ToObject<bool>());
-        }
-        else if(disableType == DisableType.DisableObject)
-        {
-            gameObject.SetActive(token["stateDisable"].ToObject<bool>());
-        }
+        DisableObject(token["isDisabled"].ToObject<bool>());
     }
 }
 

@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0aadd056078cc464f84d0bfbaeadbc18, type: 2}
+  - {fileID: 2100000, guid: 41883e344e0315b4187d3db51dcdfc8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0aadd056078cc464f84d0bfbaeadbc18, type: 2}
+  - {fileID: 2100000, guid: 41883e344e0315b4187d3db51dcdfc8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -217,8 +217,6 @@ MonoBehaviour:
   keyID: 0
   useAnim: 
   backUseAnim: 
-  mouseInput: 0
-  mouseSmoothing: 0
   useJammedPlanks: 0
   Planks: []
   knobAnim: 
@@ -227,20 +225,18 @@ MonoBehaviour:
   isOpened: 0
   toPlayerAngle: 0
   moveWithX: 0
-  reverseMove: 0
-  drawerDragSounds: 0
-  InteractPos: 0
-  drawerDragPlay: 0.2
   minMaxMove: {x: 0, y: 0}
+  reverseMove: 0
+  InteractPos: 0
   stopAngle: 0
   lockOnUp: 0
   isUp: 0
   valveTurnSounds:
-  - {fileID: 8300000, guid: 11a3936f5894b0b458987e770e624a5a, type: 3}
-  - {fileID: 8300000, guid: a1207c835822d014a813c27444bdbba7, type: 3}
-  - {fileID: 8300000, guid: eca32a10239e08b47a7f79251a364701, type: 3}
-  - {fileID: 8300000, guid: f72fa09832a1dbb4a83a50fe7d8f9b30, type: 3}
-  - {fileID: 8300000, guid: 49567d56cf502a447a383d21fe055072, type: 3}
+  - {fileID: 8300000, guid: 11cc7f487b5ebd848a2e6af3363f52a0, type: 3}
+  - {fileID: 8300000, guid: b3f8e3f347738fb46bf20c03a8883ed8, type: 3}
+  - {fileID: 8300000, guid: 12fd0c23fd911e94da4bd9ca75339c7c, type: 3}
+  - {fileID: 8300000, guid: 3d51f2bc7b41f934b870a08aacb110b3, type: 3}
+  - {fileID: 8300000, guid: 275c5bc7f08e3704a9e3a78fcd26e7bf, type: 3}
   valveSoundAfter: 1
   valveTurnSpeed: 1.2
   valveTurnTime: 4

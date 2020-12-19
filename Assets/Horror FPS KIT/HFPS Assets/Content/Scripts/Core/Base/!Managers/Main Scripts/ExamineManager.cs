@@ -9,7 +9,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using ThunderWire.CrossPlatform.Input;
-using ThunderWire.Utility;
 
 public class ExamineManager : Singleton<ExamineManager>
 {
@@ -41,7 +40,6 @@ public class ExamineManager : Singleton<ExamineManager>
     private FloatingIconManager floatingItem;
     private DelayEffect delay;
     private ScriptManager scriptManager;
-    private ItemSwitcher itemSwitcher;
 
     private GameObject paperUI;
     private Text paperText;
@@ -58,15 +56,10 @@ public class ExamineManager : Singleton<ExamineManager>
     public LayerMask CullLayers;
     [Layer] public int InteractLayer;
     [Layer] public int ExamineLayer;
-    [Layer] public int SecondExamineLayer;
 
     [Header("Examine Layering")]
     public LayerMask MainCameraMask;
     public LayerMask ArmsCameraMask;
-
-    [Header("Second Examine Layering")]
-    public LayerMask SecMainCameraMask;
-    public LayerMask SecArmsCameraMask;
 
     [Header("Adjustments")]
     public float pickupSpeed = 10;
@@ -83,10 +76,6 @@ public class ExamineManager : Singleton<ExamineManager>
 
     [Header("Lighting")]
     public Light examineLight;
-
-    [Header("Sounds")]
-    public AudioClip examinedSound;
-    public float examinedVolume = 1f;
 
     #region Private Variables
     private bool isReading;
@@ -108,7 +97,6 @@ public class ExamineManager : Singleton<ExamineManager>
 
     private bool faceToCameraFirst = false;
     private bool faceToCameraSecond = false;
-    private bool faceToCameraInspect = false;
 
     private Camera ArmsCam;
     private Camera PlayerCam;
@@ -150,7 +138,6 @@ public class ExamineManager : Singleton<ExamineManager>
     {
         crossPlatformInput = CrossPlatformInput.Instance;
         scriptManager = ScriptManager.Instance;
-        itemSwitcher = scriptManager.GetScript<ItemSwitcher>();
     }
 
     void Start()
@@ -351,8 +338,8 @@ public class ExamineManager : Singleton<ExamineManager>
 
                 if (isReading)
                 {
-                    paperText.text = priorityObject.paperMessage;
-                    paperText.fontSize = priorityObject.paperMessageSize;
+                    paperText.text = priorityObject.paperReadText;
+                    paperText.fontSize = priorityObject.textSize;
                     paperUI.SetActive(true);
                 }
                 else
@@ -448,9 +435,6 @@ public class ExamineManager : Singleton<ExamineManager>
             {
                 priorityObject = secondExamine;
 
-                PlayerCam.cullingMask = SecMainCameraMask;
-                ArmsCam.cullingMask = SecArmsCameraMask;
-
                 ShowExamineUI(true);
 
                 secondExamine.floatingIconEnabled = false;
@@ -470,7 +454,7 @@ public class ExamineManager : Singleton<ExamineManager>
 
                 foreach (MeshFilter mesh in objectHeld.GetComponentsInChildren<MeshFilter>())
                 {
-                    mesh.gameObject.layer = SecondExamineLayer;
+                    mesh.gameObject.layer = InteractLayer;
                 }
 
                 if (secondExamine.examineType == InteractiveItem.ExamineType.AdvancedObject)
@@ -495,9 +479,6 @@ public class ExamineManager : Singleton<ExamineManager>
             else
             {
                 priorityObject = firstExamine;
-
-                PlayerCam.cullingMask = MainCameraMask;
-                ArmsCam.cullingMask = ArmsCameraMask;
 
                 ShowExamineUI(false);
 
@@ -603,16 +584,16 @@ public class ExamineManager : Singleton<ExamineManager>
 
         if (!isPaper)
         {
-            if (!string.IsNullOrEmpty(firstExamine.examineName))
+            if (!string.IsNullOrEmpty(firstExamine.ItemName))
             {
                 if (!firstExamine.isExamined)
                 {
-                    ShowExamineText(firstExamine.examineName);
+                    ShowExamineText(firstExamine.ItemName);
                 }
                 else
                 {
                     gameManager.isExamining = true;
-                    gameManager.ShowExamineText(firstExamine.examineName);
+                    gameManager.ShowExamineText(firstExamine.ItemName);
                 }
             }
 
@@ -620,12 +601,12 @@ public class ExamineManager : Singleton<ExamineManager>
         }
         else
         {
-            gameManager.ShowPaperExamineSprites(useControl, firstExamine.examineRotate != InteractiveItem.ExamineRotate.None, "Read");
+            gameManager.ShowPaperExamineSprites(useControl, "Read");
         }
 
-        if (firstExamine.examineSound)
+        if (firstExamine.ExamineSound)
         {
-            Tools.PlayOneShot2D(transform.position, firstExamine.examineSound, firstExamine.examineVolume);
+            AudioSource.PlayClipAtPoint(firstExamine.ExamineSound, objectHeld.transform.position, 0.75f);
         }
 
         foreach (MeshFilter mesh in objectHeld.GetComponentsInChildren<MeshFilter>())
@@ -688,12 +669,12 @@ public class ExamineManager : Singleton<ExamineManager>
         SetFloatingIconsVisible(false);
 
         delay.isEnabled = false;
+        pfunc.enabled = false;
         gameManager.UIPreventOverlap(true);
         gameManager.HideSprites(HideHelpType.Interact);
         gameManager.LockPlayerControls(false, false, false, 1, true, true, 1);
         GetComponent<ScriptManager>().ScriptEnabledGlobal = false;
-        distance = firstExamine.examineDistance;
-        itemSwitcher.FreeHands(true);
+        distance = firstExamine.ExamineDistance;
 
         isObjectHeld = true;
     }
@@ -734,13 +715,12 @@ public class ExamineManager : Singleton<ExamineManager>
     void HoldObject()
     {
         interact.CrosshairVisible(false);
-        pfunc.enabled = false;
 
         Vector3 nextPos = PlayerCam.transform.position + PlayerAim.direction * distance;
 
         if (secondExamine)
         {
-            Vector3 second_nextPos = PlayerCam.transform.position + PlayerAim.direction * secondExamine.GetComponent<InteractiveItem>().examineDistance;
+            Vector3 second_nextPos = PlayerCam.transform.position + PlayerAim.direction * secondExamine.GetComponent<InteractiveItem>().ExamineDistance;
             secondExamine.transform.position = Vector3.Lerp(secondExamine.transform.position, second_nextPos, Time.deltaTime * pickupSpeed);
 
             if (!secondFaceBreak && faceToCameraSecond)
@@ -767,23 +747,16 @@ public class ExamineManager : Singleton<ExamineManager>
         }
     }
 
-    public void ExamineObject(GameObject @object, Vector3 rotation)
+    public void ExamineObject(GameObject @object)
     {
         InteractiveItem item = @object.GetComponent<InteractiveItem>();
         firstExamine = item;
         priorityObject = item;
 
-        float inspectDist = item.examineDistance;
+        float inspectDist = item.ExamineDistance;
         Vector3 nextPos = PlayerCam.transform.position + PlayerAim.direction * inspectDist;
 
-        if (!faceToCameraInspect)
-        {
-            Quaternion faceRotation = Quaternion.LookRotation(PlayerCam.transform.forward, PlayerCam.transform.up) * Quaternion.Euler(rotation);
-            @object.transform.rotation = faceRotation;
-            faceToCameraInspect = true;
-        }
-
-        @object.name = "Inspect: " + item.examineName;
+        @object.name = "Inspect: " + item.ItemName;
         if (@object.GetComponent<Rigidbody>())
         {
             @object.GetComponent<Rigidbody>().isKinematic = false;
@@ -902,7 +875,6 @@ public class ExamineManager : Singleton<ExamineManager>
         secondFaceBreak = false;
         faceToCameraFirst = false;
         faceToCameraSecond = false;
-        faceToCameraInspect = false;
 
         firstExamine = null;
         priorityObject = null;
@@ -911,7 +883,6 @@ public class ExamineManager : Singleton<ExamineManager>
         ExamineRBs.Clear();
 
         onDropObject?.Invoke(this);
-        itemSwitcher.FreeHands(false);
 
         StartCoroutine(AntiSpam());
         StartCoroutine(UnlockPlayer());
@@ -944,17 +915,10 @@ public class ExamineManager : Singleton<ExamineManager>
 
             firstFaceBreak = false;
             faceToCameraFirst = false;
-            faceToCameraInspect = false;
 
             objectRaycast = null;
             objectHeld = null;
             ExamineRBs.Clear();
-            itemSwitcher.FreeHands(false);
-
-            if (examineLight)
-            {
-                examineLight.enabled = false;
-            }
 
             StartCoroutine(AntiSpam());
             StartCoroutine(UnlockPlayer());
@@ -972,15 +936,10 @@ public class ExamineManager : Singleton<ExamineManager>
 
     IEnumerator DoExamine(string ExamineName = "")
     {
-        InteractiveItem[] examineItems = FindObjectsOfType<InteractiveItem>().Where(i => i.examineName == ExamineName).ToArray();
+        InteractiveItem[] examineItems = FindObjectsOfType<InteractiveItem>().Where(i => i.ItemName == ExamineName).ToArray();
         yield return new WaitForSeconds(timeToExamine);
 
         gameManager.ShowExamineText(ExamineName);
-
-        if (examinedSound)
-        {
-            Tools.PlayOneShot2D(transform.position, examinedSound, examinedVolume);
-        }
 
         foreach (var inst in examineItems)
         {

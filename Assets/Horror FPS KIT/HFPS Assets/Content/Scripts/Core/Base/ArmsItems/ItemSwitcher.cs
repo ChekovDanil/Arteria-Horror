@@ -48,7 +48,7 @@ public class ItemSwitcher : MonoBehaviour
     private int newItem = 0;
 
     private bool hideWeapon;
-    private bool handsFreed;
+    private bool handsFree;
     private bool antiSpam;
     private bool spam;
 
@@ -111,7 +111,6 @@ public class ItemSwitcher : MonoBehaviour
             }
             else
             {
-                StopAllCoroutines();
                 StartCoroutine(SwitchItem());
             }
         }
@@ -126,7 +125,6 @@ public class ItemSwitcher : MonoBehaviour
         if (currentItem == -1) return;
 
         ItemList[currentItem].GetComponent<SwitcherBehaviour>().OnSwitcherDeselect();
-        StopAllCoroutines();
         StartCoroutine(DeselectWait());
     }
 
@@ -171,29 +169,26 @@ public class ItemSwitcher : MonoBehaviour
 
     IEnumerator SwitchItem()
     {
-        if (currentItem > -1 && newItem > -1)
+        ItemList[currentItem].GetComponent<SwitcherBehaviour>().OnSwitcherDeselect();
+
+        yield return new WaitUntil(() => !ItemList[currentItem].transform.GetChild(0).gameObject.activeSelf);
+
+        if (ItemList[newItem].GetComponent<SwitcherBehaviour>() != null)
         {
-            ItemList[currentItem].GetComponent<SwitcherBehaviour>().OnSwitcherDeselect();
-
-            yield return new WaitUntil(() => !ItemList[currentItem].transform.GetChild(0).gameObject.activeSelf);
-
-            if (ItemList[newItem].GetComponent<SwitcherBehaviour>() != null)
-            {
-                ItemList[newItem].GetComponent<SwitcherBehaviour>().OnSwitcherSelect();
-                currentItem = newItem;
-            }
-            else
-            {
-                Debug.LogError("[Item Switcher] Object does not contains SwitcherBehaviour subcalss!");
-            }
-
-            yield return new WaitForSeconds(1f);
+            ItemList[newItem].GetComponent<SwitcherBehaviour>().OnSwitcherSelect();
+            currentItem = newItem;
+        }
+        else
+        {
+            Debug.LogError("[Item Switcher] Object does not contains SwitcherBehaviour subcalss!");
         }
     }
 
     void Update()
     {
-        if (WallHitTransform && detectWall && !handsFreed && currentItem != -1)
+        if (!scriptManager.ScriptGlobalState) return;
+
+        if (WallHitTransform && detectWall && !handsFree && currentItem != -1)
         {
             if (OnWallHit())
             {
@@ -226,8 +221,6 @@ public class ItemSwitcher : MonoBehaviour
                 WallHitTransform.localPosition = Vector3.MoveTowards(WallHitTransform.localPosition, WallHitHideWeapon, Time.deltaTime * WallHitSpeed);
             }
         }
-
-        if (!scriptManager.ScriptGlobalState) return;
 
         if (!gameManager.isGrabbed)
         {
@@ -306,7 +299,7 @@ public class ItemSwitcher : MonoBehaviour
     {
         if (currentItem != -1)
         {
-            if (free && !handsFreed)
+            if (free && !handsFree)
             {
                 if (ItemList[currentItem].GetComponent<SwitcherBehaviour>() != null)
                 {
@@ -314,9 +307,9 @@ public class ItemSwitcher : MonoBehaviour
                 }
 
                 hideWeapon = true;
-                handsFreed = true;
+                handsFree = true;
             }
-            else if (!free && handsFreed)
+            else if (!free && handsFree)
             {
                 if (ItemList[currentItem].GetComponent<SwitcherBehaviour>() != null)
                 {
@@ -324,7 +317,7 @@ public class ItemSwitcher : MonoBehaviour
                 }
 
                 hideWeapon = false;
-                handsFreed = false;
+                handsFree = false;
             }
         }
     }

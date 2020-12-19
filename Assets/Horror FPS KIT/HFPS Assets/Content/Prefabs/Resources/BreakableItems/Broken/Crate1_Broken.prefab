@@ -124,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -262,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -400,7 +398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -538,7 +535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -676,7 +672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -814,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -952,7 +946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -1090,7 +1083,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -1228,7 +1220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -1366,7 +1357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -1504,7 +1494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -1642,7 +1631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -1780,7 +1768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -1918,7 +1905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -2056,7 +2042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -2194,7 +2179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -2332,7 +2316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -2370,8 +2353,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7606287722258107569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.4, z: 0.6}
+  m_LocalPosition: {x: 48.720295, y: 0.00000011920929, z: 52.505157}
+  m_LocalScale: {x: 0.75, y: 0.4, z: 0.6}
   m_Children:
   - {fileID: 6317165358350955982}
   - {fileID: 921314546168234509}
@@ -2520,7 +2503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -2658,7 +2640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1
@@ -2796,7 +2777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9977f91cd232b41a55f03760833051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInCollision: 0
   dragDistance: 2
   dragAndUse: 0
   automaticDistance: 1

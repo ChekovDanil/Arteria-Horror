@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6985627298542696574}
-  m_Mesh: {fileID: 1163438085236365504, guid: 2f5e07ce94f2e644eb5bce49a302120c, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 5a7703ca02797334daaf8d40b780aa9c, type: 3}
 --- !u!23 &6985627298542696549
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -129,33 +129,32 @@ MonoBehaviour:
   examineRotate: 3
   messageType: 0
   disableType: 0
+  ItemName: Syringe
+  Message: 
+  MessageTime: 3
   MessageTips: []
-  weaponID: 0
-  inventoryID: 0
-  backpackExpandAmount: 0
-  examineName: Syringe
-  itemMessage: 
-  paperMessage: 
-  pickupAmount: 1
-  messageShowTime: 3
-  examineDistance: 0.35
-  paperMessageSize: 0
+  PickupSound: {fileID: 0}
+  ExamineSound: {fileID: 0}
+  Volume: 1
+  Amount: 1
   pickupSwitch: 0
   examineCollect: 0
   enableCursor: 0
   showItemName: 0
   autoShortcut: 0
   floatingIconEnabled: 1
+  WeaponID: 0
+  InventoryID: 0
+  BackpackExpand: 0
+  ExamineDistance: 0.4
   faceToCamera: 0
-  faceRotation: {x: 0, y: 0, z: 0}
-  itemHashtables: []
   CollidersDisable: []
   CollidersEnable: []
-  pickupSound: {fileID: 0}
-  pickupVolume: 1
-  examineSound: {fileID: 8300000, guid: 4e6d1d4f658fb11448ee8d536a7c3fb5, type: 3}
-  examineVolume: 0.1
+  paperReadText: 
+  textSize: 0
+  faceRotation: {x: 0, y: 0, z: 0}
   isExamined: 0
+  itemHashtables: []
   lastFloorPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &6985627298580252798
 GameObject:
@@ -183,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6985627298580252798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.055, z: 0}
+  m_LocalPosition: {x: -0, y: 0.02825611, z: 0.000042738022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6985627298996785146}
@@ -196,7 +195,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6985627298580252798}
-  m_Mesh: {fileID: 70822371526338662, guid: 2f5e07ce94f2e644eb5bce49a302120c, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 5a7703ca02797334daaf8d40b780aa9c, type: 3}
 --- !u!23 &6985627298580252792
 MeshRenderer:
   m_ObjectHideFlags: 0

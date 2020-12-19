@@ -1,44 +1,35 @@
-﻿/*
- * Keypad.cs - by ThunderWire Studio
- * Version 1.0
-*/
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Keypad : MonoBehaviour, ISaveable 
-{
-    private MeshRenderer textRenderer;
-
-    public MeshRenderer keypadRenderer;
+public class Keypad : MonoBehaviour, ISaveable {
 
     [Header("Materials")]
+    public MeshRenderer LedRed;
     public Material LedRedOn;
+    public MeshRenderer LedGreen;
     public Material LedGreenOn;
+    public Material LedOff;
 
     [Header("Setup")]
 	public int AccessCode;
 	public TextMesh AccessCodeText;
+	private MeshRenderer textRenderer;
 
 	[Header("Sounds")]
 	public AudioClip enterCode;
-    [Range(0, 2)] public float enterCodeVolume = 1f;
-
 	public AudioClip accessGranted;
-    [Range(0, 2)] public float grantedVolume = 1f;
+	public AudioClip accessDenied;
 
-    public AudioClip accessDenied;
-    [Range(0, 2)] public float deniedVolume = 1f;
-
-    [Space(15)]
+	[Space(15)]
 	public UnityEvent OnAccessGranted;
 	[Space(7)]
 	public UnityEvent OnAccessDenied;
 
 	private string numberInsert = "";
+	private bool confirmCode;
 	private bool enableInsert = true;
 
     [HideInInspector]
@@ -49,94 +40,81 @@ public class Keypad : MonoBehaviour, ISaveable
 		textRenderer = AccessCodeText.gameObject.GetComponent<MeshRenderer> ();
 	}
 
-    void Start()
-    {
-        if (!keypadRenderer)
+	public void InsertCode(int number)
+	{
+		if (!(numberInsert.Length >= AccessCode.ToString ().Length) && enableInsert && number != 10 && number != 11) {
+			numberInsert = numberInsert + number;
+			if(enterCode){AudioSource.PlayClipAtPoint(enterCode, transform.position);}
+		}
+        if (!string.IsNullOrEmpty(numberInsert))
         {
-            Debug.LogError("[Keypad] Please assign the Keypad Renderer!");
-        }
-
-        if (!LedGreenOn || !LedRedOn)
-        {
-            Debug.LogError("[Keypad] Please assign the Led Materials!");
-        }
-    }
-
-    public void InsertCode(int number)
-    {
-        if (enableInsert)
-        {
-            if (numberInsert.Length < AccessCode.ToString().Length && number != 10 && number != 11)
+            switch (number)
             {
-                if (enterCode) { AudioSource.PlayClipAtPoint(enterCode, transform.position, enterCodeVolume); }
-                numberInsert += number;
-            }
-            else if (!string.IsNullOrEmpty(numberInsert))
-            {
-                if (number == 10)
-                {
-                    // Back Button
+                case 10:
+                    // Back
                     if (numberInsert.Length > 0)
                     {
-                        if (enterCode) { AudioSource.PlayClipAtPoint(enterCode, transform.position, enterCodeVolume); }
                         numberInsert = numberInsert.Remove(numberInsert.Length - 1);
+                        if (enterCode) { AudioSource.PlayClipAtPoint(enterCode, transform.position); }
                     }
-                }
-                else if (number == 11)
-                {
+                    break;
+                case 11:
                     // Confirm Code
-                    if (numberInsert == AccessCode.ToString())
-                    {
-                        if (accessGranted) { AudioSource.PlayClipAtPoint(accessGranted, transform.position, grantedVolume); }
-
-                        textRenderer.material.SetColor("_Color", Color.green);
-                        AccessCodeText.text = "GRANTED";
-                        keypadRenderer.material = LedGreenOn;
-                        OnAccessGranted.Invoke();
-
-                        numberInsert = "";
-                        m_accessGranted = true;
-                        enableInsert = false;
-                        StartCoroutine(WaitEnableInsert());
-                    }
-                    else
-                    {
-                        if (accessDenied) { AudioSource.PlayClipAtPoint(accessDenied, transform.position, deniedVolume); }
-
-                        textRenderer.material.SetColor("_Color", Color.red);
-                        AccessCodeText.text = "DENIED";
-                        keypadRenderer.material = LedRedOn;
-                        OnAccessDenied.Invoke();
-
-                        numberInsert = "";
-                        m_accessGranted = false;
-                        enableInsert = false;
-                        StartCoroutine(WaitEnableInsert());
-                    }
-                }
+                    confirmCode = true;
+                    break;
             }
         }
-    }
+	}
 
-    void Update()
-    {
-        if (enableInsert)
-        {
-            textRenderer.material.SetColor("_Color", Color.white);
-            AccessCodeText.text = numberInsert;
-        }
-    }
+	void Update () {
+		if (enableInsert) {
+			textRenderer.material.SetColor ("_Color", Color.white);
+			AccessCodeText.text = numberInsert;
+		}
+
+		if (numberInsert == AccessCode.ToString () && confirmCode) {
+			OnAccessGranted.Invoke ();
+            LedRed.material = LedOff;
+            LedGreen.material = LedGreenOn;
+            confirmCode = false;
+			enableInsert = false;
+			numberInsert = "";
+            m_accessGranted = true;
+            StartCoroutine (WaitGranted ());
+		} else if(confirmCode) {
+			OnAccessDenied.Invoke ();
+            confirmCode = false;
+			enableInsert = false;
+            m_accessGranted = false;
+            numberInsert = "";
+			StartCoroutine (WaitDenied ());
+		}
+	}
 
     public void SetAccessGranted()
     {
-        keypadRenderer.material = LedGreenOn;
+        LedRed.material = LedOff;
+        LedGreen.material = LedGreenOn;
+        confirmCode = false;
         enableInsert = false;
         numberInsert = "";
         m_accessGranted = true;
     }
 
-	IEnumerator WaitEnableInsert()
+	IEnumerator WaitGranted()
 	{
+		if(accessGranted){AudioSource.PlayClipAtPoint(accessGranted, transform.position);}
+		textRenderer.material.SetColor ("_Color", Color.green);
+		AccessCodeText.text = "GRANTED";
+		yield return new WaitForSeconds (1);
+		enableInsert = true;
+	}
+
+	IEnumerator WaitDenied()
+	{
+		if(accessDenied){AudioSource.PlayClipAtPoint(accessDenied, transform.position);}
+		textRenderer.material.SetColor ("_Color", Color.red);
+		AccessCodeText.text = "DENIED";
 		yield return new WaitForSeconds (1);
 		enableInsert = true;
 	}
@@ -155,7 +133,9 @@ public class Keypad : MonoBehaviour, ISaveable
 
         if (m_accessGranted)
         {
-            keypadRenderer.material = LedGreenOn;
+            LedRed.material = LedOff;
+            LedGreen.material = LedGreenOn;
+            confirmCode = false;
             enableInsert = false;
             enableInsert = true;
             numberInsert = "";

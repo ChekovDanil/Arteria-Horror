@@ -1,9 +1,8 @@
 ﻿/*
  * NumberPadlock.cs - by ThunderWire Studio
- * ver. 1.1
+ * ver. 1.0
 */
 
-using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
@@ -16,34 +15,41 @@ using UnityEngine.Events;
 public class NumberPadlock : MonoBehaviour, ISaveable
 {
     private ExamineManager examineManager;
+    public enum DigitPrefix { One, Two, Three }
 
-    [Range(0, 6)] public int DigitsCount = 3;
+    [Tooltip("Code must have maximum 3 digits! (999)")]
     public int UnlockCode = 123;
-    [Space]
+
+    [Space(10)]
+
     public float DigitRotateAngle;
     public float RotateSpeed;
     public float UnlockWaitTime;
-    [Space]
+
+    [Space(10)]
+
     public Animation m_animation;
     public string unlockAnimation;
     public AudioClip UnlockSound;
-    public AudioClip DigitTurnSound;
-    [Space]
+
+    [Space(10)]
+
     public UnityEvent UnlockEvent;
 
     private int CurrentCode;
-    private char[] CodeCache;
+    private int digits1_num = 0;
+    private int digits2_num = 0;
+    private int digits3_num = 0;
 
     private bool isPlayed;
     private bool isUnlocked;
 
     void Start()
     {
-        CodeCache = new char[DigitsCount];
-
-        for (int i = 0; i < DigitsCount; i++)
+        if (UnlockCode > 999 || UnlockCode == 000)
         {
-            CodeCache[i] = '0';
+            Debug.LogError("Wrong UnlockCode format!");
+            return;
         }
 
         examineManager = ScriptManager.Instance.GetComponent<ExamineManager>();
@@ -62,29 +68,41 @@ public class NumberPadlock : MonoBehaviour, ISaveable
         };
     }
 
-    /// <summary>
-    /// Increase digit number. Start with 0.
-    /// </summary>
-    public void InteractDigit(int digitIndex)
+    public void InteractDigit(DigitPrefix prefix)
     {
-        int num = CodeCache[digitIndex] - '0';
-        num += 1;
-
-        if (num > 9)
+        if(prefix == DigitPrefix.One)
         {
-            num = 0;
+            digits1_num += 1;
+
+            if (digits1_num > 9)
+            {
+                digits1_num = 0;
+            }
         }
+        else if (prefix == DigitPrefix.Two)
+        {
+            digits2_num += 1;
 
-        CodeCache[digitIndex] = (char)(num + 48);
+            if (digits2_num > 9)
+            {
+                digits2_num = 0;
+            }
+        }
+        else if (prefix == DigitPrefix.Three)
+        {
+            digits3_num += 1;
 
-        string code = new string(CodeCache);
-        CurrentCode = int.Parse(code);
-
-        if (DigitTurnSound) { AudioSource.PlayClipAtPoint(DigitTurnSound, transform.position, 0.1f); }
+            if (digits3_num > 9)
+            {
+                digits3_num = 0;
+            }
+        }
     }
 
     void Update()
     {
+        CurrentCode = int.Parse(digits1_num.ToString() + digits2_num.ToString() + digits3_num.ToString());
+
         if(CurrentCode == UnlockCode)
         {
             StartCoroutine(WaitUnlock());
